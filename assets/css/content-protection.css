@@ -79,12 +79,12 @@ input[type="text"], input[type="email"], textarea {
 }
 
 /* Add invisible watermark overlay for images */
-.image-container {
+/* .image-container {
     position: relative !important;
     display: inline-block !important;
-}
+} */
 
-.image-container::before {
+/* .image-container::before {
     content: "© Sakshi Bankar Portfolio" !important;
     position: absolute !important;
     top: 50% !important;
@@ -97,7 +97,7 @@ input[type="text"], input[type="email"], textarea {
     z-index: 10 !important;
     white-space: nowrap !important;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1) !important;
-}
+} */
 
 /* Blur images when right-click is attempted (works with JavaScript) */
 .blur-protection {
