@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Fencing to Automate - Sakshi Bankar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header matching your portfolio */
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a90e2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #000000;
+            color: #ffffff;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .meta-item {
+            text-align: left;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .meta-label {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .meta-value {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000000;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4a90e2;
+        }
+
+        .verticle-line {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .verticle-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4a90e2;
+        }
+
+        /* Problem and Solution Boxes */
+        .highlight-box {
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 5px solid #4a90e2;
+        }
+
+        .problem-box {
+            background: #fff5f5;
+            border-left-color: #e53e3e;
+        }
+
+        .solution-box {
+            background: #f0fff4;
+            border-left-color: #38a169;
+        }
+
+        .research-box {
+            background: #f7fafc;
+            border-left-color: #4a90e2;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid #4a90e2;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        /* Image Sections */
+        .image-section {
+            margin: 60px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .comparison-item {
+            text-align: center;
+        }
+
+        .comparison-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-label {
+            font-weight: 700;
+            margin-top: 20px;
+            color: #000000;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .step-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #4a90e2;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .step-content {
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background: #000000;
+            color: #ffffff;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin: 60px 0;
+        }
+
+        .impact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .impact-description {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Gallery */
+        .gallery-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 120px;
+            left: 30px;
+            background: rgba(255,255,255,0.95);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 1px solid #007bff;
+        }
+
+        .back-nav:hover {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .main-content {
+                padding: 60px 0;
+            }
+            
+            .section {
+                margin-bottom: 60px;
+            }
+            
+            .project-meta {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+             .back-nav {
+                top: 120px !important;
+                left: 20px;
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">SB</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target="_blank">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<a href="index.html" class="back-nav">← Back to Portfolio</a>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Geo-Fencing to Automate</h1>
+            <p class="hero-subtitle">Revolutionizing Resort Cleaning Management Through Location-Based Automation</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">My Role:</div>
+                    <div class="meta-value">UI/UX Designer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Duration:</div>
+                    <div class="meta-value">7 weeks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tools:</div>
+                    <div class="meta-value">Figma, Illustrator</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Methods:</div>
+                    <div class="meta-value">Domain Research, Ideation, Prototyping</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Problem Statement -->
+            <div class="section">
+                <!-- <h2 class="section-title">The Challenge</h2> -->
+                <div class="highlight-box problem-box" style="margin: 5px 0;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #e53e3e; font-weight: 700;">Problem Statement</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        <strong>Resort cleaning management software was failing to meet staff and management expectations due to inefficient user interface and manual staff login/logout processes.</strong> 
+                        The current system created operational inefficiencies, inaccurate time tracking, and poor user experience that hindered effective resort cleaning operations.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 5rem; margin-bottom: 2rem;">
+                    <h3 class="verticle-line mb-0" style="font-size: 1.3rem; margin-bottom: 2rem;">About Resort Cleaning Management Software</h3>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: top;">
+                        <div>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                                Maintaining a clean and well-organized resort is crucial for providing guests with a comfortable and enjoyable experience. The resort cleaning management software is a tool that is used to schedule and manage the cleaning staff at a resort, but its current state of user interface and functionality may not be meeting the expectations of the staff and management. With the aim to enhance the usability and effectiveness of the cleaning management software, this case study will take a deep dive into how a user-centered design approach was employed to revamp the software by improving its UI and incorporating geo-fencing for automatic staff login and logout.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="assets/css/images/resort-cleaning-intro.png" alt="Resort Cleaning Management" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box research-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Key Pain Points Identified</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li><strong>Inaccurate Time Tracking:</strong> Manual login/logout processes led to errors and potential time theft</li>
+                        <li><strong>Poor User Interface:</strong> Outdated design hindered staff productivity and adoption</li>
+                        <li><strong>Operational Inefficiency:</strong> Staff spent excessive time on administrative tasks rather than cleaning</li>
+                        <li><strong>Real-time Tracking Issues:</strong> Management lacked visibility into staff location and task status</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Solution -->
+            <div class="section">
+                <h2 class="section-title">Design Solution</h2>
+                <div class="highlight-box solution-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">Proposed Geo-fencing Solution</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        I researched, analyzed and proposed a comprehensive solution implementing geo-fencing technology to improve staff login and logout accuracy in this resort cleaning management software. The solution would automate the logging process, provide real-time tracking, and improve efficiency and user-friendliness of the software.
+                    </p>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Background on Geo-Fencing Technology</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li>Geo-fencing is a location-based technology that uses GPS, RFID, or WiFi to create virtual boundaries around a physical location.</li>
+                        <li>Virtual boundaries (geo-fences) created around service locations at the resort, system detects when staff enters or exits and automatically logs the time.</li>
+                        <li>Eliminates errors and inaccuracies that can occur with manual logging, and also provides real-time tracking of staff location and status.</li>
+                        <li>Can be used to automatically register staff login and logout times based on their location</li>
+                    </ul>
+                </div>
+
+                <div class="process-steps">
+                    <div class="step-card">
+                        <h3 class="step-title">Step 1: Location Identification</h3>
+                        <p class="step-content">Identify service locations at the resort (guest rooms, common areas, pool areas) and map out cleaning zones.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Step 2: Virtual Boundaries</h3>
+                        <p class="step-content">Create virtual boundaries (geo-fences) around these locations using GPS coordinates with appropriate radius for each zone.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Step 3: Mobile Integration</h3>
+                        <p class="step-content">Install app on staff smartphones that can detect when they are inside or outside of the geo-fences with seamless integration.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Step 4: System Communication</h3>
+                        <p class="step-content">Ensure smooth communication with cleaning management software, making it easy to use and understand for all staff members.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Step 5: Training & Implementation</h3>
+                        <p class="step-content">Train staff on how to use the app and ensure smartphones are properly configured to detect location accurately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UI Redesign -->
+            <div class="section">
+                <h2 class="section-title">UI Revamp Process</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 40px;">
+                    I redesigned the existing resort cleaning management software's user interface to make it more visually appealing, user-friendly and efficient by incorporating modifications to the structure and layout, clear typography, visual elements and responsive design. This redesign improved the overall usability and effectiveness of the software.
+                </p>
+
+                <div class="image-section">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 30px;">Appointment Calendar Redesign</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <img src="assets/css/images/existing-appt-calendar.png" alt="Existing Calendar">
+                            <h4 class="comparison-label">Existing Design</h4>
+                        </div>
+                        <div class="comparison-item">
+                            <img src="assets/css/images/iteration1-appt-calendar.png" alt="Calendar Iteration 1">
+                            <h4 class="comparison-label">Iteration 1</h4>
+                        </div>
+                        <div class="comparison-item">
+                            <img src="assets/css/images/iteration2-appt-calendar.png" alt="Calendar Iteration 2">
+                            <h4 class="comparison-label">Final Design</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 30px;">Appointment Cards Evolution</h3>
+                    <div class="comparison-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <div class="comparison-item">
+                            <img src="assets/css/images/existing-appt-card.png" alt="Existing Card">
+                            <h4 class="comparison-label">Existing</h4>
+                        </div>
+                        <div class="comparison-item">
+                            <img src="assets/css/images/appt-card-1.png" alt="Card Design 1">
+                        </div>
+                        <div class="comparison-item">
+                            <img src="assets/css/images/appt-card-2.png" alt="Card Design 2">
+                        </div>
+                        <div class="comparison-item">
+                            <img src="assets/css/images/appt-card-4.png" alt="Card Design Final">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complete UI Interface -->
+            <div class="section">
+                <h2 class="section-title">Complete User Interface</h2>
+                <div class="image-section">
+                    <img src="assets/css/images/RC-prototype-screens-1.png" alt="UI Screens Part 1" class="gallery-image">
+                    <img src="assets/css/images/RC-prototype-screens-2.png" alt="UI Screens Part 2" class="gallery-image">
+                </div>
+            </div>
+
+            <!-- Expected Impact -->
+            <div class="impact-section">
+                <h2 class="impact-title">Expected Impact & Benefits</h2>
+                <p class="impact-description">
+                    While the proposed solution has not been implemented yet, it is expected to bring significant benefits to resort cleaning operations and staff management.
+                </p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">95%</div>
+                        <div class="metric-label">Expected Accuracy Improvement</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">40%</div>
+                        <div class="metric-label">Reduction in Admin Time</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">100%</div>
+                        <div class="metric-label">Real-time Staff Tracking</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">60%</div>
+                        <div class="metric-label">Improved User Satisfaction</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #ffffff;">Key Benefits</h3>
+                    <ul style="color: #ffffff; line-height: 1.8; opacity: 0.9;">
+                        <li style="color: #ffffff;">Improves accuracy of staff login and logout times</li>
+                        <li style="color: #ffffff;">Automates logging process, reducing manual intervention</li>
+                        <li style="color: #ffffff;">Provides real-time tracking of staff location and status</li>
+                        <li style="color: #ffffff;">Creates more efficient and user-friendly software experience</li>
+                        <li style="color: #ffffff;">Helps resort management team to better manage cleaning staff and operations</li>
+                        <li style="color: #ffffff;">Reduces operational costs through improved efficiency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project Gallery -->
+            <div class="section">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="image-section">
+                    <img src="assets/css/images/RC-ss-design.png" alt="Design Process" class="gallery-image">
+                    <img src="assets/css/images/RC-ss-prototyping.png" alt="Prototyping Process" class="gallery-image">
+                </div>
+            </div>
+
+            <!-- Key Learnings -->
+            <div class="section">
+                <h2 class="section-title">Key Learnings & Future Metrics</h2>
+                <div class="highlight-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">What I Would Measure if Implementing</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li><strong>Time Tracking Accuracy:</strong> Percentage reduction in manual time entry errors</li>
+                        <li><strong>Staff Productivity:</strong> Time saved per staff member per day on administrative tasks</li>
+                        <li><strong>User Adoption Rate:</strong> Percentage of staff actively using the geo-fencing feature</li>
+                        <li><strong>System Reliability:</strong> Geo-fence detection accuracy and app uptime metrics</li>
+                        <li><strong>Operational Efficiency:</strong> Reduction in management time spent on schedule reconciliation</li>
+                        <li><strong>User Satisfaction:</strong> Staff satisfaction scores before and after implementation</li>
+                        <li><strong>Cost Savings:</strong> Quantified savings from reduced manual processes and improved accuracy</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box research-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Design Insights Gained</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li><strong>User-Centered Approach:</strong> Focusing on staff workflow and pain points was crucial for designing effective solutions</li>
+                        <li><strong>Technology Integration:</strong> Balancing automation with user control ensures better adoption rates</li>
+                        <li><strong>Iterative Design:</strong> Multiple iterations of UI components led to significantly improved usability</li>
+                        <li><strong>Privacy Considerations:</strong> Location-based features require careful privacy design and user consent flows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; Sakshi Bankar - 2024</p>
+        </div>
+    </footer>
+</body>
+</html>

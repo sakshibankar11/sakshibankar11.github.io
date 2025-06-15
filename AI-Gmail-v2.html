@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Integrated Gmail - Sakshi Bankar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header matching your portfolio */
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a90e2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #000000;
+            color: #ffffff;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .meta-item {
+            text-align: left;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .meta-label {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .meta-value {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000000;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4a90e2;
+        }
+
+        .verticle-line {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .verticle-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4a90e2;
+        }
+
+        /* Problem and Solution Boxes */
+        .highlight-box {
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 5px solid #4a90e2;
+        }
+
+        .problem-box {
+            background: #fff5f5;
+            border-left-color: #e53e3e;
+        }
+
+        .solution-box {
+            background: #f0fff4;
+            border-left-color: #38a169;
+        }
+
+        .research-box {
+            background: #f7fafc;
+            border-left-color: #4a90e2;
+        }
+
+        .insight-box {
+            background: #fffbf0;
+            border-left-color: #d69e2e;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid #4a90e2;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        /* User Persona Grid */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .persona-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #4a90e2;
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .persona-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .persona-info h4 {
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        .persona-info p {
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        .persona-quote {
+            font-style: italic;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .step-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #4a90e2;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .step-content {
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background: #000000;
+            color: #ffffff;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin: 60px 0;
+        }
+
+        .impact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .impact-description {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Gallery */
+        .gallery-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Figma Embed */
+        .figma-embed {
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 120px;
+            left: 30px;
+            background: rgba(255,255,255,0.95);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 1px solid #007bff;
+        }
+
+        .back-nav:hover {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .main-content {
+                padding: 60px 0;
+            }
+            
+            .section {
+                margin-bottom: 60px;
+            }
+            
+            .project-meta {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+            .back-nav {
+                top: 120px !important;
+                left: 20px;
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">SB</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target="_blank">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<a href="index.html" class="back-nav">← Back to Portfolio</a>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>AI Integrated Gmail</h1>
+            <p class="hero-subtitle">Revolutionizing Email Management Through Intelligent Automation and Smart Categorization</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">My Role:</div>
+                    <div class="meta-value">UI/UX Designer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Duration:</div>
+                    <div class="meta-value">3 weeks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tools:</div>
+                    <div class="meta-value">Figma, Illustrator</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Methods:</div>
+                    <div class="meta-value">Domain Research, User Research, Wireframing, Prototyping</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Problem Statement -->
+            <div class="section">
+                <h2 class="section-title">The Challenge</h2>
+                <div class="highlight-box problem-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #e53e3e; font-weight: 700;">Problem Statement</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        <strong>Why I chose to redesign Gmail?</strong> As an active job seeker, I have come to rely heavily on Gmail in my daily life. In doing so, I have encountered the common problem of struggling to quickly and efficiently find specific emails among the overwhelming number of messages in my inbox.
+                    </p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                            As the world becomes increasingly digital, many people share this frustration of having inboxes filled with both important and unimportant emails, making it difficult to sort and organize them effectively. Even if you are able to find the important emails, you still have to individually read through them, as well as the countless unimportant emails, such as advertisements, coupons, and spam.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-top: 20px;">
+                            However, currently available email apps do not offer automatic management features to assist users with this problem. By adding this feature to Gmail, I believe it will greatly improve users' experience by making it easier and faster to manage their emails, ultimately increasing their use of the app and allowing them to focus on other aspects of their lives.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="assets/css/images/gmail-intro-screen.png" alt="Gmail Interface" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+
+                <div class="highlight-box research-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Current Email Management Challenges</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 20px;">
+                        Professional individuals in the corporate or business realm face significant pain points related to high volume of urgent and spam emails. The design aims to address these pain points and provide value to a broader user group.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Research Process -->
+            <div class="section">
+                <h2 class="section-title">Research & Discovery</h2>
+                
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Overview of Redesign Process</h3>
+                    <div style="width: 100%; text-align: center; margin: 40px 0;">
+                        <img src="assets/css/images/design-process-overview.png" alt="Design Process Overview" style="max-width: 50%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); background-color: #03b5a0; padding: 20px 35px;">
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Empathize - Qualitative Research</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        In order to gain a deeper understanding of the pain points faced by users in managing their emails, user reviews and feedbacks on the existing Gmail app were analyzed. This research method helped identify common issues such as difficulty in filtering and prioritizing emails, lack of customization options and an overwhelming amount of notifications. This information was crucial in informing the design choices for the feature being developed in this UX case study, as it allowed for a targeted approach to addressing specific pain points experienced by users.
+                    </p>
+                </div>
+
+                <!-- User Personas -->
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/harsh-goyal.png" alt="Harsh Goyal" class="persona-image">
+                            <div class="persona-info">
+                                <h4>Harsh Goyal</h4>
+                                <p>Software Developer, 38 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+                            "I am a corporate worker who receives a number of emails from my workplace, hiring managers, bills, bank loans and insurance dues. I receive many of these mails and most are not worth looking at. Sometimes it gets stressful to manage the indecision over whether each email is worth checking or not. Also, once I found that I missed on an opportunity for a great job interview due to my unwillingness to go through my mail inbox which is filled with thousands of useless mails"
+                        </p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/sarah-nicolas.png" alt="Sarah Nicolas" class="persona-image">
+                            <div class="persona-info">
+                                <h4>Sarah Nicolas</h4>
+                                <p>Entrepreneur, 27 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+                            "As a busy mom entrepreneur, I'm using email as a business tool for my small business. I have email accounts that let me communicate with customers and clients, wholesale vendors and supplier and arrange inventory. Unfortunately, there are too many less important emails that are either unnecessary or not in my priority list, which really adds to the mess on my screen. and since there's no way for me to filter out all these emails except by reading every single one of them carefully AND by deleting certain unsolicited emails, this process can take hours out of my day!"
+                        </p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/david-r.png" alt="David Rochsters" class="persona-image">
+                            <div class="persona-info">
+                                <h4>David Rochsters</h4>
+                                <p>Retired Employee, 62 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+                            "I am a retired person who receives many emails about renewing the policy, invitations from social clubs, subscription dues etc. I have issues with my memory so its hard to keep track of all this emails I receive. due to my poor eyesight, I find it irritating when I have to go through tons of emails to see if I have any upcoming important event."
+                        </p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/tom-mckenna.png" alt="Tom McKenna" class="persona-image">
+                            <div class="persona-info">
+                                <h4>Tom McKenna</h4>
+                                <p>College Student, 19 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+                            "I am a college student and I receive mails for subscription dues and coupons for clubs and restaurants, OTP mails, and many other forms of spam marketing emails. I often miss out on great offers and coupons because they expire before I manage to check my email, also, it is quite hard sometimes to find important college mails regarding assignment dues in the bulk of such other emails."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Insights -->
+            <div class="section">
+                <h2 class="section-title">Key Research Insights</h2>
+                
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Quantitative Research Findings</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 30px;">
+                        I decided to focus my efforts on addressing the most common problems and points of friction users are experiencing. To determine what those biggest pain points were and how I could address them in my new design, I spent the next hour and a half doing some primary research just by taking notes from articles and blogs that were already out there. Following are the findings from my research:
+                    </p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">28%</div>
+                        <div class="metric-label">Of Work Week Spent on Email</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">38%</div>
+                        <div class="metric-label">Important Emails in Average Inbox</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">64</div>
+                        <div class="metric-label">Seconds to Recover from Email Interruption</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">62%</div>
+                        <div class="metric-label">Non-Important Emails That Can Be Bulk Processed</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box insight-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #d69e2e; font-weight: 700;">Critical Research Findings</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li>An average person spends 28% of the work week reading and responding to mails</li>
+                        <li>An average inbox contains only 38% of important, relevant mails, this means 62% of the emails in an average mailbox are not important and can be processed in bulk</li>
+                        <li>Email interruptions are a drain in productivity- a study in danwood group found that it takes an average of 64 seconds to recover from an email interruption (regardless of the emails importance) and return to work rate as before the interruption</li>
+                        <li>Email overload increases stress levels – a team of researcher at UC Irvine and he US army studies the effect of email access on heart rate and ability to focus. The researchers found that limiting email access dramatically reduces stress levels</li>
+                        <li>Controlled notifications times and batch processing emails decreases stress and increases productivity</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Competitive Analysis</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        Gmail, developed by Google, is a popular email service that is widely used by individuals and businesses worldwide. As a leading email provider, Gmail faces competition from several other email apps and services.
+                    </p>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li>One of the main competitors for Gmail is Microsoft Outlook. Outlook, developed by Microsoft, is primarily used by businesses and enterprise users. It offers features such as a calendar, task list, and contact management, which are not available in Gmail. However, Gmail has a larger user base and a more user-friendly interface compared to Outlook.</li>
+                        <li>Another major competitor for Gmail is Apple Mail, which is the default email app for iOS devices. Apple Mail has a similar user interface to Gmail and offers a clean and simple design. However, Gmail has more advanced features, such as the ability to add multiple email accounts and the option to use third-party email services.</li>
+                        <li>Yahoo Mail is another popular email service that also competes with Gmail. Yahoo Mail offers a similar set of features as Gmail, but it does not have the same level of integration with other Google services, such as Google Calendar and Google Drive.</li>
+                        <li>Lastly, there are many other email services like FastMail, ProtonMail, and Zoho Mail, which are also competing with Gmail. These email services are known for their privacy and security features, and they offer similar features as Gmail but with an emphasis on security.</li>
+                    </ul>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        In conclusion, Gmail faces competition from a variety of email apps and services, each with its own unique set of features and strengths. Gmail's main advantage is its integration with other Google services, its user-friendly interface, and its large user base. However, as the market becomes more competitive, Google will have to continue to innovate and improve the features of Gmail to maintain its dominance in the email market.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Solution -->
+            <div class="section">
+                <h2 class="section-title">Design Solution</h2>
+                <div class="highlight-box solution-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">AI-Powered Email Management Solution</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        Artificial Intelligence technology can be used to understand the content of each email, and classify them into different categories based on factors such as sender, recipient, and keywords to determine the importance of each email and prioritize them accordingly. This will provide a more organized and user-friendly email experience, allowing users to easily find and access important emails while reducing the time spent on sorting through irrelevant emails.
+                    </p>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Define - Proposed Features</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 20px;">
+                        Based on the above research and insights I decided to add following features in the app:
+                    </p>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li>Default category wise folders in inbox which automatically puts respective email in the specific folder</li>
+                        <li>Reads keywords or recipients from the mail and sort them accordingly to store in respective folder</li>
+                        <li>Recognizes deadlines from the mail and put those mails into urgent mail section according to their timeline</li>
+                        <li>Put expired deadline mails in the expired mails section</li>
+                        <li>Enables users to create their own folder by customizing recipients and keywords for that folder</li>
+                        <li>Controlled notifications time times for work mails notifications</li>
+                        <li>All the Basic email app features included (composing mails, marking important mails, searching mails directly from search bar, etc)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Design Process -->
+            <div class="section">
+                <h2 class="section-title">Design Process</h2>
+                
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Ideation - Wireframing</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 30px;">
+                        Creating user flow diagrams and rough sketches to implement identified solutions into a potential application interface for a case study.
+                    </p>
+                    <div style="width: 100%; text-align: center; margin: 40px 0;">
+                        <img src="assets/css/images/gmail-wireframes.png" alt="Gmail Wireframes" class="gallery-image">
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Color Palette</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 30px;">
+                        In order to select right color palette for this interface, I considered the demographic characteristics of the target users, which were primarily mature adults. To enhance usability and facilitate ease of navigation, I employed a minimalist design approach and incorporated familiar design elements from widely-used email applications. To further establish a distinct brand identity and differentiate the application from its competitors, I carefully selected a color scheme that would effectively communicate the desired emotional associations. The primary color, Blue, was chosen to evoke feelings of trust and professionalism, while the secondary color, Aqua, was selected to provide a unique visual cue and to serve as an effective differentiation factor. Overall, these design choices aimed to improve the overall user experience and meet the needs of the target users.
+                    </p>
+                    <div style="width: 100%; text-align: center; margin: 40px 0;">
+                        <img src="assets/css/images/gmail-color-palette.png" alt="Color Palette" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">High-Fidelity Prototyping</h3>
+                    <div style="width: 100%; text-align: center; margin: 40px 0;">
+                        <img src="assets/css/images/gmail-hi-fi.png">
+                        </div> 	
+                 </div>
+
+                 <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">User Testing</h3>
+                    <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/harsh-goyal.png" alt="Harsh Goyal" class="persona-image">
+                            <div class="persona-info">
+                                <h4>Harsh Goyal</h4>
+                                <p>Software Developer, 38 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+“The app is the way to go for busy professionals that want to keep track of their job search and save valuable time by making it easier to sort through all the great opportunities. I can create separate folders and sort my mails in a way that helps me prioritize what requires an answer immediately vs. follow up later. This allows me to follow up with recruiters faster while catching anything I might’ve missed along the way. Seeing expired reminders ~like bills~ allows me to get them out of the endless sea of job offers mails”
+                        </p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/sarah-nicolas.png" alt="Sarah Nicolas" class="persona-image">
+                            <div class="persona-info">
+                                <h4>Sarah Nicolas</h4>
+                                <p>Entrepreneur, 27 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+“I find this helpful as now I can organize my customer mails as well as export-import and other vendor’s mails at one place without having to create and remember passwords of multiple mail accounts. This app is much more faster to use on daily basis as compared to any other mail app”
+                        </p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/david-r.png" alt="David Rochsters" class="persona-image">
+                            <div class="persona-info">
+                                <h4>David Rochsters</h4>
+                                <p>Retired Employee, 62 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+“I have customized my own family folder, where it gets easier for me to prioritize reading those mails. I find urgent mails feature helpful as I suffer from amnesia and often forget events and therefore needed to check my e-mail constantly to make sure I don't miss anything, but this app has just made it simple"                        </p>
+                    </div>
+
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="assets/css/images/tom-mckenna.png" alt="Tom McKenna" class="persona-image">
+                            <div class="persona-info">
+                                <h4>Tom McKenna</h4>
+                                <p>College Student, 19 Years Old</p>
+                            </div>
+                        </div>
+                        <p class="persona-quote">
+“Since I have been using this app, I have been able to sort through all of my coupons and grab great deals before they expire, as well as delete any unnecessary Mails like expired OTP mails. Now that I use this automated mail app to keep up with emails from the university's faculty about upcoming deadlines for the assignments, it has allowed me to maintain a better academic standing since I receive notification when due dates are approaching”
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Limitations on using AI</h3>
+                   <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 30px;">
+                        The AI assistant needs to be really strong as it has the potential to make mistakes, The AI which powers this app could mistake an email message for something else. For example, a system might read an important mail as an OTP mail, and put that mail automatically in OTP folder. Once this happens, the user is not likely to check the folder where your system will have mistakenly placed his/her important message. This may cause a serious loss.
+                    </p>
+                 </div>
+
+                 <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Posiible Solution</h3>
+                   <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 30px;">
+While a user is about to delete any mail, we can warn the user that he or she should once go through all the mails before deleting it. We may also notify users on a monthly basis to go through all their automatically placed emails in order to report if they are put in the wrong folder by AI, which will help our AI to improve its algorithm further. Also, The main home screen looks and functions a lot like a classic email app. The inbox will hold all of your email, unsorted. This feature can only be an addition to enable you to find an important mail quickly or delete particular types of mails with just one check rather than scrolling through all of your mails.
+                </p>
+                 </div>
+
+                 <div class="container">
+										<div class="row">
+											<div class="col-12 ps-0">
+												<h3 class="verticle-line">Project Presentaion </h3>
+												<iframe style="border: 1px solid rgba(0, 0, 0, 0.1); margin-top: 1.5rem;" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FdqSyiCva38sy65BzwTZ6Dl%2Fpresentation%3Fpage-id%3D0%253A1%26node-id%3D1-2%26viewport%3D50%252C211%252C0.03%26t%3Dxie4kJtxAHmuoJ69-1%26scaling%3Dcontain%26starting-point-node-id%3D1%253A2" allowfullscreen></iframe>
+											</div>
+										</div>
+								</div>
+
+                 </div>
