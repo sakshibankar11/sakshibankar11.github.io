@@ -289,6 +289,30 @@
             line-height: 1.6;
         }
 
+        /* Links */
+        .app-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .app-link {
+            background: #4a90e2;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .app-link:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+
         /* Impact Section */
         .impact-section {
             background: #000000;
@@ -322,6 +346,151 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
+
+        /* Workflow Diagram */
+.workflow-diagram {
+    background: #e8f2fdff;
+    padding: 60px 150px;
+    border-radius: 8px;
+    margin: 60px 0;
+    /* border-left: 4px solid #4a90e2; */
+}
+
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.workflow-step {
+    text-align: center;
+    position: relative;
+}
+
+.workflow-step::after {
+    content: '→';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+.workflow-step:last-child::after {
+    display: none;
+}
+
+.workflow-icon {
+    width: 60px;
+    height: 60px;
+    background: #4a90e2;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.workflow-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000000;
+    font-size: 0.95rem;
+}
+
+.workflow-desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Scale Complexity Section */
+        .complexity-section {
+            background: #f7fafc;
+            padding: 40px;
+            border-radius: 8px;
+            /* border-left: 5px solid #4a90e2; */
+            margin: 40px 0;
+        }
+
+        .complexity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .complexity-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #4a90e2;
+            transition: transform 0.3s ease;
+        }
+
+        .complexity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .complexity-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .complexity-label {
+            font-size: 1rem;
+            color: #000000;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .complexity-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .complexity-highlight {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            border-top: none;
+        }
+
+        .complexity-highlight .complexity-number,
+        .complexity-highlight .complexity-label,
+        .complexity-highlight .complexity-desc {
+            color: white;
+        }
+
+/* Responsive adjustments for workflow */
+@media (max-width: 768px) {
+    .workflow-steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .workflow-step::after {
+        content: '↓';
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -10px;
+        transform: translateX(-50%);
+    }
+    
+    .workflow-step:last-child::after {
+        display: none;
+    }
+}
 
 
         /* Back Navigation */
@@ -397,7 +566,7 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-					<h1 id="logo" style="height: 4rem;"><a href="index.html"> <img src="images\Sakshi-butterfly-logo-blue-removebg-preview.png" style="height: 4rem; width: auto; padding-top: 0.5rem;"></a></h1>
+					<h1 id="logo" style="height: 4rem;"><a href="index.html"> <img src="images\Sakshi-butterfly-logo-blue-removebg-preview.png" style="height: 3rem; width: auto; padding-top: 0.5rem;"></a></h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -411,9 +580,9 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="container">
-            <h1>Geo-Fencing to Automate</h1>
-            <p class="hero-subtitle">Revolutionizing Resort Cleaning Management Through Location-Based Automation</p>
-            
+            <h1>Optimization for Resort Cleaning Management</h1>
+            <p class="hero-subtitle">Transformed a struggling cleaning management app into a streamlined solution through strategic QR code integration and UI redesign</p>
+
             <div class="project-meta">
                 <div class="meta-item">
                     <div class="meta-label">My Role:</div>
@@ -439,7 +608,11 @@
                     <div class="meta-label">Live on Appstore & Playstore: </div>
                     <div class="meta-value">1k+ downloads | 3.9 Ratings </div>
                 </div>
-            </div>
+            </div>    
+              <div class="app-links">
+                <a href="https://apps.apple.com/us/app/resortcleaning/id1672582990" target="_blank" class="app-link">📱 Visit iOS App</a>
+                <a href="https://play.google.com/store/apps/details?id=com.resortcleaninginc" target="_blank" class="app-link">🤖 Visit Android App</a>
+            </div> 
         </div>
     </div>
 
@@ -452,14 +625,30 @@
                 <div class="highlight-box problem-box" style="margin: 5px 0;">
                     <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #e53e3e; font-weight: 700;">Problem Statement</h3>
                     <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
-                        <strong>Resort cleaning management software was failing to meet staff and management expectations due to inefficient user interface and manual staff login/logout processes.</strong> 
-                        The current system created operational inefficiencies, inaccurate time tracking, and poor user experience that hindered effective resort cleaning operations.
+                        <strong>Manual clock-in/out processes created time tracking discrepancies and poor user experience. Staff struggled with an outdated interface while management lost visibility into operations.</strong>
                     </p>
                 </div>
+
+                  <div class="highlight-box solution-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">The Solution</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                   <strong>QR code integration + complete UI overhaul eliminated time discrepancies while streamlining the entire workflow. Result: industry-leading cleaning management platform.</strong>
+                    </p>
+                </div>
+
+                 <div class="highlight-box research-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Key Pain Points Identified</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li><strong>Inaccurate Time Tracking:</strong> Manual login/logout processes led to errors and potential time theft</li>
+                        <li><strong>Poor User Interface:</strong> Outdated design hindered staff productivity and adoption</li>
+                        <li><strong>Operational Inefficiency:</strong> Staff spent excessive time on administrative tasks rather than cleaning</li>
+                        <li><strong>Real-time Tracking Issues:</strong> Management lacked visibility into staff location and task status</li>
+                    </ul>
+                </div>
                 
-                <div style="margin-top: 5rem; margin-bottom: 2rem;">
+                <div style="margin-top: 5rem; margin-bottom: 1rem;">
                     <h3 class="verticle-line mb-0" style="font-size: 1.3rem; margin-bottom: 2rem;">About Resort Cleaning Management Software</h3>
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: top;">
+                    <div style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; align-items: top;">
                         <div>
                             <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
                                 Maintaining a clean and well-organized resort is crucial for providing guests with a comfortable and enjoyable experience. The resort cleaning management software is a tool that is used to schedule and manage the cleaning staff at a resort, but its current state of user interface and functionality may not be meeting the expectations of the staff and management. With the aim to enhance the usability and effectiveness of the cleaning management software, this case study will take a deep dive into how a user-centered design approach was employed to revamp the software by improving its UI and incorporating geo-fencing for automatic staff login and logout.
@@ -471,38 +660,99 @@
                     </div>
                 </div>
 
-                <div class="highlight-box research-box">
-                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Key Pain Points Identified</h3>
-                    <ul style="color: #000000; line-height: 1.8;">
-                        <li><strong>Inaccurate Time Tracking:</strong> Manual login/logout processes led to errors and potential time theft</li>
-                        <li><strong>Poor User Interface:</strong> Outdated design hindered staff productivity and adoption</li>
-                        <li><strong>Operational Inefficiency:</strong> Staff spent excessive time on administrative tasks rather than cleaning</li>
-                        <li><strong>Real-time Tracking Issues:</strong> Management lacked visibility into staff location and task status</li>
-                    </ul>
-                </div>
             </div>
+    <!-- Scale Complexity Section  -->
+            <div class="section">
+            
+            <div class="complexity-section">
+                <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #4a90e2; font-weight: 700; text-align: center;">Enterprise-Scale Design Challenge</h3>
+                
+                <div class="complexity-grid">
+                    <div class="complexity-card complexity-highlight">
+                        <div class="complexity-number">400+</div>
+                        <div class="complexity-label">Screens Redesigned</div>
+                        <div class="complexity-desc">Complete interface overhaul across all platforms</div>
+                    </div>
+                    
+                    <div class="complexity-card">
+                        <div class="complexity-number">15+</div>
+                        <div class="complexity-label">User Workflows</div>
+                        <div class="complexity-desc">From staff check-in to management dashboards</div>
+                    </div>
+                    
+                    <div class="complexity-card">
+                        <div class="complexity-number">5</div>
+                        <div class="complexity-label">User Roles</div>
+                        <div class="complexity-desc">Staff, supervisors, managers, admin, executives</div>
+                    </div>
+                    
+                    <div class="complexity-card">
+                        <div class="complexity-number">3</div>
+                        <div class="complexity-label">Platforms</div>
+                        <div class="complexity-desc">iOS, Android, and web applications</div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #000000; text-align: center; margin-top: 20px;">
+                    <strong>This wasn't just a simple app redesign</strong> – it was a comprehensive transformation of an enterprise-scale cleaning management ecosystem used by hundreds of properties.
+                </p>
+            </div>
+        </div>
+
+          
 
             <!-- Solution -->
             <div class="section">
-                <h2 class="section-title">Design Solution</h2>
-                <div class="highlight-box solution-box">
-                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">Proposed Geo-fencing Solution</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
-                        I researched, analyzed and proposed a comprehensive solution implementing geo-fencing technology to improve staff login and logout accuracy in this resort cleaning management software. The solution would automate the logging process, provide real-time tracking, and improve efficiency and user-friendliness of the software.
-                    </p>
+                <h2 class="section-title">Designing the Solution</h2>
+                
+                <div class="workflow-diagram">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700; text-align: center;">How QR Integration Transformed Daily Operations</h3>
+                    
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="workflow-icon">📍</div>
+                            <h4 class="workflow-title">Staff Arrives</h4>
+                            <p class="workflow-desc">Cleaning staff arrives at assigned location (room, lobby, pool area)</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">📱</div>
+                            <h4 class="workflow-title">Scan QR Code</h4>
+                            <p class="workflow-desc">One-tap scan of location-specific QR code using redesigned app interface</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">✅</div>
+                            <h4 class="workflow-title">Auto Check-in</h4>
+                            <p class="workflow-desc">Automatic clock-in with precise timestamp and location verification</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">🧹</div>
+                            <h4 class="workflow-title">Complete Tasks</h4>
+                            <p class="workflow-desc">Follow streamlined task list with clear priorities and status updates</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">📊</div>
+                            <h4 class="workflow-title">Real-time Tracking</h4>
+                            <p class="workflow-desc">Management sees live progress, location, and completion status</p>
+                        </div>
+                    </div>
                 </div>
 
+
                 <div style="margin: 40px 0;">
-                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Background on Geo-Fencing Technology</h3>
-                    <ul style="color: #000000; line-height: 1.8;">
-                        <li>Geo-fencing is a location-based technology that uses GPS, RFID, or WiFi to create virtual boundaries around a physical location.</li>
-                        <li>Virtual boundaries (geo-fences) created around service locations at the resort, system detects when staff enters or exits and automatically logs the time.</li>
-                        <li>Eliminates errors and inaccuracies that can occur with manual logging, and also provides real-time tracking of staff location and status.</li>
-                        <li>Can be used to automatically register staff login and logout times based on their location</li>
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Key Implementation Benefits</h3>
+                    <ul style="color: #000000; line-height: 1.7;">
+                        <li><strong>Eliminated Time Discrepancies:</strong> QR scanning ensures staff are physically present at work locations</li>
+                        <li><strong>Streamlined User Experience:</strong> One-tap check-in/out process integrated seamlessly into daily workflow</li>
+                        <li><strong>Enhanced Accountability:</strong> Real-time location verification prevents time theft and improves transparency</li>
+                        <li><strong>Reduced Administrative Burden:</strong> Automated tracking eliminates manual time sheet reconciliation</li>
                     </ul>
                 </div>
 
-                <div class="process-steps">
+                <!-- <div class="process-steps">
                     <div class="step-card">
                         <h3 class="step-title">Step 1: Location Identification</h3>
                         <p class="step-content">Identify service locations at the resort (guest rooms, common areas, pool areas) and map out cleaning zones.</p>
@@ -527,7 +777,7 @@
                         <h3 class="step-title">Step 5: Training & Implementation</h3>
                         <p class="step-content">Train staff on how to use the app and ensure smartphones are properly configured to detect location accurately.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- UI Redesign -->
@@ -586,15 +836,14 @@
 
             <!-- Expected Impact -->
             <div class="impact-section">
-                <h2 class="impact-title">Expected Impact & Benefits</h2>
+                <h2 class="impact-title">Impact & Benefits</h2>
                 <p class="impact-description">
-                    While the proposed solution has not been implemented yet, it is expected to bring significant benefits to resort cleaning operations and staff management.
                 </p>
                 
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-number">95%</div>
-                        <div class="metric-label">Expected Accuracy Improvement</div>
+                        <div class="metric-label">Time Tracking Accuracy</div>
                     </div>
                     
                     <div class="metric-card">
@@ -604,7 +853,7 @@
                     
                     <div class="metric-card">
                         <div class="metric-number">100%</div>
-                        <div class="metric-label">Real-time Staff Tracking</div>
+                        <div class="metric-label">Location Verificationg</div>
                     </div>
                     
                     <div class="metric-card">
@@ -616,15 +865,37 @@
                 <div style="margin-top: 40px;">
                     <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #ffffff;">Key Benefits</h3>
                     <ul style="color: #ffffff; line-height: 1.8; opacity: 0.9;">
-                        <li style="color: #ffffff;">Improves accuracy of staff login and logout times</li>
-                        <li style="color: #ffffff;">Automates logging process, reducing manual intervention</li>
-                        <li style="color: #ffffff;">Provides real-time tracking of staff location and status</li>
+                        <li style="color: #ffffff;">Eliminated time tracking disputes completely</li>
+                        <li style="color: #ffffff;">Achieved 5k+ downloads across app stores</li>
+                        <li style="color: #ffffff;">Deployed across 100+ property management companies</li>
                         <li style="color: #ffffff;">Creates more efficient and user-friendly software experience</li>
                         <li style="color: #ffffff;">Helps resort management team to better manage cleaning staff and operations</li>
                         <li style="color: #ffffff;">Reduces operational costs through improved efficiency</li>
                     </ul>
                 </div>
             </div>
+
+              <!-- Key Learnings -->
+            <div class="two-column">
+                    <div class="highlight-box">
+                        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #4a90e2; font-weight: 700;">Design Learnings</h3>
+                        <ul style="color: #000000; line-height: 1.7;">
+                            <li><strong>Physical-Digital Integration:</strong> QR codes bridge physical work with digital tracking seamlessly</li>
+                            <li><strong>User-Centered Optimization:</strong> Understanding staff workflows was crucial for effective solution design</li>
+                            <li><strong>Iterative Improvement:</strong> Multiple UI iterations led to significantly better usability</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="highlight-box research-box">
+                        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #4a90e2; font-weight: 700;">Success Factors</h3>
+                        <ul style="color: #000000; line-height: 1.7;">
+                            <li><strong>Comprehensive Approach:</strong> Solving both technical and UX problems simultaneously</li>
+                            <li><strong>Real-World Testing:</strong> Extensive testing with actual cleaning staff</li>
+                            <li><strong>Scalable Solution:</strong> Designed for easy deployment across multiple properties</li>
+                        </ul>
+                    </div>
+                </div>
+            
 
             <!-- Project Gallery -->
             <div class="section">
@@ -635,32 +906,7 @@
                 </div>
             </div>
 
-            <!-- Key Learnings -->
-            <div class="section">
-                <h2 class="section-title">Key Learnings & Future Metrics</h2>
-                <div class="highlight-box">
-                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">What I Would Measure if Implementing</h3>
-                    <ul style="color: #000000; line-height: 1.8;">
-                        <li><strong>Time Tracking Accuracy:</strong> Percentage reduction in manual time entry errors</li>
-                        <li><strong>Staff Productivity:</strong> Time saved per staff member per day on administrative tasks</li>
-                        <li><strong>User Adoption Rate:</strong> Percentage of staff actively using the geo-fencing feature</li>
-                        <li><strong>System Reliability:</strong> Geo-fence detection accuracy and app uptime metrics</li>
-                        <li><strong>Operational Efficiency:</strong> Reduction in management time spent on schedule reconciliation</li>
-                        <li><strong>User Satisfaction:</strong> Staff satisfaction scores before and after implementation</li>
-                        <li><strong>Cost Savings:</strong> Quantified savings from reduced manual processes and improved accuracy</li>
-                    </ul>
-                </div>
-
-                <div class="highlight-box research-box">
-                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Design Insights Gained</h3>
-                    <ul style="color: #000000; line-height: 1.8;">
-                        <li><strong>User-Centered Approach:</strong> Focusing on staff workflow and pain points was crucial for designing effective solutions</li>
-                        <li><strong>Technology Integration:</strong> Balancing automation with user control ensures better adoption rates</li>
-                        <li><strong>Iterative Design:</strong> Multiple iterations of UI components led to significantly improved usability</li>
-                        <li><strong>Privacy Considerations:</strong> Location-based features require careful privacy design and user consent flows</li>
-                    </ul>
-                </div>
-            </div>
+          
         </div>
     </div>
 
