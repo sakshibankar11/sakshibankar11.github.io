@@ -49,8 +49,7 @@ body {
 #banner.modern-hero .hero-content-wrapper,
 #banner.modern-hero .hero-header,
 #banner.modern-hero .hero-cta,
-#banner.modern-hero .hero-social,
-#banner.modern-hero .scroll-indicator {
+#banner.modern-hero .hero-social {
   position: relative !important;
   z-index: 11 !important;
 }
@@ -541,10 +540,6 @@ i.fas, i.far, i.fab {
     height: 40px !important;
   }
   
-  /* Hide scroll indicator on mobile */
-  .scroll-indicator {
-    display: none !important;
-  }
 
   /* Projects Section Mobile */
   #projects {
