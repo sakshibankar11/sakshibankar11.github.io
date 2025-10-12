@@ -1,0 +1,143 @@
+/* Project Cards UI enhancements for index.html (#one section)
+   Scoped carefully to avoid affecting other pages. */
+
+/* Section container */
+#one {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Card base */
+#one .card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 280px;
+}
+
+/* Animated gradient accent bar */
+#one .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #007bff, #0056b3, #007bff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#one .card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.14),
+    0 10px 25px rgba(0, 123, 255, 0.10);
+}
+
+#one .card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure internal grid remains tidy */
+#one .card .row {
+  align-items: stretch;
+}
+
+/* Text panel */
+#one .card .card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+}
+
+#one .card .card-title {
+  color: #1a202c;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.85rem;
+}
+
+#one .card .card-text {
+  color: #4a5568;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Image side */
+#one .card .col-4 {
+  overflow: hidden;
+  position: relative;
+}
+
+#one .card .col-4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+#one .card:hover .col-4 img {
+  transform: scale(1.06) rotate(0.5deg);
+}
+
+/* Link button */
+#one .card .btn.btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem !important; /* override py-0 utility */
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.28);
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.25s ease;
+}
+
+#one .card .btn.btn-outline-primary:hover,
+#one .card .btn.btn-outline-primary:focus {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateX(4px);
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(0, 123, 255, 0.35);
+}
+
+/* Spacing between cards */
+#one .mb-5 { margin-bottom: 2.5rem !important; }
+
+/* Responsive enhancements */
+@media (max-width: 992px) {
+  #one { padding-top: 2rem; padding-bottom: 2rem; }
+  #one .card .card-body { padding: 1.75rem; }
+}
+
+@media (max-width: 768px) {
+  /* Stack image above text on small screens */
+  #one .card .row { display: flex; flex-direction: column; }
+  #one .card .row .col-4 { order: -1; width: 100% !important; height: 220px; }
+  #one .card .row .col-8 { width: 100% !important; }
+  #one .card .card-body { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  #one .card { border-radius: 16px; }
+  #one .card .card-title { font-size: 1.25rem; }
+  #one .card .card-text { font-size: 1rem; }
+}
