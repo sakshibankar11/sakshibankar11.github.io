@@ -61,6 +61,31 @@ body {
   z-index: 2 !important;
 }
 
+/* Fix contact section scrolling and positioning issues */
+#contact {
+  background-attachment: scroll !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Ensure contact content is properly layered */
+#contact .container {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Fix floating text issues */
+#contact .contact-header {
+  position: relative !important;
+  z-index: 11 !important;
+}
+
+#contact .contact-header h2,
+#contact .contact-header p {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
 /* --- Global icon fixes --- */
 .icons .icon::before {
   font-size: 1.15rem;
@@ -587,27 +612,42 @@ i.fas, i.far, i.fab {
   /* Contact Section Mobile */
   #contact {
     padding: 4rem 0 !important;
+    background-attachment: scroll !important;
+    overflow: visible !important;
   }
   
   #contact .container {
     padding: 0 1rem;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  .contact-header {
+    position: relative !important;
+    z-index: 11 !important;
   }
   
   .contact-header h2 {
     font-size: 2.2rem !important;
     margin-bottom: 1rem !important;
+    position: relative !important;
+    z-index: 12 !important;
   }
   
   .contact-header p {
     font-size: 1rem !important;
     padding: 0 1rem;
     margin-bottom: 3rem !important;
+    position: relative !important;
+    z-index: 12 !important;
   }
   
   .contact-card {
     padding: 1rem !important;
     gap: 0.6rem !important;
     margin-bottom: 0.8rem;
+    position: relative !important;
+    z-index: 11 !important;
   }
   
   .contact-card div {
@@ -718,6 +758,11 @@ i.fas, i.far, i.fab {
   }
 
   /* Contact Section Tablet */
+  #contact {
+    background-attachment: scroll !important;
+    overflow: visible !important;
+  }
+  
   .contact-header h2 {
     font-size: 2.5rem !important;
   }
