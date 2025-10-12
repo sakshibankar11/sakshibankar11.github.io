@@ -19,6 +19,12 @@ body {
   z-index: 1 !important;
 }
 
+/* Fix the dark overlay on hero section */
+#banner.modern-hero:after {
+  background: rgba(23, 24, 32, 0.85) !important;
+  background-image: none !important;
+}
+
 /* Projects section should start after hero */
 #projects {
   position: relative !important;
@@ -397,6 +403,12 @@ i.fas, i.far, i.fab {
     position: relative !important;
   }
   
+  /* Remove the dark overlay on mobile for cleaner look */
+  #banner.modern-hero:after {
+    background: rgba(23, 24, 32, 0.75) !important;
+    background-image: none !important;
+  }
+  
   .modern-hero .content {
     padding: 1rem !important;
     max-width: 100% !important;
@@ -607,6 +619,12 @@ i.fas, i.far, i.fab {
     padding-top: 2rem !important;
     overflow-x: hidden !important;
     min-height: calc(100vh - 4rem) !important;
+  }
+  
+  /* Adjust overlay for tablet */
+  #banner.modern-hero:after {
+    background: rgba(23, 24, 32, 0.8) !important;
+    background-image: none !important;
   }
   
   .modern-hero .content {
