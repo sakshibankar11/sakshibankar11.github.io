@@ -1,5 +1,24 @@
 /* Modern styles for icons, arrows, and project cards (scoped) */
 
+/* Load minimal Font Awesome fonts to ensure glyphs render */
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900; /* solid */
+  font-display: swap;
+  src: url('../webfonts/fa-solid-900.woff2') format('woff2'),
+       url('../webfonts/fa-solid-900.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400; /* brands */
+  font-display: swap;
+  src: url('../webfonts/fa-brands-400.woff2') format('woff2'),
+       url('../webfonts/fa-brands-400.woff') format('woff');
+}
+
 /* --- Global icon fixes --- */
 .icons .icon::before {
   font-size: 1.15rem;
@@ -11,6 +30,14 @@
 i.fas, i.far, i.fab {
   line-height: 1;
 }
+
+/* Explicit glyph mapping for critical icons (if FA CSS isn't loaded) */
+i.fas.fa-briefcase::before { content: "\f0b1"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
+i.fas.fa-handshake::before { content: "\f2b5"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
+i.fas.fa-chevron-down::before { content: "\f078"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
+i.fas.fa-chevron-up::before { content: "\f077"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
+i.fab.fa-linkedin-in::before { content: "\f0e1"; font-family: "Font Awesome 5 Brands"; font-weight: 400; }
+i.fab.fa-medium-m::before { content: "\f3c7"; font-family: "Font Awesome 5 Brands"; font-weight: 400; }
 
 /* --- Section heading icons --- */
 .modern-section-title,
