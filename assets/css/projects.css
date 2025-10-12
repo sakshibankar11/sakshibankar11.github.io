@@ -111,6 +111,13 @@
               background 0.25s ease;
 }
 
+/* Normalize arrow span sizing in project buttons */
+#one .card .btn.btn-outline-primary .px-2,
+#one .card .btn.btn-outline-primary span {
+  font-size: 1.25rem !important;
+  line-height: 1;
+}
+
 #one .card .btn.btn-outline-primary:hover,
 #one .card .btn.btn-outline-primary:focus {
   background: linear-gradient(135deg, #0056b3, #004085);
