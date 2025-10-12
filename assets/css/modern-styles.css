@@ -25,6 +25,36 @@ body {
   background-image: none !important;
 }
 
+/* Fix hero section background scrolling issues */
+#banner.modern-hero {
+  background-attachment: scroll !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+}
+
+/* Ensure content is always visible and properly layered */
+#banner.modern-hero .content {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Ensure overlay doesn't interfere with content */
+#banner.modern-hero:after {
+  z-index: 1 !important;
+}
+
+/* Make sure all hero content is above the overlay */
+#banner.modern-hero .hero-content-wrapper,
+#banner.modern-hero .hero-header,
+#banner.modern-hero .hero-cta,
+#banner.modern-hero .hero-social,
+#banner.modern-hero .scroll-indicator {
+  position: relative !important;
+  z-index: 11 !important;
+}
+
 /* Projects section should start after hero */
 #projects {
   position: relative !important;
@@ -409,6 +439,11 @@ i.fas, i.far, i.fab {
     background-image: none !important;
   }
   
+  /* Fix mobile background scrolling */
+  #banner.modern-hero {
+    background-attachment: scroll !important;
+  }
+  
   .modern-hero .content {
     padding: 1rem !important;
     max-width: 100% !important;
@@ -625,6 +660,11 @@ i.fas, i.far, i.fab {
   #banner.modern-hero:after {
     background: rgba(23, 24, 32, 0.8) !important;
     background-image: none !important;
+  }
+  
+  /* Fix tablet background scrolling */
+  #banner.modern-hero {
+    background-attachment: scroll !important;
   }
   
   .modern-hero .content {
