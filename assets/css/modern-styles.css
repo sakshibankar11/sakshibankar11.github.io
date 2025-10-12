@@ -12,6 +12,21 @@ i.fas, i.far, i.fab {
   line-height: 1;
 }
 
+/* --- Section heading icons --- */
+.modern-section-title,
+.modern-contact-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.modern-section-title i,
+.modern-contact-title i {
+  font-size: 1.15em;
+  line-height: 1;
+  color: #007bff;
+}
+
 /* --- Hero social icons (optional modern list) --- */
 .modern-social-icons {
   list-style: none;
@@ -61,6 +76,45 @@ i.fas, i.far, i.fab {
 @keyframes arrow-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
+}
+
+/* --- Scroll to top button --- */
+.scroll-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  color: #2c3e50;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-to-top i {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.scroll-to-top:hover {
+  background: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,123,255,0.25);
 }
 
 /* --- Modern project cards --- */
@@ -154,6 +208,50 @@ i.fas, i.far, i.fab {
 .modern-btn .px-2 { /* normalize arrow sizing */
   font-size: 1.25rem;
   line-height: 1;
+}
+
+/* --- Contact section social links --- */
+.modern-contact-section .social-links-section {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.modern-contact-section .social-link-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  background: #f8f9fa;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.modern-contact-section .social-link-modern i {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.modern-contact-section .social-link-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.modern-contact-section .social-link-modern.linkedin:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+  color: #fff;
+}
+
+.modern-contact-section .social-link-modern.medium:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
 }
 
 /* Responsive tweaks */
