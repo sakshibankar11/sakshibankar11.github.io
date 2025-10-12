@@ -13,20 +13,21 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/content-protection.css">
+		<link rel="stylesheet" href="assets/css/modern-styles.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload landing">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
+				<header id="header" class="modern-header">
 					<h1 id="logo" style="height: 4rem;"><a href="index.html"> <img src="images\Sakshi-butterfly-logo-blue-removebg-preview.png" style="height: 3rem; width: auto; padding-top: 0.5rem;"></a></h1>
 					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="#two">About Me</a></li>
-							<li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target= "_blank">Resume</a></li>
+						<ul style="display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0;">
+							<li><a href="index.html" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Home</a></li>
+							<li><a href="index.html#projects" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Projects</a></li>
+							<li><a href="About-me.html" style="position: relative; font-weight: 500; transition: color 0.3s ease;">About Me</a></li>
+							<li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target="_blank" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Resume</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -173,32 +174,51 @@
 					</div>
 				</section> -->
 
-				<section id="two" class="spotlight style1 bottom mt-5 pt-5" style="height: 100vh;">
-					<!-- <span class="image fit main"><img src="images/pic03.jpg" alt="" /></span> -->
-					<div class="content">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-4 col-sm-12  mt-5 pe-3 ">
-									<div style="border: 1px solid #ffffff; width: 100%; height: 25em; overflow: hidden; border-radius: 0.5%;">
-										<img style="max-width: 100%; height: 100%; display: block; margin-left: auto; margin-right: auto;" src="assets/css/images/Sakshi-photo.png" alt="" />
+				<!-- About Me Section -->
+				<section id="about" class="wrapper style1" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); padding: 6rem 0; min-height: auto;">
+					<div class="container" style="max-width: 1200px;">
+						<!-- Section Header -->
+						<header class="section-header" style="text-align: center; margin-bottom: 4rem; animation: fadeInUp 0.8s ease 0.2s both;">
+							<h2 style="color: #1a202c; font-weight: 700; font-size: 2.8rem; margin-bottom: 1rem;">About Me</h2>
+							<div style="width: 60px; height: 4px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); margin: 0 auto; border-radius: 2px;"></div>
+						</header>
+
+						<div class="row align-items-center" style="margin-bottom: 4rem;">
+							<!-- Photo -->
+							<div class="col-lg-5 mb-4 mb-lg-0" style="animation: fadeInUp 0.8s ease 0.4s both;">
+								<div class="about-image-wrapper" style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem;">
+									<div style="border-radius: 16px; overflow: hidden; background: #fff;">
+										<img src="assets/css/images/Sakshi-photo.png" alt="Sakshi Bankar" style="width: 100%; height: auto; display: block; object-fit: cover;" />
 									</div>
-									
 								</div>
-								<div class="col-md-8 col-sm-12">
-									<header>
-										<h2>About Me</h2>
-									</header>
-									<p>Hi, my name is Sakshi! I'm currently pursuing my Master's degree in Informatics, specializing in Human-Centered Design. My journey began with a Bachelor's degree in Business and Computer Applications, where I discovered my interest in learning how technology can be used to transform and empower businesses. While learning about business, I realized the importance of customer satisfaction in business, and my learning interest started shifting more towards understanding how humans interact with technology so that it can be leveraged effectively to empower businesses.</p>
-									<p>During my previous employment as a UI/UX developer, I have designed solutions that enhance not only the customer experience but also the overall business process, ensuring more profits for the business. I have gained a deep understanding of how business, technology, and user-centered design work together during an entire product development lifecycle, which makes me a perfect candidate for product designer roles. In my free time, I enjoy creating digital art and exploring new places and cultures.</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">Learn More</a></li>
-									</ul> -->
-								</div>
-								
 							</div>
-						</div>		
+
+							<!-- Bio Content -->
+							<div class="col-lg-7" style="animation: fadeInUp 0.8s ease 0.6s both;">
+								<div style="padding-left: 2rem;">
+									<div style="display: inline-block; background: linear-gradient(135deg, #dbeafe, #e0e7ff); color: #1e40af; padding: 0.5rem 1.2rem; border-radius: 30px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Designer & Problem Solver</div>
+									
+									<h3 style="color: #0f172a; font-weight: 700; font-size: 2rem; line-height: 1.3; margin-bottom: 1.5rem;">Hi, I'm Sakshi!</h3>
+									
+									<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+										I'm currently pursuing my Master's degree in Informatics, specializing in <strong style="color: #1e40af;">Human-Centered Design</strong>. My journey began with a Bachelor's degree in Business and Computer Applications, where I discovered my interest in learning how technology can be used to transform and empower businesses.
+									</p>
+									
+									<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+										While learning about business, I realized the importance of customer satisfaction, and my learning interest started shifting more towards understanding how humans interact with technology so that it can be leveraged effectively to empower businesses.
+									</p>
+
+									<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+										During my previous employment as a <strong style="color: #1e40af;">UI/UX Developer</strong>, I have designed solutions that enhance not only the customer experience but also the overall business process, ensuring more profits for the business.
+									</p>
+									
+									<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 0;">
+										I have gained a deep understanding of how <strong style="color: #1e40af;">Business, Technology, and User-Centered Design</strong> work together during an entire product development lifecycle. In my free time, I enjoy creating digital art and exploring new places and cultures.
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
-					<!-- <a href="#three" class="goto-next scrolly">Next</a> -->
 				</section>
 
 			<!-- Three -->
@@ -267,41 +287,58 @@
 				</section> -->
 
 			<!-- Five -->
-			<section id="five" class="wrapper style1" style="background: #fff;">
-				<div class="container">
-					<header class="major">
-						<h2 style="color: #000; font-weight: 500;">Let’s Connect!</h2>
-						<p style="font-size: 1.2em; color: #000; font-weight: 500;"> 
-						<a href="#" class="icon solid alt fa-envelope pe-2"><span class="label">Email</span></a> sakshibankar4@gmail.com </p>
-						
-						<ul class="icons pt-2">
-							<li><a href="http://www.linkedin.com/in/sakshi-bankar-50523a18b" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							<!-- <li><a href="https://www.instagram.com/_sakshiii_._._?igsh=aGp2bnBpNGdlbzRz" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
-							<!-- <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li> -->
-							<!-- <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li> -->
-							<li><a href="https://medium.com/@sakshibankar4" class="icon brands alt fa-medium"><span class="label">Medium</span></a></li>
-	
-						</ul>
-					</header>
+			<section id="contact" class="wrapper style1" style="background-color: #1c1d26; background-image: url('images/banner.jpg'); background-position: center center; background-size: cover; background-attachment: fixed; padding: 6rem 0; position: relative; overflow: hidden;">
+				<!-- Dark Overlay -->
+				<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)); pointer-events: none; z-index: 0;"></div>
+				<!-- Background Pattern -->
+				<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 50%); pointer-events: none; z-index: 1;"></div>
+				
+				<div class="container" style="position: relative; z-index: 2; max-width: 900px;">
+					<div class="row justify-content-center">
+						<div class="col-12 text-center">
+							<!-- Header -->
+							<header class="contact-header" style="margin-bottom: 4rem;">
+								<h2 style="color: #fff; font-weight: 700; font-size: 2.8rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.2s both;">Let's Connect!</h2>
+								<p style="color: rgba(255, 255, 255, 0.7); font-size: 1.15rem; line-height: 1.6; max-width: 600px; margin: 0 auto; animation: fadeInUp 0.8s ease 0.4s both;">Ready to collaborate on your next design project? Let's create something amazing together.</p>
+							</header>
+
+							<!-- Contact Cards Grid -->
+							<div style="display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 580px; margin: 0 auto;">
+								<!-- Email Card - Full Width Clickable -->
+								<a href="mailto:sakshibankar4@gmail.com" class="contact-card email-card" style="display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.2rem 1.5rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15); animation: fadeInUp 0.8s ease 0.6s both;">
+									<div style="width: 34px; height: 34px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+										<span class="icon solid alt fa-envelope" style="font-size: 1rem; color: #fff;"><span class="label">Email</span></span>
+									</div>
+									<span style="font-weight: 600; font-size: 1rem;">sakshibankar4@gmail.com</span>
+								</a>
+
+								<!-- Social Links Grid -->
+								<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; animation: fadeInUp 0.8s ease 0.8s both;">
+									<a href="http://www.linkedin.com/in/sakshi-bankar-50523a18b" class="contact-card social-card" style="display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.2rem 1.5rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15);">
+										<div style="width: 34px; height: 34px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+											<span class="icon brands alt fa-linkedin" style="font-size: 1rem;"><span class="label">LinkedIn</span></span>
+										</div>
+										<span style="font-weight: 600; font-size: 1rem;">LinkedIn</span>
+									</a>
+									<a href="https://medium.com/@sakshibankar4" class="contact-card social-card" style="display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.2rem 1.5rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15);">
+										<div style="width: 34px; height: 34px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+											<span class="icon brands alt fa-medium" style="font-size: 1rem;"><span class="label">Medium</span></span>
+										</div>
+										<span style="font-weight: 600; font-size: 1rem;">Medium</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-		
-
 			<!-- Footer -->
-				<!-- <footer id="footer" style="background: #f8f9fa ; color: #000;"> -->
-					<!-- <ul class="icons">
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-						<li><a href="#" class="icon brands alt fa-medium"><span class="label">Medium</span></a></li>
-
-					</ul> -->
-					<!-- <ul class="copyright" style="color: #000;">
-						<li> @Sakshi Bankar - 2024</li>
-					</ul> -->
-				<!-- </footer> -->
+				<footer id="footer" style="background: #1c1d26; color: rgba(255, 255, 255, 0.7); padding: 2rem 0;">
+					<ul class="copyright" style="color: rgba(255, 255, 255, 0.7);">
+						<li>© Sakshi Bankar - 2024</li>
+					</ul>
+				</footer>
 
 		</div>
 
@@ -314,7 +351,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="assets/js/content-protection.js"></script>
 
 	</body>
 </html>

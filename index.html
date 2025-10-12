@@ -15,192 +15,189 @@
 		<link rel="stylesheet" href="assets/css/modern-styles.css" />
 		<link rel="stylesheet" href="assets/css/projects.css" />
 		<link rel="stylesheet" href="shared-header.css">
-		<link rel="stylesheet" href="assets/css/content-protection.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload landing">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
+				<header id="header" class="modern-header">
 					<h1 id="logo" style="height: 4rem;"><a href="index.html"> <img src="images\Sakshi-butterfly-logo-blue-removebg-preview.png" style="height: 3rem; width: auto; padding-top: 0.5rem;"></a></h1>
 					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<!-- <li><a href="#one">Projects</a></li> -->
-							<li><a href="About-me.html">About Me</a></li>
-							<li><a href="https://drive.google.com/file/d/1-NFPaQfxBqCdCZVw5FPlj1rWepN6k8Tj/view?usp=sharing" target= "_blank">Resume</a></li>
+						<ul style="display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0;">
+							<li><a href="index.html" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Home</a></li>
+							<li><a href="#projects" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Projects</a></li>
+							<li><a href="About-me.html" style="position: relative; font-weight: 500; transition: color 0.3s ease;">About Me</a></li>
+							<li><a href="https://drive.google.com/file/d/1-NFPaQfxBqCdCZVw5FPlj1rWepN6k8Tj/view?usp=sharing" target="_blank" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Resume</a></li>
 						</ul>
 					</nav>
 				</header>
 
-			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header style="width: 60%; font-style: italic;">
-							<h2>Hello, Its <a>Sakshi!</a> </h2>
-							<p style="font-weight: 400; color: #e0e0e0ff; font-style: italic;">I am a product designer with 3+ years of experience in building products that feel less complex, and more human.</p>
-								<ul class="icons pt-4">
-								<li><a href="http://www.linkedin.com/in/sakshi-bankar-50523a18b" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<!-- <li><a href="https://www.instagram.com/_sakshiii_._._?igsh=aGp2bnBpNGdlbzRz" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
-								<!-- <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li> -->
-								<!-- <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li> -->
-								<li><a href="https://medium.com/@sakshibankar4" class="icon brands alt fa-medium"><span class="label">Medium</span></a></li>
-		
+			<!-- Hero Section -->
+				<section id="banner" class="modern-hero">
+					<div class="content" style="max-width: 1200px; margin: 0 auto; padding: 0 3rem;">
+						<div class="hero-content-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center;">
+							<header class="hero-header">
+								<h2 style="font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s both;">
+									Hello, It's <span style="background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Sakshi!</span>
+								</h2>
+								<p style="font-size: 1.35rem; line-height: 1.7; color: rgba(255, 255, 255, 0.85); font-weight: 400; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease 0.4s both;">
+									I am a product designer with 3+ years of experience in building products that feel less complex, and more human.
+								</p>
+
+								<!-- CTA Buttons -->
+								<div class="hero-cta" style="display: flex; gap: 1rem; margin-bottom: 3rem; animation: fadeInUp 0.8s ease 0.6s both; flex-wrap: wrap; justify-content: center;">
+									<a href="#projects" class="cta-primary" style="display: inline-flex; align-items: center; gap: 0.7rem; padding: 1rem 2rem; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 12px; color: white; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);">
+										View My Work
+										<span style="font-size: 1.3rem;">→</span>
+									</a>
+									<a href="mailto:sakshibankar4@gmail.com" class="cta-secondary" style="display: inline-flex; align-items: center; gap: 0.7rem; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: white; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: all 0.3s ease;">
+										Get in Touch
+										<span class="icon solid alt fa-envelope" style="font-size: 1rem;"><span class="label">Email</span></span>
+									</a>
+								</div>
+
+								<!-- Social Links -->
+								<div class="hero-social" style="animation: fadeInUp 0.8s ease 0.8s both;">
+									<p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Connect with me</p>
+									<ul class="icons" style="display: flex; gap: 1rem; list-style: none; padding: 0; margin: 0; justify-content: center;">
+										<li>
+											<a href="http://www.linkedin.com/in/sakshi-bankar-50523a18b" class="icon brands alt fa-linkedin social-icon-modern" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; transition: all 0.3s ease;">
+												<span class="label">LinkedIn</span>
+											</a>
+										</li>
+										<li>
+											<a href="https://medium.com/@sakshibankar4" class="icon brands alt fa-medium social-icon-modern" style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; transition: all 0.3s ease;">
+												<span class="label">Medium</span>
+											</a>
+										</li>
 							</ul>
+								</div>
 						</header>
-						<!-- <span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
-						
+						</div>
 					</div>
 					
-				
-					
+					<!-- Scroll Indicator -->
+					<div class="scroll-indicator" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+						<a href="#projects" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+							<span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Scroll Down</span>
+							<span style="font-size: 1.5rem;">↓</span>
+						</a>
+					</div>
 				</section>
 
-			<!-- One -->
-				<section id="one" class="spotlight style1 bottom" style="background-color: rgb(249, 247, 247); box-shadow: none;">
-					
-					<!-- <span class="image fit main"><img src="images/pic02.jpg" alt="" /></span> -->
-					<div class="content">
-						<div class="container">
-							<div class="row">
-					<header>
-						<h2 style="color: #000; font-weight: 500; text-align: center; margin-bottom: 3rem;">Checkout My Work!</h2>
+			<!-- Projects Section -->
+				<section id="projects" class="wrapper style1" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%); padding: 5rem 0 6rem 0;">
+					<div class="container" style="max-width: 1300px;">
+						<header class="major" style="text-align: center; margin-bottom: 5rem;">
+
+							<h2 style="color: #1a202c; font-weight: 700; font-size: 2.8rem; margin-bottom: 0.8rem;">Checkout My Work!</h2>
 					</header>
-								<div class="col-md-6 col-sm-12 mb-5">
-									<div class="card mdc-elevation--z2" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										
-										<div class="row g-0">
-											<div class="col-8">
-												<!-- <div class="card-header">Geo-Fencing to Automate</div> -->
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">Optimization for Resort Cleaning Management</h5>
-												  <p class="card-text mb-3">Transformed a struggling cleaning management app through strategic QR code integration and UI redesign, resulting in improved operational efficiency and user satisfaction.</p>
-												  <a href="Resort-cleaning-management.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5rem;' class="px-2"> &#8594;</span></a>
-												</div>
-												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/geo-fencing-intro.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
+
+						<!-- Project 1: Resort Cleaning Management -->
+						<div class="project-showcase modern-project-card" style="margin-bottom: 5rem; background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.4s ease;">
+							<div class="row g-0 align-items-center">
+								<div class="col-lg-6 order-lg-1 order-2">
+									<div class="project-content" style="padding: 3.5rem 3rem;">
+										<div class="project-category" style="display: inline-block; background: linear-gradient(135deg, #e0f2fe, #dbeafe); color: #0369a1; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; padding: 0.4rem 1rem; border-radius: 6px;">UX/UI Design</div>
+										<h3 style="color: #0f172a; font-weight: 700; font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.02em;">Optimization for Resort Cleaning Management</h3>
+										<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">Transformed a cleaning management app through strategic QR code integration and UI redesign, resulting in improved operational efficiency and user satisfaction.</p>
+										<div class="project-tags" style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">Mobile App</span>
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">QR Integration</span>
 										</div>
-										
+										<a href="Resort-cleaning-management.html" class="project-link" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);">
+											View Case Study <span style="font-size: 1.2rem; transition: transform 0.3s ease;">→</span>
+										</a>
 									</div>
 								</div>
-								<div class="col-md-6 col-sm-12 mb-5">
-									<div class="card" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										
-										<div class="row g-0">
-											<div class="col-8">
-												<!-- <div class="card-header">UI/UX Design </div> -->
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">Mobile App Revamp for Workorder Management</h5>
-												  <p class="card-text mb-3">An app to manage kitchen equipment’s cleaning services provided to restaurants and other food establishments.</p>
-												  <a href="Filta-v2.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5em;' class="px-2">&#8594;</span></a>
-												</div>
-												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/filta-card.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
-										</div>
-										
+								<div class="col-lg-6 order-lg-2 order-1" style="padding: 0;">
+									<div class="project-image-wrapper" style="position: relative; height: 100%; min-height: 500px; overflow: hidden;">
+										<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent); pointer-events: none; z-index: 1; opacity: 0; transition: opacity 0.4s ease;"></div>
+										<img src="assets/css/images/resort-cleaning-project-thumbnail.png" alt="Resort Cleaning Management" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block;">
 									</div>
 								</div>
-								<div class="col-md-6 col-sm-12 mb-5">
-									<div class="card project-card" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										<div class="row g-0">
-											<div class="col-8">
-												<!-- <div class="card-header">UI/UX Design </div> -->
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">Designing for Logistics</h5>
-												  <p class="card-text mb-3">Designed UI solutions to monitor various logistic processes.</p>
-												  <a href="Logistic.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5em;' class="px-2">&#8594;</span></a>
-												</div>
-												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/logistic-card.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
-										</div>
-									  </div>
+							</div>
+						</div>
+										
+						<!-- Project 2: Workorder Management -->
+						<div class="project-showcase modern-project-card" style="margin-bottom: 5rem; background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.4s ease;">
+							<div class="row g-0 align-items-center">
+								<div class="col-lg-6 order-lg-1" style="padding: 0;">
+									<div class="project-image-wrapper" style="position: relative; height: 100%; min-height: 500px; overflow: hidden;">
+										<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent); pointer-events: none; z-index: 1; opacity: 0; transition: opacity 0.4s ease;"></div>
+										<img src="assets/css/images/filta-project-thumbnail.png" alt="Workorder Management" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block;">
+									</div>
 								</div>
-								<div class="col-md-6 col-sm-12 mb-5 d-none">
-									<div class="card" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										<div class="row g-0">
-											<div class="col-8">
-												<!-- <div class="card-header">UI/UX Design </div> -->
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">Redesigning eSaaS</h5>
-												  <p class="card-text mb-3">Redesigned a eSaaS software in an interactive Figma prototype with around 400 high-fidelity screens.</p>
-												  <a href="eSaas.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5em;' class="px-2">&#8594;</span></a>
-												</div>
-												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/esass-card.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
+								<div class="col-lg-6 order-lg-2">
+									<div class="project-content" style="padding: 3.5rem 3rem;">
+										<div class="project-category" style="display: inline-block; background: linear-gradient(135deg, #e0f2fe, #dbeafe); color: #0369a1; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; padding: 0.4rem 1rem; border-radius: 6px;">App Redesign</div>
+										<h3 style="color: #0f172a; font-weight: 700; font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.02em;">Mobile App Revamp for Workorder Management</h3>
+										<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">An app to manage kitchen equipment's cleaning services provided to restaurants and other food establishments.</p>
+										<div class="project-tags" style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">Enterprise</span>
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">B2B</span>
 										</div>
-									  </div>
+										<a href="Filta-v2.html" class="project-link" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);">
+											View Case Study <span style="font-size: 1.2rem; transition: transform 0.3s ease;">→</span>
+										</a>
+									</div>
 								</div>
-								<div class="col-md-6 col-sm-12 mb-5">
-									<div class="card" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										<div class="row g-0">
-											<div class="col-8">
-												<!-- <div class="card-header">UI/UX Design </div> -->
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">AI Integrated Gmail</h5>
-												  <p class="card-text mb-3">To automatically organize & view your e-mails in most efficient way!</p>
-												  <a href="AI-Gmail-v2.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5em;' class="px-2">&#8594;</span></a>
-												</div>
-												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/gmail-card.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
+							</div>
+						</div>
+
+						<!-- Project 3: Logistics -->
+						<div class="project-showcase modern-project-card" style="margin-bottom: 5rem; background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.4s ease;">
+							<div class="row g-0 align-items-center">
+								<div class="col-lg-6 order-lg-1 order-2">
+									<div class="project-content" style="padding: 3.5rem 3rem;">
+										<div class="project-category" style="display: inline-block; background: linear-gradient(135deg, #e0f2fe, #dbeafe); color: #0369a1; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; padding: 0.4rem 1rem; border-radius: 6px;">Dashboard Design</div>
+										<h3 style="color: #0f172a; font-weight: 700; font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.02em;">Designing for Logistics</h3>
+										<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">Designed UI solutions to monitor various logistic processes.</p>
+										<div class="project-tags" style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">Dashboard</span>
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">Analytics</span>
 										</div>
-									  </div>
+										<a href="Logistic.html" class="project-link" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);">
+											View Case Study <span style="font-size: 1.2rem; transition: transform 0.3s ease;">→</span>
+										</a>
+									</div>
 								</div>
-								<!-- <div class="col-md-6 col-sm-12 mb-5">s
-									<div class="card" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										<div class="row g-0">
-											<div class="col-8">
-												 <div class="card-header">Branding </div>
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">AuroSkills- Ed-tech Branding</h5>
-												  <p class="card-text mb-3">Designed an ed-tech brand which provides certification courses and placement calls.</p>
-												  <a href="edtech.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5em;' class="px-2">&#8594;</span></a>
-												</div>
-												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/auroskills-card.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
-										</div>
-									  </div>
+								<div class="col-lg-6 order-lg-2 order-1" style="padding: 0;">
+									<div class="project-image-wrapper" style="position: relative; height: 100%; min-height: 500px; overflow: hidden;">
+										<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent); pointer-events: none; z-index: 1; opacity: 0; transition: opacity 0.4s ease;"></div>
+										<img src="assets/css/images/logistic-project-thumbnail.png" alt="Logistics Design" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block;">
+									</div>
 								</div>
-								<div class="col-md-6 col-sm-12 mb-5">
-									<div class="card" style="background-color: #ffffff; color: #23232f; overflow: hidden;">
-										<div class="row g-0">
-											<div class="col-8">
-												<div class="card-header">Communication Design </div>
-												<div class="card-body">
-												  <h5 class="card-title" style="color: #23232f; font-weight: 500; font-size: 1.2rem;">Digital Marekting</h5>
-												  <p class="card-text mb-3">Advertisement Design, Digital Banners, Social Media Posts, Copywriting</p>
-												  <a href="comm-design.html" class="btn btn-outline-primary py-0"><span style='font-size:1.5em;' class="px-2">&#8594;</span></a>
-												</div>
+							</div>
+						</div>
 												
-											</div>
-											<div class="col-4 ps-0">
-												<img src="assets/css/images/comm-card.png" class="img-fluid rounded-end" style="height: 100%;width: 100%;">
-											</div>
+						<!-- Project 4: AI Gmail -->
+						<div class="project-showcase modern-project-card" style="background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05); transition: all 0.4s ease;">
+							<div class="row g-0 align-items-center">
+								<div class="col-lg-6 order-lg-1" style="padding: 0;">
+									<div class="project-image-wrapper" style="position: relative; height: 100%; min-height: 500px; overflow: hidden;">
+										<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent); pointer-events: none; z-index: 1; opacity: 0; transition: opacity 0.4s ease;"></div>
+										<img src="assets/css/images/email-project-thumbnail.png" alt="AI Gmail" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block;">
+									</div>
+								</div>
+								<div class="col-lg-6 order-lg-2">
+									<div class="project-content" style="padding: 3.5rem 3rem;">
+										<div class="project-category" style="display: inline-block; background: linear-gradient(135deg, #e0f2fe, #dbeafe); color: #0369a1; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; padding: 0.4rem 1rem; border-radius: 6px;">AI Integration</div>
+										<h3 style="color: #0f172a; font-weight: 700; font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.02em;">AI Integrated Gmail</h3>
+										<p style="color: #475569; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">To automatically organize & view your e-mails in most efficient way!</p>
+										<div class="project-tags" style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">AI/ML</span>
+											<span style="background: #f1f5f9; color: #475569; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0;">Productivity</span>
 										</div>
-									  </div>
-								</div> -->
+										<a href="AI-Gmail-v2.html" class="project-link" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);">
+											View Case Study <span style="font-size: 1.2rem; transition: transform 0.3s ease;">→</span>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<!-- <a href="#two" class="goto-next scrolly">Next</a> -->
 				</section>
 
 			<!-- Two -->
@@ -292,37 +289,57 @@
 					</div>
 				</section> -->
 
-			<!-- Five -->
-				<section id="five" class="wrapper style1" style="background: #fff;">
-					<div class="container">
-						<header class="major">
-							<h2 style="color: #000; font-weight: 500;">Let’s Connect!</h2>
-							<p style="font-size: 1.2em; color: #000; font-weight: 500;"><a href="#" class="icon solid alt fa-envelope pe-2"><span class="label">Email</span></a> <a href="mailto:sakshibankar4@gmail.com">sakshibankar4@gmail.com</a></p>
+			<!-- Contact Section -->
+				<section id="contact" class="wrapper style1" style="background-color: #1c1d26; background-image: url('images/banner.jpg'); background-position: center center; background-size: cover; background-attachment: fixed; padding: 6rem 0; position: relative; overflow: hidden;">
+					<!-- Dark Overlay -->
+					<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)); pointer-events: none; z-index: 0;"></div>
+					<!-- Background Pattern -->
+					<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 50%); pointer-events: none; z-index: 1;"></div>
+					
+					<div class="container" style="position: relative; z-index: 2; max-width: 900px;">
+						<div class="row justify-content-center">
+							<div class="col-12 text-center">
+								<!-- Header -->
+								<header class="contact-header" style="margin-bottom: 4rem;">
+									<h2 style="color: #fff; font-weight: 700; font-size: 2.8rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.2s both;">Let's Connect!</h2>
+									<p style="color: rgba(255, 255, 255, 0.7); font-size: 1.15rem; line-height: 1.6; max-width: 600px; margin: 0 auto; animation: fadeInUp 0.8s ease 0.4s both;">Ready to collaborate on your next design project? Let's create something amazing together.</p>
+								</header>
 
-                            <ul class="icons pt-2">
-                                <li><a href="http://www.linkedin.com/in/sakshi-bankar-50523a18b" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<!-- <li><a href="https://www.instagram.com/_sakshiii_._._?igsh=aGp2bnBpNGdlbzRz" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li> -->
-								<!-- <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li> -->
-								<!-- <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li> -->
-								<li><a href="https://medium.com/@sakshibankar4" class="icon brands alt fa-medium"><span class="label">Medium</span></a></li>
-		
-							</ul>
-						</header>
+								<!-- Contact Cards Grid -->
+								<div style="display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 580px; margin: 0 auto;">
+									<!-- Email Card - Full Width Clickable -->
+									<a href="mailto:sakshibankar4@gmail.com" class="contact-card email-card" style="display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.2rem 1.5rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15); animation: fadeInUp 0.8s ease 0.6s both;">
+										<div style="width: 34px; height: 34px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+											<span class="icon solid alt fa-envelope" style="font-size: 1rem; color: #fff;"><span class="label">Email</span></span>
+										</div>
+										<span style="font-weight: 600; font-size: 1rem;">sakshibankar4@gmail.com</span>
+									</a>
+
+									<!-- Social Links Grid -->
+									<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; animation: fadeInUp 0.8s ease 0.8s both;">
+										<a href="http://www.linkedin.com/in/sakshi-bankar-50523a18b" class="contact-card social-card" style="display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.2rem 1.5rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15);">
+											<div style="width: 34px; height: 34px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+												<span class="icon brands alt fa-linkedin" style="font-size: 1rem;"><span class="label">LinkedIn</span></span>
+											</div>
+											<span style="font-weight: 600; font-size: 1rem;">LinkedIn</span>
+										</a>
+										<a href="https://medium.com/@sakshibankar4" class="contact-card social-card" style="display: flex; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.2rem 1.5rem; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15);">
+											<div style="width: 34px; height: 34px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+												<span class="icon brands alt fa-medium" style="font-size: 1rem;"><span class="label">Medium</span></span>
+											</div>
+											<span style="font-weight: 600; font-size: 1rem;">Medium</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 
 			<!-- Footer -->
-				<footer id="footer" style="background: #f8f9fa ; color: #000;">
-					<!-- <ul class="icons">
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-						<li><a href="#" class="icon brands alt fa-medium"><span class="label">Medium</span></a></li>
-
-					</ul> -->
-					<ul class="copyright" style="color: #000;">
-						<li> @Sakshi Bankar - 2024</li>
+				<footer id="footer" style="background: #1c1d26; color: rgba(255, 255, 255, 0.7); padding: 2rem 0;">
+					<ul class="copyright" style="color: rgba(255, 255, 255, 0.7);">
+						<li>© Sakshi Bankar - 2024</li>
 					</ul>
 				</footer>
 
@@ -337,6 +354,5 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-<script src="assets/js/content-protection.js"></script> 
 	</body>
 </html>
