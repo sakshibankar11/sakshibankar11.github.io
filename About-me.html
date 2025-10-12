@@ -30,6 +30,10 @@
 							<li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target="_blank" style="position: relative; font-weight: 500; transition: color 0.3s ease;">Resume</a></li>
 						</ul>
 					</nav>
+					<!-- Mobile Menu Toggle -->
+					<button id="mobile-menu-toggle" style="display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0.5rem;">
+						<span class="icon solid fa-bars"></span>
+					</button>
 				</header>
 
 	
@@ -342,15 +346,61 @@
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		
+		<!-- Mobile Menu Script -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const mobileToggle = document.getElementById('mobile-menu-toggle');
+				const nav = document.getElementById('nav');
+				const body = document.body;
+				
+				// Create overlay element
+				const overlay = document.createElement('div');
+				overlay.className = 'mobile-menu-overlay';
+				body.appendChild(overlay);
+				
+				mobileToggle.addEventListener('click', function() {
+					nav.classList.toggle('active');
+					overlay.classList.toggle('active');
+					body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+				});
+				
+				// Close menu when clicking overlay
+				overlay.addEventListener('click', function() {
+					nav.classList.remove('active');
+					overlay.classList.remove('active');
+					body.style.overflow = '';
+				});
+				
+				// Close menu when clicking nav links
+				const navLinks = nav.querySelectorAll('a');
+				navLinks.forEach(link => {
+					link.addEventListener('click', function() {
+						nav.classList.remove('active');
+						overlay.classList.remove('active');
+						body.style.overflow = '';
+					});
+				});
+				
+				// Close menu on escape key
+				document.addEventListener('keydown', function(e) {
+					if (e.key === 'Escape' && nav.classList.contains('active')) {
+						nav.classList.remove('active');
+						overlay.classList.remove('active');
+						body.style.overflow = '';
+					}
+				});
+			});
+		</script>
 
 	</body>
 </html>
