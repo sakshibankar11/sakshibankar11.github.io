@@ -19,9 +19,9 @@ body {
   z-index: 1 !important;
 }
 
-/* Fix the dark overlay on hero section - darker for better contrast */
+/* Fix the dark overlay on hero section - match header color */
 #banner.modern-hero:after {
-  background: rgba(12, 13, 18, 0.92) !important;
+  background: rgba(28, 29, 38, 0.95) !important;
   background-image: none !important;
 }
 
@@ -42,22 +42,23 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-  animation: subtleFloat 20s ease-in-out infinite;
+  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 60%),
+              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 60%),
+              radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.15) 0%, transparent 60%);
+  animation: subtleFloat 15s ease-in-out infinite;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.8;
 }
 
 @keyframes subtleFloat {
   0%, 100% {
-    opacity: 1;
+    opacity: 0.6;
     transform: translateY(0px) scale(1);
   }
   50% {
-    opacity: 0.8;
-    transform: translateY(-10px) scale(1.02);
+    opacity: 1;
+    transform: translateY(-15px) scale(1.05);
   }
 }
 
@@ -489,9 +490,9 @@ i.fas, i.far, i.fab {
     position: relative !important;
   }
   
-  /* Darker overlay on mobile for better contrast */
+  /* Match header color on mobile */
   #banner.modern-hero:after {
-    background: rgba(12, 13, 18, 0.88) !important;
+    background: rgba(28, 29, 38, 0.92) !important;
     background-image: none !important;
   }
   
@@ -723,9 +724,9 @@ i.fas, i.far, i.fab {
     min-height: calc(100vh - 4rem) !important;
   }
   
-  /* Darker overlay for tablet */
+  /* Match header color for tablet */
   #banner.modern-hero:after {
-    background: rgba(12, 13, 18, 0.9) !important;
+    background: rgba(28, 29, 38, 0.93) !important;
     background-image: none !important;
   }
   
