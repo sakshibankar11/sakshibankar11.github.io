@@ -49,7 +49,7 @@ body {
   pointer-events: none;
 }
 
-/* 3D shapes container */
+/* 3D shapes container - allow overflow */
 #banner.modern-hero .particles {
   position: absolute;
   top: 0;
@@ -58,71 +58,72 @@ body {
   bottom: 0;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
-  perspective: 1000px;
+  overflow: visible;
+  perspective: 2000px;
 }
 
-/* Large 3D cube - top left */
+/* Massive 3D hexagon - overflowing top left */
 #banner.modern-hero .particles::before {
   content: '';
   position: absolute;
-  top: 8%;
-  left: 5%;
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 24px;
+  top: -15%;
+  left: -8%;
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   box-shadow: 
-    0 0 60px rgba(255, 255, 255, 0.1),
-    inset 0 0 40px rgba(255, 255, 255, 0.03);
-  animation: float3DCube 12s ease-in-out infinite;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    0 0 100px rgba(255, 255, 255, 0.15),
+    inset 0 0 80px rgba(255, 255, 255, 0.05);
+  animation: floatMassiveHex 16s ease-in-out infinite;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  filter: blur(0.5px);
 }
 
-/* Large 3D diamond - bottom right */
+/* Giant circle - overflowing bottom right */
 #banner.modern-hero .particles::after {
   content: '';
   position: absolute;
-  bottom: 10%;
-  right: 8%;
-  width: 220px;
-  height: 220px;
-  background: linear-gradient(225deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.12);
+  bottom: -20%;
+  right: -12%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   box-shadow: 
-    0 0 70px rgba(255, 255, 255, 0.12),
-    inset 0 0 50px rgba(255, 255, 255, 0.04);
-  animation: float3DDiamond 14s ease-in-out infinite;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    0 0 120px rgba(255, 255, 255, 0.14),
+    inset 0 0 100px rgba(255, 255, 255, 0.04);
+  animation: floatGiantCircle 18s ease-in-out infinite;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  filter: blur(0.5px);
 }
 
-@keyframes float3DCube {
+@keyframes floatMassiveHex {
   0%, 100% {
     transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    opacity: 0.7;
+    opacity: 0.75;
   }
   33% {
-    transform: translate3d(-20px, -30px, 50px) rotateX(15deg) rotateY(15deg) rotateZ(5deg);
+    transform: translate3d(-30px, -40px, 80px) rotateX(20deg) rotateY(25deg) rotateZ(15deg);
     opacity: 1;
   }
   66% {
-    transform: translate3d(10px, -15px, 30px) rotateX(-10deg) rotateY(-10deg) rotateZ(-3deg);
-    opacity: 0.85;
+    transform: translate3d(20px, -25px, 50px) rotateX(-15deg) rotateY(-20deg) rotateZ(-10deg);
+    opacity: 0.88;
   }
 }
 
-@keyframes float3DDiamond {
+@keyframes floatGiantCircle {
   0%, 100% {
-    transform: translate3d(0, 0, 0) rotateZ(0deg) scale(1);
-    opacity: 0.65;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
   }
   50% {
-    transform: translate3d(25px, 20px, 40px) rotateZ(180deg) scale(1.15);
+    transform: translate3d(40px, 35px, 60px) scale(1.08);
     opacity: 0.95;
   }
 }
@@ -153,7 +154,7 @@ body {
   overflow: hidden;
 }
 
-/* Additional 3D geometric shapes */
+/* Additional massive shapes - allow overflow */
 #banner.modern-hero .geometric-shapes {
   position: absolute;
   top: 0;
@@ -162,94 +163,70 @@ body {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  perspective: 1200px;
+  perspective: 2000px;
+  overflow: visible;
 }
 
-/* Large 3D hexagon - top right */
+/* Huge 3D cube - overflowing top right */
 #banner.modern-hero .geometric-shapes::before {
   content: '';
   position: absolute;
-  top: 12%;
-  right: 10%;
-  width: 180px;
-  height: 180px;
-  background: linear-gradient(60deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.13);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  top: -18%;
+  right: -10%;
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.17);
+  border-radius: 40px;
   box-shadow: 
-    0 0 65px rgba(255, 255, 255, 0.11),
-    inset 0 0 45px rgba(255, 255, 255, 0.04);
-  animation: float3DHexagon 13s ease-in-out infinite;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    0 0 110px rgba(255, 255, 255, 0.16),
+    inset 0 0 90px rgba(255, 255, 255, 0.06);
+  animation: floatHugeCube 20s ease-in-out infinite;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  filter: blur(0.5px);
 }
 
-/* Large 3D octagon - middle left */
-#banner.modern-hero .geometric-shapes::after {
-  content: '';
-  position: absolute;
-  top: 48%;
-  left: 6%;
-  width: 190px;
-  height: 190px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.14);
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  box-shadow: 
-    0 0 55px rgba(255, 255, 255, 0.1),
-    inset 0 0 35px rgba(255, 255, 255, 0.05);
-  animation: float3DOctagon 15s ease-in-out infinite;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-/* Bright white glow behind content */
+/* Subtle white glow behind content */
 #banner.modern-hero .content::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 65%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
   border-radius: 50%;
-  animation: glowPulse3D 9s ease-in-out infinite;
+  animation: glowPulse3D 10s ease-in-out infinite;
   z-index: -1;
   pointer-events: none;
-  filter: blur(40px);
+  filter: blur(50px);
 }
 
-@keyframes float3DHexagon {
+@keyframes floatHugeCube {
   0%, 100% {
-    transform: translate3d(0, 0, 0) rotateX(0deg) rotateZ(0deg);
-    opacity: 0.7;
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0.78;
   }
-  50% {
-    transform: translate3d(-15px, -25px, 60px) rotateX(30deg) rotateZ(60deg);
+  33% {
+    transform: translate3d(35px, -45px, 90px) rotateX(25deg) rotateY(30deg) rotateZ(12deg);
     opacity: 1;
   }
-}
-
-@keyframes float3DOctagon {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotateY(0deg) rotateZ(0deg);
-    opacity: 0.75;
-  }
-  50% {
-    transform: translate3d(20px, -20px, 50px) rotateY(45deg) rotateZ(45deg);
-    opacity: 1;
+  66% {
+    transform: translate3d(-25px, -30px, 60px) rotateX(-18deg) rotateY(-25deg) rotateZ(-8deg);
+    opacity: 0.9;
   }
 }
 
 @keyframes glowPulse3D {
   0%, 100% {
-    opacity: 0.5;
+    opacity: 0.6;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.9;
-    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
   }
 }
 
@@ -671,33 +648,26 @@ i.fas, i.far, i.fab {
     -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
   }
   
-  /* Scale down white shapes for mobile */
+  /* Scale down massive shapes for mobile */
   #banner.modern-hero .particles::before {
-    width: 80px;
-    height: 80px;
-    top: 8%;
-    left: 5%;
+    width: 280px;
+    height: 280px;
+    top: -10%;
+    left: -12%;
   }
   
   #banner.modern-hero .particles::after {
-    width: 100px;
-    height: 100px;
-    bottom: 12%;
-    right: 6%;
+    width: 300px;
+    height: 300px;
+    bottom: -15%;
+    right: -15%;
   }
   
   #banner.modern-hero .geometric-shapes::before {
-    width: 70px;
-    height: 70px;
-    top: 18%;
-    right: 8%;
-  }
-  
-  #banner.modern-hero .geometric-shapes::after {
-    width: 90px;
-    height: 60px;
-    top: 48%;
-    left: 5%;
+    width: 260px;
+    height: 260px;
+    top: -12%;
+    right: -13%;
   }
   
   #banner.modern-hero .content::before {
@@ -947,33 +917,26 @@ i.fas, i.far, i.fab {
     -webkit-backdrop-filter: blur(13px) saturate(180%) !important;
   }
   
-  /* Scale white shapes for tablet */
+  /* Scale massive shapes for tablet */
   #banner.modern-hero .particles::before {
-    width: 100px;
-    height: 100px;
-    top: 9%;
-    left: 6%;
+    width: 350px;
+    height: 350px;
+    top: -12%;
+    left: -10%;
   }
   
   #banner.modern-hero .particles::after {
-    width: 120px;
-    height: 120px;
-    bottom: 13%;
-    right: 8%;
+    width: 380px;
+    height: 380px;
+    bottom: -18%;
+    right: -14%;
   }
   
   #banner.modern-hero .geometric-shapes::before {
-    width: 85px;
-    height: 85px;
-    top: 16%;
-    right: 12%;
-  }
-  
-  #banner.modern-hero .geometric-shapes::after {
-    width: 110px;
-    height: 75px;
-    top: 48%;
-    left: 6%;
+    width: 330px;
+    height: 330px;
+    top: -14%;
+    right: -12%;
   }
   
   #banner.modern-hero .content::before {
