@@ -99,14 +99,14 @@ body {
   pointer-events: none;
 }
 
-/* Bottom Shape: Square - Bottom Center */
+/* Bottom Shape: Rectangle - Bottom Center */
 #banner.modern-hero .bottom-shape-center {
   position: absolute;
   bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 350px;
-  height: 350px;
+  width: 480px;
+  height: 280px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.015) 100%);
   border: 3px solid rgba(255, 255, 255, 0.14);
   border-radius: 25px;
