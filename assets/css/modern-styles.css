@@ -19,9 +19,9 @@ body {
   z-index: 1 !important;
 }
 
-/* Fix the dark overlay on hero section */
+/* Fix the dark overlay on hero section - darker for better contrast */
 #banner.modern-hero:after {
-  background: rgba(23, 24, 32, 0.85) !important;
+  background: rgba(12, 13, 18, 0.92) !important;
   background-image: none !important;
 }
 
@@ -32,6 +32,33 @@ body {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   position: relative !important;
+}
+
+/* Add subtle animated background effects */
+#banner.modern-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+  animation: subtleFloat 20s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.02);
+  }
 }
 
 /* Ensure content is always visible and properly layered */
@@ -228,14 +255,19 @@ i.fas, i.far, i.fab {
 }
 
 /* Hero CTA Buttons */
+.cta-primary {
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.1) !important;
+}
+
 .cta-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4), 0 0 30px rgba(59, 130, 246, 0.2) !important;
 }
 
 .cta-secondary:hover {
   background: rgba(255, 255, 255, 0.2) !important;
   transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Hero Social Icons */
@@ -457,9 +489,9 @@ i.fas, i.far, i.fab {
     position: relative !important;
   }
   
-  /* Remove the dark overlay on mobile for cleaner look */
+  /* Darker overlay on mobile for better contrast */
   #banner.modern-hero:after {
-    background: rgba(23, 24, 32, 0.75) !important;
+    background: rgba(12, 13, 18, 0.88) !important;
     background-image: none !important;
   }
   
@@ -691,9 +723,9 @@ i.fas, i.far, i.fab {
     min-height: calc(100vh - 4rem) !important;
   }
   
-  /* Adjust overlay for tablet */
+  /* Darker overlay for tablet */
   #banner.modern-hero:after {
-    background: rgba(23, 24, 32, 0.8) !important;
+    background: rgba(12, 13, 18, 0.9) !important;
     background-image: none !important;
   }
   
