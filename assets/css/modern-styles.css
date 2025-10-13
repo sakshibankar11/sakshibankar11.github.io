@@ -34,7 +34,7 @@ body {
   position: relative !important;
 }
 
-/* Add subtle animated background effects */
+/* Add animated background effects */
 #banner.modern-hero::before {
   content: '';
   position: absolute;
@@ -42,23 +42,57 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 60%),
-              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 60%),
-              radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.15) 0%, transparent 60%);
-  animation: subtleFloat 15s ease-in-out infinite;
+  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.25) 0%, transparent 60%),
+              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.25) 0%, transparent 60%),
+              radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.2) 0%, transparent 60%);
+  animation: gradientFloat 12s ease-in-out infinite;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-@keyframes subtleFloat {
+/* Floating particles animation */
+#banner.modern-hero .particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(59, 130, 246, 0.4), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(139, 92, 246, 0.5), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(236, 72, 153, 0.4), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: particleFloat 20s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes gradientFloat {
   0%, 100% {
-    opacity: 0.6;
-    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+    transform: translateY(0px) scale(1) rotate(0deg);
   }
-  50% {
+  33% {
     opacity: 1;
-    transform: translateY(-15px) scale(1.05);
+    transform: translateY(-20px) scale(1.1) rotate(1deg);
+  }
+  66% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(0.95) rotate(-1deg);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0px);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px);
   }
 }
 
@@ -80,6 +114,64 @@ body {
 #banner.modern-hero .hero-social {
   position: relative !important;
   z-index: 11 !important;
+}
+
+/* Additional animated geometric shapes */
+#banner.modern-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geometric rotating shapes */
+#banner.modern-hero .geometric-shapes {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(45deg, transparent 40%, rgba(59, 130, 246, 0.1) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(139, 92, 246, 0.1) 50%, transparent 60%);
+  animation: geometricRotate 25s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Pulsing glow effect */
+#banner.modern-hero .content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseGlow 8s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes geometricRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
 }
 
 /* Projects section should start after hero */
@@ -497,6 +589,23 @@ i.fas, i.far, i.fab {
     background-image: none !important;
   }
   
+  /* Optimize animations for mobile performance */
+  #banner.modern-hero .particles {
+    opacity: 0.3;
+    animation-duration: 25s;
+  }
+  
+  #banner.modern-hero .geometric-shapes {
+    opacity: 0.2;
+    animation-duration: 30s;
+  }
+  
+  #banner.modern-hero .content::before {
+    width: 400px;
+    height: 400px;
+    opacity: 0.4;
+  }
+  
   /* Fix mobile background scrolling */
   #banner.modern-hero {
     background-attachment: scroll !important;
@@ -729,6 +838,23 @@ i.fas, i.far, i.fab {
   #banner.modern-hero:after {
     background: rgba(12, 13, 18, 0.9) !important;
     background-image: none !important;
+  }
+  
+  /* Optimize animations for tablet */
+  #banner.modern-hero .particles {
+    opacity: 0.4;
+    animation-duration: 22s;
+  }
+  
+  #banner.modern-hero .geometric-shapes {
+    opacity: 0.3;
+    animation-duration: 27s;
+  }
+  
+  #banner.modern-hero .content::before {
+    width: 500px;
+    height: 500px;
+    opacity: 0.5;
   }
   
   /* Fix tablet background scrolling */
