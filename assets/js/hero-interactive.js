@@ -19,22 +19,22 @@ document.addEventListener('DOMContentLoaded', function() {
         perspective: 2500px;
     `;
     
-    // Define 2 sophisticated shapes - 30% smaller, 35-40% overflow
+    // Define 2 sophisticated shapes - positioned around edges, 40-60% visible
     const shapes = [
-        // Large triangle - overflowing from left (30% smaller, 38% overflow)
+        // Triangle - left edge, 60% visible
         { 
             size: 385, 
-            top: '30%', 
-            left: '-38%',
+            top: '25%', 
+            left: '-60%',
             type: 'triangle',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
             rotation: -35
         },
-        // Large rounded square - overflowing from bottom (30% smaller, 40% overflow)
+        // Square - bottom edge, 40% visible
         { 
             size: 336, 
             bottom: '-40%', 
-            left: '28%',
+            left: '35%',
             type: 'square',
             clipPath: null,
             rotation: 20
@@ -203,28 +203,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const strength = Math.max(0, 1 - distance / maxDistance);
             
             if (strength > 0) {
-                // Enhanced parallax with orbital movement
+                // Subtle parallax with gentle movement
                 const angle = Math.atan2(deltaY, deltaX);
-                const orbitX = Math.cos(angle) * strength * 60;
-                const orbitY = Math.sin(angle) * strength * 60;
+                const orbitX = Math.cos(angle) * strength * 25;
+                const orbitY = Math.sin(angle) * strength * 25;
                 const moveX = -orbitX;
                 const moveY = -orbitY;
-                const moveZ = strength * 140; // Deeper 3D effect
+                const moveZ = strength * 50; // Gentle depth
                 
-                // Sophisticated 3D rotation with spin
-                const rotateX = (deltaY / rect.height) * strength * 40;
-                const rotateY = -(deltaX / rect.width) * strength * 40;
+                // Gentle 3D rotation
+                const rotateX = (deltaY / rect.height) * strength * 15;
+                const rotateY = -(deltaX / rect.width) * strength * 15;
                 const baseRotation = index === 0 ? -35 : 20;
-                const rotateZ = baseRotation + (strength * 45) + ((deltaX - deltaY) / rect.width) * strength * 25;
+                const rotateZ = baseRotation + (strength * 12) + ((deltaX - deltaY) / rect.width) * strength * 8;
                 
-                // Dynamic scale with pulse
-                const scale = 1 + (strength * 0.22);
+                // Subtle scale
+                const scale = 1 + (strength * 0.08);
                 
-                // Enhanced visuals with stronger effects
-                const opacity = 0.75 + (strength * 0.25);
-                const borderOpacity = 0.16 + (strength * 0.18);
-                const glowSize = 120 + (strength * 140);
-                const glowOpacity = 0.15 + (strength * 0.2);
+                // Gentle visual enhancements
+                const opacity = 0.75 + (strength * 0.15);
+                const borderOpacity = 0.16 + (strength * 0.08);
+                const glowSize = 120 + (strength * 60);
+                const glowOpacity = 0.15 + (strength * 0.1);
                 
                 // Apply sophisticated transform
                 shape.style.transform = `
@@ -248,22 +248,22 @@ document.addEventListener('DOMContentLoaded', function() {
         animationFrameId = requestAnimationFrame(smoothParallax);
     }
     
-    // Enhanced parallax for entire container with orbit effect
+    // Subtle parallax for entire container
     heroSection.addEventListener('mousemove', function(e) {
         const rect = heroSection.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
         
-        // Circular motion based on mouse position
+        // Gentle circular motion
         const angle = Math.atan2(y, x);
         const distance = Math.sqrt(x * x + y * y);
-        const orbitAmount = distance * 15;
+        const orbitAmount = distance * 5;
         
         shapesContainer.style.transform = `
-            rotateY(${x * 4}deg) 
-            rotateX(${-y * 4}deg)
-            translateZ(${20 + orbitAmount}px)
-            rotate(${angle * 2}rad)
+            rotateY(${x * 1.5}deg) 
+            rotateX(${-y * 1.5}deg)
+            translateZ(${10 + orbitAmount}px)
+            rotate(${angle * 0.3}rad)
         `;
     });
 });
