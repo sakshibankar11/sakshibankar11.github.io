@@ -1,10 +1,10 @@
-// Interactive white shapes that react to mouse movement
+// Interactive 3D geometric shapes that react to mouse movement
 document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.querySelector('#banner.modern-hero');
     
     if (!heroSection) return;
     
-    // Create additional interactive white shapes
+    // Create container for interactive 3D shapes
     const shapesContainer = document.createElement('div');
     shapesContainer.className = 'interactive-shapes';
     shapesContainer.style.cssText = `
@@ -16,42 +16,88 @@ document.addEventListener('DOMContentLoaded', function() {
         z-index: 3;
         pointer-events: none;
         overflow: hidden;
+        perspective: 1500px;
     `;
     
-    // Create multiple white shapes
+    // Define modern 3D geometric shapes
     const shapes = [
-        { size: 80, top: '25%', left: '20%', type: 'circle' },
-        { size: 60, top: '65%', left: '80%', type: 'circle' },
-        { size: 100, top: '40%', right: '25%', type: 'square' },
-        { size: 70, top: '75%', left: '15%', type: 'square' },
-        { size: 90, top: '30%', right: '8%', type: 'rectangle' },
-        { size: 110, top: '60%', right: '35%', type: 'circle' }
+        // Large pentagon - top center
+        { 
+            size: 160, 
+            top: '15%', 
+            left: '50%', 
+            translateX: '-50%',
+            type: 'pentagon',
+            clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)'
+        },
+        // Large triangle - bottom left
+        { 
+            size: 180, 
+            top: '70%', 
+            left: '18%', 
+            type: 'triangle',
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
+        },
+        // Medium star - middle right
+        { 
+            size: 140, 
+            top: '40%', 
+            right: '15%', 
+            type: 'star',
+            clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
+        },
+        // Large parallelogram - top right corner
+        { 
+            size: 150, 
+            top: '8%', 
+            right: '5%', 
+            type: 'parallelogram',
+            clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)'
+        },
+        // Medium trapezoid - bottom right
+        { 
+            size: 130, 
+            top: '65%', 
+            right: '8%', 
+            type: 'trapezoid',
+            clipPath: 'polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)'
+        },
+        // Large rounded square - middle center-left
+        { 
+            size: 170, 
+            top: '45%', 
+            left: '25%', 
+            type: 'roundedSquare',
+            clipPath: null // Will use border-radius
+        }
     ];
     
     shapes.forEach((shapeData, index) => {
         const shape = document.createElement('div');
-        shape.className = `white-shape shape-${index}`;
+        shape.className = `shape-3d shape-${index}`;
+        shape.dataset.shapeIndex = index;
         
-        const isCircle = shapeData.type === 'circle';
-        const isRectangle = shapeData.type === 'rectangle';
-        const width = isRectangle ? shapeData.size * 1.4 : shapeData.size;
-        const height = isRectangle ? shapeData.size * 0.7 : shapeData.size;
+        const size = shapeData.size;
         
         shape.style.cssText = `
             position: absolute;
-            width: ${width}px;
-            height: ${height}px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1.5px solid rgba(255, 255, 255, 0.1);
-            border-radius: ${isCircle ? '50%' : '12px'};
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.06);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            ${shapeData.top ? 'top: ' + shapeData.top : ''};
-            ${shapeData.left ? 'left: ' + shapeData.left : ''};
-            ${shapeData.right ? 'right: ' + shapeData.right : ''};
-            animation: floatShape${index} ${8 + index}s ease-in-out infinite;
-            animation-delay: ${index * 0.5}s;
-            transform: rotate(${index * 10}deg);
+            width: ${size}px;
+            height: ${size}px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            ${shapeData.clipPath ? 'clip-path: ' + shapeData.clipPath + ';' : 'border-radius: 28px;'}
+            box-shadow: 
+                0 0 60px rgba(255, 255, 255, 0.12),
+                inset 0 0 40px rgba(255, 255, 255, 0.04);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            ${shapeData.top ? 'top: ' + shapeData.top + ';' : ''}
+            ${shapeData.left ? 'left: ' + shapeData.left + ';' : ''}
+            ${shapeData.right ? 'right: ' + shapeData.right + ';' : ''}
+            ${shapeData.translateX ? 'transform: translateX(' + shapeData.translateX + ');' : ''}
+            animation: float3DShape${index} ${10 + index * 2}s ease-in-out infinite;
+            animation-delay: ${index * 0.8}s;
+            transform-style: preserve-3d;
+            backdrop-filter: blur(2px);
         `;
         
         shapesContainer.appendChild(shape);
@@ -59,51 +105,60 @@ document.addEventListener('DOMContentLoaded', function() {
     
     heroSection.appendChild(shapesContainer);
     
-    // Add animation keyframes dynamically
+    // Add dynamic animation keyframes for each shape
     const styleSheet = document.createElement('style');
-    styleSheet.textContent = `
-        @keyframes floatShape0 {
-            0%, 100% { transform: rotate(0deg) translate(0, 0); opacity: 0.5; }
-            50% { transform: rotate(10deg) translate(-20px, -15px); opacity: 0.8; }
-        }
-        @keyframes floatShape1 {
-            0%, 100% { transform: rotate(15deg) translate(0, 0); opacity: 0.6; }
-            50% { transform: rotate(-5deg) translate(15px, 20px); opacity: 0.9; }
-        }
-        @keyframes floatShape2 {
-            0%, 100% { transform: rotate(-10deg) translate(0, 0); opacity: 0.4; }
-            50% { transform: rotate(5deg) translate(-10px, 25px); opacity: 0.7; }
-        }
-        @keyframes floatShape3 {
-            0%, 100% { transform: rotate(20deg) translate(0, 0); opacity: 0.55; }
-            50% { transform: rotate(30deg) translate(18px, -12px); opacity: 0.85; }
-        }
-        @keyframes floatShape4 {
-            0%, 100% { transform: rotate(-15deg) translate(0, 0); opacity: 0.5; }
-            50% { transform: rotate(-25deg) translate(-15px, -20px); opacity: 0.8; }
-        }
-        @keyframes floatShape5 {
-            0%, 100% { transform: rotate(5deg) translate(0, 0); opacity: 0.45; }
-            50% { transform: rotate(15deg) translate(12px, 18px); opacity: 0.75; }
-        }
-    `;
+    let keyframesCSS = '';
+    
+    shapes.forEach((_, index) => {
+        keyframesCSS += `
+            @keyframes float3DShape${index} {
+                0%, 100% { 
+                    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                    opacity: 0.7;
+                }
+                33% { 
+                    transform: translate3d(${-15 + index * 5}px, ${-20 - index * 3}px, ${40 + index * 10}px) 
+                               rotateX(${15 + index * 5}deg) 
+                               rotateY(${10 + index * 5}deg) 
+                               rotateZ(${index * 10}deg);
+                    opacity: 1;
+                }
+                66% { 
+                    transform: translate3d(${10 - index * 3}px, ${-10 + index * 2}px, ${30 + index * 5}px) 
+                               rotateX(${-10 - index * 3}deg) 
+                               rotateY(${-15 + index * 3}deg) 
+                               rotateZ(${-index * 8}deg);
+                    opacity: 0.85;
+                }
+            }
+        `;
+    });
+    
+    styleSheet.textContent = keyframesCSS;
     document.head.appendChild(styleSheet);
     
-    // Mouse move interaction
+    // Enhanced mouse interaction with 3D transforms
     let mouseX = 0;
     let mouseY = 0;
     let isHovering = false;
+    let animationFrameId = null;
     
     heroSection.addEventListener('mouseenter', function() {
         isHovering = true;
+        startMouseTracking();
     });
     
     heroSection.addEventListener('mouseleave', function() {
         isHovering = false;
-        // Reset shapes to original position
-        const allShapes = shapesContainer.querySelectorAll('.white-shape');
+        cancelAnimationFrame(animationFrameId);
+        
+        // Smoothly reset all shapes
+        const allShapes = shapesContainer.querySelectorAll('.shape-3d');
         allShapes.forEach(shape => {
-            shape.style.transform = shape.style.transform.replace(/translate3d\([^)]+\)/, '');
+            shape.style.transform = '';
+            shape.style.opacity = '';
+            shape.style.borderColor = '';
+            shape.style.boxShadow = '';
         });
     });
     
@@ -113,47 +168,86 @@ document.addEventListener('DOMContentLoaded', function() {
         const rect = heroSection.getBoundingClientRect();
         mouseX = e.clientX - rect.left;
         mouseY = e.clientY - rect.top;
+    });
+    
+    function startMouseTracking() {
+        if (!isHovering) return;
         
+        const rect = heroSection.getBoundingClientRect();
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        const allShapes = shapesContainer.querySelectorAll('.white-shape');
+        const allShapes = shapesContainer.querySelectorAll('.shape-3d');
         
         allShapes.forEach((shape, index) => {
             const shapeRect = shape.getBoundingClientRect();
             const shapeCenterX = shapeRect.left + shapeRect.width / 2 - rect.left;
             const shapeCenterY = shapeRect.top + shapeRect.height / 2 - rect.top;
             
-            // Calculate distance from mouse to shape
+            // Calculate vector from mouse to shape center
             const deltaX = mouseX - shapeCenterX;
             const deltaY = mouseY - shapeCenterY;
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
             
-            // Parallax effect - shapes move away from cursor
-            const maxDistance = 300;
+            // Maximum interaction distance
+            const maxDistance = 400;
             const strength = Math.max(0, 1 - distance / maxDistance);
             
-            const moveX = -deltaX * strength * 0.3;
-            const moveY = -deltaY * strength * 0.3;
-            
-            // Scale and brighten on proximity
-            const scale = 1 + (strength * 0.2);
-            const brightness = 0.6 + (strength * 0.4);
-            
-            // Apply transform
-            const currentRotation = index * 10;
-            shape.style.transform = `
-                rotate(${currentRotation + (strength * 5)}deg) 
-                translate3d(${moveX}px, ${moveY}px, 0) 
-                scale(${scale})
-            `;
-            shape.style.opacity = brightness;
-            shape.style.borderColor = `rgba(255, 255, 255, ${0.1 + strength * 0.2})`;
-            shape.style.boxShadow = `0 0 ${30 + strength * 40}px rgba(255, 255, 255, ${0.06 + strength * 0.15})`;
+            if (strength > 0) {
+                // 3D parallax movement - shapes move away from cursor
+                const moveX = -deltaX * strength * 0.4;
+                const moveY = -deltaY * strength * 0.4;
+                const moveZ = strength * 80; // Depth effect
+                
+                // 3D rotation based on mouse position
+                const rotateX = (deltaY / rect.height) * strength * 25;
+                const rotateY = -(deltaX / rect.width) * strength * 25;
+                const rotateZ = ((deltaX - deltaY) / rect.width) * strength * 15;
+                
+                // Scale effect
+                const scale = 1 + (strength * 0.25);
+                
+                // Brightness and glow
+                const opacity = 0.7 + (strength * 0.3);
+                const borderOpacity = 0.15 + (strength * 0.25);
+                const glowIntensity = 60 + (strength * 80);
+                const glowOpacity = 0.12 + (strength * 0.2);
+                
+                // Apply 3D transform
+                shape.style.transform = `
+                    translate3d(${moveX}px, ${moveY}px, ${moveZ}px) 
+                    rotateX(${rotateX}deg) 
+                    rotateY(${rotateY}deg) 
+                    rotateZ(${rotateZ}deg)
+                    scale(${scale})
+                `;
+                
+                // Apply visual effects
+                shape.style.opacity = opacity;
+                shape.style.borderColor = `rgba(255, 255, 255, ${borderOpacity})`;
+                shape.style.boxShadow = `
+                    0 0 ${glowIntensity}px rgba(255, 255, 255, ${glowOpacity}),
+                    inset 0 0 ${40 + strength * 30}px rgba(255, 255, 255, ${0.04 + strength * 0.06})
+                `;
+            }
         });
+        
+        animationFrameId = requestAnimationFrame(startMouseTracking);
+    }
+    
+    // Add subtle parallax effect to the entire section
+    heroSection.addEventListener('mousemove', function(e) {
+        const rect = heroSection.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        
+        shapesContainer.style.transform = `
+            rotateY(${x * 2}deg) 
+            rotateX(${-y * 2}deg)
+        `;
     });
     
-    // Add hover effect to hero section itself
-    heroSection.style.transition = 'backdrop-filter 0.3s ease';
+    heroSection.addEventListener('mouseleave', function() {
+        shapesContainer.style.transform = '';
+    });
 });
-

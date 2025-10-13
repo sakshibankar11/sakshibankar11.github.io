@@ -36,7 +36,7 @@ body {
   position: relative !important;
 }
 
-/* Subtle background layer */
+/* Deep black background layer */
 #banner.modern-hero::before {
   content: '';
   position: absolute;
@@ -49,7 +49,7 @@ body {
   pointer-events: none;
 }
 
-/* Interactive white shapes container */
+/* 3D shapes container */
 #banner.modern-hero .particles {
   position: absolute;
   top: 0;
@@ -59,59 +59,71 @@ body {
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
+  perspective: 1000px;
 }
 
-/* White circle shape 1 - top left */
+/* Large 3D cube - top left */
 #banner.modern-hero .particles::before {
   content: '';
   position: absolute;
-  top: 10%;
-  left: 8%;
-  width: 120px;
-  height: 120px;
-  background: rgba(255, 255, 255, 0.06);
+  top: 8%;
+  left: 5%;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
   border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
-  animation: floatWhite1 8s ease-in-out infinite;
-  transition: all 0.3s ease;
+  border-radius: 24px;
+  box-shadow: 
+    0 0 60px rgba(255, 255, 255, 0.1),
+    inset 0 0 40px rgba(255, 255, 255, 0.03);
+  animation: float3DCube 12s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-/* White circle shape 2 - bottom right */
+/* Large 3D diamond - bottom right */
 #banner.modern-hero .particles::after {
   content: '';
   position: absolute;
-  bottom: 15%;
-  right: 10%;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.05);
+  bottom: 10%;
+  right: 8%;
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 100%);
   border: 2px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.08);
-  animation: floatWhite2 10s ease-in-out infinite;
-  transition: all 0.3s ease;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: 
+    0 0 70px rgba(255, 255, 255, 0.12),
+    inset 0 0 50px rgba(255, 255, 255, 0.04);
+  animation: float3DDiamond 14s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-@keyframes floatWhite1 {
+@keyframes float3DCube {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.6;
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    opacity: 0.7;
   }
-  50% {
-    transform: translate(-15px, -20px) scale(1.1);
+  33% {
+    transform: translate3d(-20px, -30px, 50px) rotateX(15deg) rotateY(15deg) rotateZ(5deg);
     opacity: 1;
   }
+  66% {
+    transform: translate3d(10px, -15px, 30px) rotateX(-10deg) rotateY(-10deg) rotateZ(-3deg);
+    opacity: 0.85;
+  }
 }
 
-@keyframes floatWhite2 {
+@keyframes float3DDiamond {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.5;
+    transform: translate3d(0, 0, 0) rotateZ(0deg) scale(1);
+    opacity: 0.65;
   }
   50% {
-    transform: translate(20px, 15px) scale(1.15);
-    opacity: 0.9;
+    transform: translate3d(25px, 20px, 40px) rotateZ(180deg) scale(1.15);
+    opacity: 0.95;
   }
 }
 
@@ -141,7 +153,7 @@ body {
   overflow: hidden;
 }
 
-/* More white animated shapes */
+/* Additional 3D geometric shapes */
 #banner.modern-hero .geometric-shapes {
   position: absolute;
   top: 0;
@@ -150,88 +162,94 @@ body {
   height: 100%;
   z-index: 2;
   pointer-events: none;
+  perspective: 1200px;
 }
 
-/* White square shape - top right */
+/* Large 3D hexagon - top right */
 #banner.modern-hero .geometric-shapes::before {
   content: '';
   position: absolute;
-  top: 15%;
-  right: 15%;
-  width: 100px;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
-  animation: floatWhite3 9s ease-in-out infinite;
-  transition: all 0.3s ease;
-  transform: rotate(15deg);
+  top: 12%;
+  right: 10%;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(60deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.13);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 
+    0 0 65px rgba(255, 255, 255, 0.11),
+    inset 0 0 45px rgba(255, 255, 255, 0.04);
+  animation: float3DHexagon 13s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-/* White rounded rectangle - middle left */
+/* Large 3D octagon - middle left */
 #banner.modern-hero .geometric-shapes::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 5%;
-  width: 140px;
-  height: 90px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 0 35px rgba(255, 255, 255, 0.07);
-  animation: floatWhite4 11s ease-in-out infinite;
-  transition: all 0.3s ease;
-  transform: rotate(-10deg);
+  top: 48%;
+  left: 6%;
+  width: 190px;
+  height: 190px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  box-shadow: 
+    0 0 55px rgba(255, 255, 255, 0.1),
+    inset 0 0 35px rgba(255, 255, 255, 0.05);
+  animation: float3DOctagon 15s ease-in-out infinite;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
-/* Subtle white glow behind content */
+/* Bright white glow behind content */
 #banner.modern-hero .content::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 65%);
   border-radius: 50%;
-  animation: glowPulse 7s ease-in-out infinite;
+  animation: glowPulse3D 9s ease-in-out infinite;
   z-index: -1;
   pointer-events: none;
+  filter: blur(40px);
 }
 
-@keyframes floatWhite3 {
+@keyframes float3DHexagon {
   0%, 100% {
-    transform: rotate(15deg) translate(0, 0);
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateZ(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(-15px, -25px, 60px) rotateX(30deg) rotateZ(60deg);
+    opacity: 1;
+  }
+}
+
+@keyframes float3DOctagon {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateY(0deg) rotateZ(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(20px, -20px, 50px) rotateY(45deg) rotateZ(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse3D {
+  0%, 100% {
     opacity: 0.5;
-  }
-  50% {
-    transform: rotate(25deg) translate(-10px, -15px);
-    opacity: 0.8;
-  }
-}
-
-@keyframes floatWhite4 {
-  0%, 100% {
-    transform: rotate(-10deg) translate(0, 0);
-    opacity: 0.6;
-  }
-  50% {
-    transform: rotate(-5deg) translate(12px, -10px);
-    opacity: 0.9;
-  }
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    opacity: 0.4;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
 
