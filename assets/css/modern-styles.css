@@ -70,8 +70,8 @@ body {
 /* Top Shape 1: Circle - Top Left */
 #banner.modern-hero .top-shape-left {
   position: absolute;
-  top: -30%;
-  left: -20%;
+  top: -15%;
+  left: -10%;
   width: 400px;
   height: 400px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
@@ -86,8 +86,8 @@ body {
 /* Top Shape 2: Square - Top Right */
 #banner.modern-hero .top-shape-right {
   position: absolute;
-  top: -25%;
-  right: -25%;
+  top: -12%;
+  right: -15%;
   width: 380px;
   height: 380px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -186,8 +186,8 @@ body {
 #banner.modern-hero .geometric-shapes::before {
   content: '';
   position: absolute;
-  bottom: -30%;
-  left: -15%;
+  bottom: -18%;
+  left: -8%;
   width: 360px;
   height: 360px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -201,8 +201,8 @@ body {
 #banner.modern-hero .geometric-shapes::after {
   content: '';
   position: absolute;
-  bottom: -28%;
-  right: -18%;
+  bottom: -16%;
+  right: -10%;
   width: 370px;
   height: 370px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
