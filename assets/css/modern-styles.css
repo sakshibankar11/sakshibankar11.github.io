@@ -61,9 +61,14 @@ body {
   overflow: visible;
 }
 
-/* Shape 1: Circle - Top Left */
-#banner.modern-hero .particles::before {
-  content: '';
+/* Empty - using dedicated divs instead */
+#banner.modern-hero .particles::before,
+#banner.modern-hero .particles::after {
+  display: none;
+}
+
+/* Top Shape 1: Circle - Top Left */
+#banner.modern-hero .top-shape-left {
   position: absolute;
   top: -30%;
   left: -20%;
@@ -74,11 +79,12 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 120px rgba(255, 255, 255, 0.12);
   animation: floatSpin1 20s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* Shape 2: Square - Top Right */
-#banner.modern-hero .particles::after {
-  content: '';
+/* Top Shape 2: Square - Top Right */
+#banner.modern-hero .top-shape-right {
   position: absolute;
   top: -25%;
   right: -25%;
@@ -89,6 +95,8 @@ body {
   border-radius: 30px;
   box-shadow: 0 0 110px rgba(255, 255, 255, 0.11);
   animation: floatSpin2 24s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Simple floating animations */
