@@ -13,28 +13,28 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 3;
+        z-index: 4;
         pointer-events: none;
         overflow: visible;
         perspective: 2500px;
     `;
     
-    // Define 2 sophisticated shapes - positioned around edges, clearly visible
+    // Define 2 sophisticated shapes - positioned for maximum visibility
     const shapes = [
-        // Triangle - left edge, 60% visible
+        // Triangle - left side, clearly visible
         { 
             size: 385, 
-            top: '35%', 
-            left: '-40%',
+            top: '40%', 
+            left: '-35%',
             type: 'triangle',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
             rotation: -35
         },
-        // Square - bottom edge, 60% visible
+        // Square - bottom, clearly visible
         { 
             size: 336, 
-            bottom: '-35%', 
-            right: '15%',
+            bottom: '-30%', 
+            left: '40%',
             type: 'square',
             clipPath: null,
             rotation: 20
