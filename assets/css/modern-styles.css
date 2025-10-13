@@ -19,9 +19,9 @@ body {
   z-index: 1 !important;
 }
 
-/* Fix the dark overlay on hero section - match header color */
+/* Fix the dark overlay on hero section - darker for better contrast */
 #banner.modern-hero:after {
-  background: rgba(28, 29, 38, 0.95) !important;
+  background: rgba(12, 13, 18, 0.92) !important;
   background-image: none !important;
 }
 
@@ -135,6 +135,7 @@ i.fas, i.far, i.fab {
   padding: 1rem 2rem;
   height: auto !important;
   min-height: 4rem !important;
+  background: rgba(12, 13, 18, 0.95) !important;
 }
 
 .modern-header #nav ul li a:hover {
@@ -452,7 +453,7 @@ i.fas, i.far, i.fab {
     padding: 0.5rem 1rem !important;
     position: fixed !important;
     z-index: 10000 !important;
-    background: #1c1d26 !important;
+    background: rgba(12, 13, 18, 0.95) !important;
     height: 3.5rem !important;
     min-height: 3.5rem !important;
     top: 0 !important;
@@ -490,9 +491,9 @@ i.fas, i.far, i.fab {
     position: relative !important;
   }
   
-  /* Match header color on mobile */
+  /* Darker overlay on mobile for better contrast */
   #banner.modern-hero:after {
-    background: rgba(28, 29, 38, 0.92) !important;
+    background: rgba(12, 13, 18, 0.88) !important;
     background-image: none !important;
   }
   
@@ -707,7 +708,7 @@ i.fas, i.far, i.fab {
   #header.modern-header {
     position: fixed !important;
     z-index: 10000 !important;
-    background: #1c1d26 !important;
+    background: rgba(12, 13, 18, 0.95) !important;
     height: 4rem !important;
     min-height: 4rem !important;
   }
@@ -724,9 +725,9 @@ i.fas, i.far, i.fab {
     min-height: calc(100vh - 4rem) !important;
   }
   
-  /* Match header color for tablet */
+  /* Darker overlay for tablet */
   #banner.modern-hero:after {
-    background: rgba(28, 29, 38, 0.93) !important;
+    background: rgba(12, 13, 18, 0.9) !important;
     background-image: none !important;
   }
   
