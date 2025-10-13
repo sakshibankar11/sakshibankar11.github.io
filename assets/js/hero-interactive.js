@@ -19,25 +19,25 @@ document.addEventListener('DOMContentLoaded', function() {
         perspective: 2500px;
     `;
     
-    // Define 2 large sophisticated shapes that overflow the screen
+    // Define 2 sophisticated shapes - 30% smaller, 35-40% overflow
     const shapes = [
-        // Massive triangle - overflowing from left
+        // Large triangle - overflowing from left (30% smaller, 38% overflow)
         { 
-            size: 550, 
-            top: '35%', 
-            left: '-18%',
+            size: 385, 
+            top: '30%', 
+            left: '-38%',
             type: 'triangle',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
-            rotation: -25
+            rotation: -35
         },
-        // Giant rounded square - overflowing from bottom
+        // Large rounded square - overflowing from bottom (30% smaller, 40% overflow)
         { 
-            size: 480, 
-            bottom: '-22%', 
-            left: '35%',
+            size: 336, 
+            bottom: '-40%', 
+            left: '28%',
             type: 'square',
             clipPath: null,
-            rotation: 15
+            rotation: 20
         }
     ];
     
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
             ${shapeData.left ? 'left: ' + shapeData.left + ';' : ''}
             ${shapeData.right ? 'right: ' + shapeData.right + ';' : ''}
             transform: rotate(${shapeData.rotation}deg);
-            animation: floatMassiveShape${index} ${18 + index * 4}s ease-in-out infinite;
-            animation-delay: ${index * 1.5}s;
+            animation: spinOrbitShape${index} ${20 + index * 6}s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+            animation-delay: ${index * 2}s;
             transform-style: preserve-3d;
             backdrop-filter: blur(1px);
             filter: blur(0.5px);
@@ -76,41 +76,70 @@ document.addEventListener('DOMContentLoaded', function() {
     
     heroSection.appendChild(shapesContainer);
     
-    // Add sophisticated animation keyframes
+    // Add sophisticated spinning and orbiting animations
     const styleSheet = document.createElement('style');
     styleSheet.textContent = `
-        @keyframes floatMassiveShape0 {
-            0%, 100% { 
-                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(-25deg);
+        @keyframes spinOrbitShape0 {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(-35deg);
                 opacity: 0.8;
             }
-            33% { 
-                transform: translate3d(-40px, -50px, 100px) 
-                           rotateX(20deg) 
-                           rotateY(25deg) 
-                           rotateZ(-15deg);
+            25% { 
+                transform: translate3d(-35px, 40px, 90px) 
+                           rotateX(28deg) 
+                           rotateY(32deg) 
+                           rotateZ(55deg);
                 opacity: 1;
             }
-            66% { 
-                transform: translate3d(30px, -35px, 70px) 
-                           rotateX(-15deg) 
-                           rotateY(-20deg) 
-                           rotateZ(-30deg);
+            50% { 
+                transform: translate3d(-20px, 65px, 70px) 
+                           rotateX(40deg) 
+                           rotateY(50deg) 
+                           rotateZ(145deg);
                 opacity: 0.92;
+            }
+            75% { 
+                transform: translate3d(15px, 35px, 80px) 
+                           rotateX(25deg) 
+                           rotateY(30deg) 
+                           rotateZ(235deg);
+                opacity: 0.96;
+            }
+            100% { 
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(325deg);
+                opacity: 0.8;
             }
         }
         
-        @keyframes floatMassiveShape1 {
-            0%, 100% { 
-                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(15deg);
+        @keyframes spinOrbitShape1 {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(20deg);
                 opacity: 0.75;
             }
-            50% { 
-                transform: translate3d(45px, 40px, 85px) 
-                           rotateX(18deg) 
-                           rotateY(-22deg) 
-                           rotateZ(25deg);
+            25% { 
+                transform: translate3d(50px, -30px, 75px) 
+                           rotateX(22deg) 
+                           rotateY(-28deg) 
+                           rotateZ(110deg);
                 opacity: 0.98;
+            }
+            50% { 
+                transform: translate3d(65px, -15px, 55px) 
+                           rotateX(35deg) 
+                           rotateY(-40deg) 
+                           rotateZ(200deg);
+                opacity: 0.88;
+            }
+            75% { 
+                transform: translate3d(35px, -25px, 68px) 
+                           rotateX(20deg) 
+                           rotateY(-25deg) 
+                           rotateZ(290deg);
+                opacity: 0.94;
+            }
+            100% { 
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(380deg);
+                opacity: 0.75;
             }
         }
     `;
@@ -174,25 +203,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const strength = Math.max(0, 1 - distance / maxDistance);
             
             if (strength > 0) {
-                // Sophisticated parallax - shapes move away slowly
-                const moveX = -deltaX * strength * 0.5;
-                const moveY = -deltaY * strength * 0.5;
-                const moveZ = strength * 120; // Deep 3D effect
+                // Enhanced parallax with orbital movement
+                const angle = Math.atan2(deltaY, deltaX);
+                const orbitX = Math.cos(angle) * strength * 60;
+                const orbitY = Math.sin(angle) * strength * 60;
+                const moveX = -orbitX;
+                const moveY = -orbitY;
+                const moveZ = strength * 140; // Deeper 3D effect
                 
-                // Elegant 3D rotation
-                const rotateX = (deltaY / rect.height) * strength * 30;
-                const rotateY = -(deltaX / rect.width) * strength * 30;
-                const baseRotation = index === 0 ? -25 : 15;
-                const rotateZ = baseRotation + ((deltaX - deltaY) / rect.width) * strength * 20;
+                // Sophisticated 3D rotation with spin
+                const rotateX = (deltaY / rect.height) * strength * 40;
+                const rotateY = -(deltaX / rect.width) * strength * 40;
+                const baseRotation = index === 0 ? -35 : 20;
+                const rotateZ = baseRotation + (strength * 45) + ((deltaX - deltaY) / rect.width) * strength * 25;
                 
-                // Subtle scale
-                const scale = 1 + (strength * 0.15);
+                // Dynamic scale with pulse
+                const scale = 1 + (strength * 0.22);
                 
-                // Enhanced visuals
+                // Enhanced visuals with stronger effects
                 const opacity = 0.75 + (strength * 0.25);
-                const borderOpacity = 0.16 + (strength * 0.14);
-                const glowSize = 120 + (strength * 100);
-                const glowOpacity = 0.15 + (strength * 0.15);
+                const borderOpacity = 0.16 + (strength * 0.18);
+                const glowSize = 120 + (strength * 140);
+                const glowOpacity = 0.15 + (strength * 0.2);
                 
                 // Apply sophisticated transform
                 shape.style.transform = `
@@ -216,16 +248,22 @@ document.addEventListener('DOMContentLoaded', function() {
         animationFrameId = requestAnimationFrame(smoothParallax);
     }
     
-    // Subtle parallax for entire container
+    // Enhanced parallax for entire container with orbit effect
     heroSection.addEventListener('mousemove', function(e) {
         const rect = heroSection.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
         
+        // Circular motion based on mouse position
+        const angle = Math.atan2(y, x);
+        const distance = Math.sqrt(x * x + y * y);
+        const orbitAmount = distance * 15;
+        
         shapesContainer.style.transform = `
-            rotateY(${x * 3}deg) 
-            rotateX(${-y * 3}deg)
-            translateZ(20px)
+            rotateY(${x * 4}deg) 
+            rotateX(${-y * 4}deg)
+            translateZ(${20 + orbitAmount}px)
+            rotate(${angle * 2}rad)
         `;
     });
 });
