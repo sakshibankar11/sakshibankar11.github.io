@@ -67,16 +67,16 @@ body {
   display: none;
 }
 
-/* Top Shape 1: Circle - Top Left */
+/* Top Shape 1: Triangle - Top Left */
 #banner.modern-hero .top-shape-left {
   position: absolute;
   top: -15%;
   left: -10%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
   border: 3px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   box-shadow: 0 0 120px rgba(255, 255, 255, 0.12);
   animation: floatSpin1 20s ease-in-out infinite;
   z-index: 2;
