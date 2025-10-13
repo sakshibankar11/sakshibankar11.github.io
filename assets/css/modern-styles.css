@@ -99,6 +99,23 @@ body {
   pointer-events: none;
 }
 
+/* Bottom Shape: Square - Bottom Center */
+#banner.modern-hero .bottom-shape-center {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  border-radius: 25px;
+  box-shadow: 0 0 105px rgba(255, 255, 255, 0.1);
+  animation: floatSpin5 28s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* Simple floating animations */
 @keyframes floatSpin1 {
   0%, 100% {
@@ -141,6 +158,17 @@ body {
   50% {
     transform: rotate(180deg);
     opacity: 0.88;
+  }
+}
+
+@keyframes floatSpin5 {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0deg) translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-50%) rotate(180deg) translateY(-15px);
+    opacity: 0.9;
   }
 }
 
