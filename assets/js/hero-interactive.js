@@ -19,22 +19,22 @@ document.addEventListener('DOMContentLoaded', function() {
         perspective: 2500px;
     `;
     
-    // Define 2 sophisticated shapes - positioned around edges, 40-60% visible
+    // Define 2 sophisticated shapes - positioned around edges, clearly visible
     const shapes = [
         // Triangle - left edge, 60% visible
         { 
             size: 385, 
-            top: '25%', 
-            left: '-60%',
+            top: '35%', 
+            left: '-40%',
             type: 'triangle',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
             rotation: -35
         },
-        // Square - bottom edge, 40% visible
+        // Square - bottom edge, 60% visible
         { 
             size: 336, 
-            bottom: '-40%', 
-            left: '35%',
+            bottom: '-35%', 
+            right: '15%',
             type: 'square',
             clipPath: null,
             rotation: 20

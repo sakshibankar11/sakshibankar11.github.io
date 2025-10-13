@@ -62,12 +62,12 @@ body {
   perspective: 2000px;
 }
 
-/* Hexagon - top-left edge, 45% visible */
+/* Hexagon - top-left edge, 50% visible */
 #banner.modern-hero .particles::before {
   content: '';
   position: absolute;
-  top: -45%;
-  left: -15%;
+  top: 5%;
+  left: -25%;
   width: 315px;
   height: 315px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -82,12 +82,12 @@ body {
   filter: blur(0.5px);
 }
 
-/* Circle - bottom-right edge, 50% visible */
+/* Circle - bottom-right edge, 55% visible */
 #banner.modern-hero .particles::after {
   content: '';
   position: absolute;
-  bottom: -50%;
-  right: -20%;
+  bottom: -25%;
+  right: -30%;
   width: 350px;
   height: 350px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
@@ -187,12 +187,12 @@ body {
   overflow: visible;
 }
 
-/* Cube - top-right edge, 55% visible */
+/* Cube - top-right edge, 45% visible */
 #banner.modern-hero .geometric-shapes::before {
   content: '';
   position: absolute;
-  top: -55%;
-  right: -18%;
+  top: 8%;
+  right: -28%;
   width: 294px;
   height: 294px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
