@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160">
+  <polygon points="60,30 130,30 220,130 150,130" fill="#3b7bf6"/>
+  <circle cx="168" cy="70" r="28" fill="#2b5be0"/>
+  <text x="240" y="88" font-family="'Nunito', 'Segoe UI', sans-serif" font-size="54" font-weight="700" fill="#f8fafc">Virtual</text>
+  <text x="240" y="132" font-family="'Nunito', 'Segoe UI', sans-serif" font-size="54" font-weight="700" fill="#f8fafc">Sapiens</text>
+</svg>
+

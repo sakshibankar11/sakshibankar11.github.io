@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140">
+  <path d="M80 30h28v80h-28z" fill="#c50027"/>
+  <path d="M80 30l90 80h-36l-54-48z" fill="#c50027"/>
+  <path d="M108 30h36l-66 80h-36z" fill="#c50027" opacity="0.75"/>
+  <text x="190" y="72" font-family="'Times New Roman', serif" font-size="52" fill="#f8fafc">Northeastern</text>
+  <text x="190" y="112" font-family="'Times New Roman', serif" font-size="40" fill="#f8fafc">University</text>
+  <text x="88" y="118" font-family="Georgia, serif" font-size="16" fill="#fca5a5" letter-spacing="4">LVX VERITAS VIRTVS</text>
+</svg>
+

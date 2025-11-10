@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160">
+  <path d="M80 68c24-42 56-62 96-32-24 10-30 32-30 32h40c32 0 56 18 56 50 0 36-28 52-58 52-44 0-82-36-104-102z" fill="#4cc4ea" opacity="0.25"/>
+  <text x="70" y="110" font-family="'Montserrat', 'Segoe UI', sans-serif" font-size="64" font-weight="700" fill="#7dd3fc">filta</text>
+  <text x="230" y="128" font-family="'Montserrat', 'Segoe UI', sans-serif" font-size="20" letter-spacing="2" fill="#a7f3d0">ENVIRONMENTAL</text>
+  <text x="230" y="148" font-family="'Montserrat', 'Segoe UI', sans-serif" font-size="20" letter-spacing="2" fill="#a7f3d0">KITCHEN SOLUTIONS</text>
+  <path d="M250 50c18-22 54-18 68 6-26-8-38 4-38 4s22 0 38 16c-30-10-60 4-60 4s12-16-8-30z" fill="#46c8ce"/>
+</svg>
+
