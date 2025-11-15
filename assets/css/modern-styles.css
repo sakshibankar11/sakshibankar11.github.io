@@ -185,6 +185,28 @@ body {
 #banner.modern-hero .content {
   position: relative !important;
   z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  padding: 4rem 3rem !important;
+}
+
+/* Desktop hero section - full viewport height with header */
+@media (min-width: 993px) {
+  #banner.modern-hero {
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  #banner.modern-hero .content {
+    min-height: auto !important;
+    padding: 4rem 3rem !important;
+    width: 100% !important;
+  }
 }
 
 /* Ensure overlay doesn't interfere with content */
@@ -705,9 +727,12 @@ i.fas, i.far, i.fab {
   #banner.modern-hero {
     min-height: calc(100vh - 3.5rem) !important;
     margin-top: 3.5rem !important;
-    padding-top: 2rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     overflow-x: hidden !important;
     position: relative !important;
+    display: flex !important;
+    align-items: center !important;
   }
   
   /* Dark glassmorphism overlay on mobile */
@@ -776,9 +801,13 @@ i.fas, i.far, i.fab {
   }
   
   .modern-hero .content {
-    padding: 1rem !important;
+    padding: 2rem 1rem !important;
     max-width: 100% !important;
     margin: 0 !important;
+    min-height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   .modern-hero .hero-content-wrapper {
@@ -993,9 +1022,12 @@ i.fas, i.far, i.fab {
   /* Hero Section Tablet */
   #banner.modern-hero {
     margin-top: 4rem !important;
-    padding-top: 2rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     overflow-x: hidden !important;
     min-height: calc(100vh - 4rem) !important;
+    display: flex !important;
+    align-items: center !important;
   }
   
   /* Dark glassmorphism overlay on tablet */
@@ -1066,6 +1098,10 @@ i.fas, i.far, i.fab {
   .modern-hero .content {
     padding: 2rem !important;
     max-width: 100% !important;
+    min-height: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   .modern-hero h2 {
