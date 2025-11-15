@@ -57,7 +57,7 @@ body {
   pointer-events: none;
 }
 
-/* Simple 3D shapes - no interaction */
+/* Subtle gradient mesh background - very soft and calming */
 #banner.modern-hero .particles {
   position: absolute;
   top: 0;
@@ -66,117 +66,111 @@ body {
   bottom: 0;
   z-index: 1;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(96, 165, 250, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 55%);
+  background-size: 100% 100%;
+  opacity: 0.8;
+  animation: gentleFade 25s ease-in-out infinite;
 }
 
-/* Empty - using dedicated divs instead */
-#banner.modern-hero .particles::before,
-#banner.modern-hero .particles::after {
-  display: none;
-}
-
-/* Top Shape 1: Triangle - Top Left */
-#banner.modern-hero .top-shape-left {
-  position: absolute;
-  top: -15%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  box-shadow: 0 0 120px rgba(255, 255, 255, 0.12);
-  animation: floatSpin1 20s ease-in-out infinite;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Top Shape 2: Square - Top Right */
-#banner.modern-hero .top-shape-right {
-  position: absolute;
-  top: -12%;
-  right: -15%;
-  width: 380px;
-  height: 380px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 3px solid rgba(255, 255, 255, 0.16);
-  border-radius: 30px;
-  box-shadow: 0 0 110px rgba(255, 255, 255, 0.11);
-  animation: floatSpin2 24s ease-in-out infinite;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Bottom Shape: Rectangle - Bottom Center */
-#banner.modern-hero .bottom-shape-center {
-  position: absolute;
-  bottom: -20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 480px;
-  height: 280px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.015) 100%);
-  border: 3px solid rgba(255, 255, 255, 0.14);
-  border-radius: 25px;
-  box-shadow: 0 0 105px rgba(255, 255, 255, 0.1);
-  animation: floatSpin5 28s ease-in-out infinite;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Simple floating animations */
-@keyframes floatSpin1 {
+/* Gentle fade animation for background */
+@keyframes gentleFade {
   0%, 100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: rotate(180deg) scale(1.05);
-    opacity: 0.9;
-  }
-}
-
-@keyframes floatSpin2 {
-  0%, 100% {
-    transform: rotate(0deg) translateY(0);
     opacity: 0.75;
   }
   50% {
-    transform: rotate(180deg) translateY(-20px);
-    opacity: 0.95;
+    opacity: 0.9;
   }
 }
 
-@keyframes floatSpin3 {
-  0%, 100% {
-    transform: rotate(0deg) translateX(0);
-    opacity: 0.72;
-  }
-  50% {
-    transform: rotate(180deg) translateX(15px);
-    opacity: 0.92;
-  }
+/* Soft floating orbs - Top Left */
+#banner.modern-hero .top-shape-left {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.12) 0%, rgba(96, 165, 250, 0.03) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: gentleFloat1 25s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
 }
 
-@keyframes floatSpin4 {
-  0%, 100% {
-    transform: rotate(0deg);
-    opacity: 0.68;
-  }
-  50% {
-    transform: rotate(180deg);
-    opacity: 0.88;
-  }
+/* Soft floating orbs - Top Right */
+#banner.modern-hero .top-shape-right {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, rgba(167, 139, 250, 0.02) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: gentleFloat2 30s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
 }
 
-@keyframes floatSpin5 {
+/* Soft floating orbs - Bottom Center */
+#banner.modern-hero .bottom-shape-center {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(139, 92, 246, 0.02) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: gentleFloat3 35s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Gentle floating animations - no rotation, just smooth movement */
+@keyframes gentleFloat1 {
   0%, 100% {
-    transform: translateX(-50%) rotate(0deg) translateY(0);
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translate(20px, -30px) scale(1.1);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translate(-15px, 20px) scale(0.95);
     opacity: 0.7;
   }
+}
+
+@keyframes gentleFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(-25px, 25px) scale(0.9);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translate(30px, -20px) scale(1.15);
+    opacity: 0.65;
+  }
+}
+
+@keyframes gentleFloat3 {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.55;
+  }
   50% {
-    transform: translateX(-50%) rotate(180deg) translateY(-15px);
-    opacity: 0.9;
+    transform: translateX(-50%) translateY(-40px) scale(1.2);
+    opacity: 0.75;
   }
 }
 
@@ -206,7 +200,7 @@ body {
   overflow: hidden;
 }
 
-/* More simple shapes */
+/* Soft geometric shapes - gentle background elements */
 #banner.modern-hero .geometric-shapes {
   position: absolute;
   top: 0;
@@ -215,64 +209,86 @@ body {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
 }
 
-/* Shape 3: Hexagon - Bottom Left */
+/* Soft orb - Bottom Left */
 #banner.modern-hero .geometric-shapes::before {
   content: '';
   position: absolute;
-  bottom: -18%;
-  left: -8%;
-  width: 360px;
-  height: 360px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  box-shadow: 0 0 115px rgba(255, 255, 255, 0.12);
-  animation: floatSpin3 22s ease-in-out infinite;
+  bottom: 5%;
+  left: 5%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, rgba(96, 165, 250, 0.02) 50%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: gentlePulse1 22s ease-in-out infinite;
 }
 
-/* Shape 4: Triangle - Bottom Right */
+/* Soft orb - Bottom Right */
 #banner.modern-hero .geometric-shapes::after {
   content: '';
   position: absolute;
-  bottom: -16%;
-  right: -10%;
-  width: 370px;
-  height: 370px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 3px solid rgba(255, 255, 255, 0.14);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  box-shadow: 0 0 108px rgba(255, 255, 255, 0.11);
-  animation: floatSpin4 26s ease-in-out infinite;
+  bottom: 8%;
+  right: 8%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.08) 0%, rgba(167, 139, 250, 0.015) 50%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(55px);
+  animation: gentlePulse2 28s ease-in-out infinite;
 }
 
-/* Simple white glow */
+/* Gentle pulsing animations */
+@keyframes gentlePulse1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(15px, -20px) scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+@keyframes gentlePulse2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate(-20px, 15px) scale(1.1);
+    opacity: 0.65;
+  }
+}
+
+/* Subtle center glow - very soft and breathing */
 #banner.modern-hero .content::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.05) 0%, rgba(167, 139, 250, 0.03) 40%, transparent 70%);
   border-radius: 50%;
-  animation: simpleGlow 10s ease-in-out infinite;
+  filter: blur(100px);
+  animation: gentleBreath 15s ease-in-out infinite;
   z-index: -1;
   pointer-events: none;
-  filter: blur(50px);
 }
 
-@keyframes simpleGlow {
+/* Gentle breathing animation */
+@keyframes gentleBreath {
   0%, 100% {
-    opacity: 0.5;
+    opacity: 0.4;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
 
@@ -695,32 +711,51 @@ i.fas, i.far, i.fab {
     -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
   }
   
-  /* Scale down massive shapes for mobile */
-  #banner.modern-hero .particles::before {
-    width: 280px;
-    height: 280px;
-    top: -10%;
-    left: -12%;
+  /* Scale down soft orbs for mobile - make them smaller and more subtle */
+  #banner.modern-hero .top-shape-left {
+    width: 200px;
+    height: 200px;
+    top: 5%;
+    left: 5%;
+    filter: blur(40px);
   }
   
-  #banner.modern-hero .particles::after {
-    width: 300px;
-    height: 300px;
-    bottom: -15%;
-    right: -15%;
+  #banner.modern-hero .top-shape-right {
+    width: 220px;
+    height: 220px;
+    top: 8%;
+    right: 8%;
+    filter: blur(45px);
+  }
+  
+  #banner.modern-hero .bottom-shape-center {
+    width: 250px;
+    height: 250px;
+    bottom: 5%;
+    filter: blur(50px);
   }
   
   #banner.modern-hero .geometric-shapes::before {
-    width: 260px;
-    height: 260px;
-    top: -12%;
-    right: -13%;
+    width: 180px;
+    height: 180px;
+    bottom: 3%;
+    left: 3%;
+    filter: blur(35px);
+  }
+  
+  #banner.modern-hero .geometric-shapes::after {
+    width: 200px;
+    height: 200px;
+    bottom: 5%;
+    right: 5%;
+    filter: blur(40px);
   }
   
   #banner.modern-hero .content::before {
-    width: 350px;
-    height: 350px;
-    opacity: 0.4;
+    width: 400px;
+    height: 400px;
+    filter: blur(80px);
+    opacity: 0.35;
   }
   
   /* Hide interactive shapes on mobile for performance */
@@ -964,32 +999,51 @@ i.fas, i.far, i.fab {
     -webkit-backdrop-filter: blur(13px) saturate(180%) !important;
   }
   
-  /* Scale massive shapes for tablet */
-  #banner.modern-hero .particles::before {
-    width: 350px;
-    height: 350px;
-    top: -12%;
-    left: -10%;
+  /* Scale soft orbs for tablet - medium size */
+  #banner.modern-hero .top-shape-left {
+    width: 250px;
+    height: 250px;
+    top: 8%;
+    left: 8%;
+    filter: blur(50px);
   }
   
-  #banner.modern-hero .particles::after {
-    width: 380px;
-    height: 380px;
-    bottom: -18%;
-    right: -14%;
+  #banner.modern-hero .top-shape-right {
+    width: 280px;
+    height: 280px;
+    top: 12%;
+    right: 12%;
+    filter: blur(60px);
+  }
+  
+  #banner.modern-hero .bottom-shape-center {
+    width: 320px;
+    height: 320px;
+    bottom: 8%;
+    filter: blur(70px);
   }
   
   #banner.modern-hero .geometric-shapes::before {
-    width: 330px;
-    height: 330px;
-    top: -14%;
-    right: -12%;
+    width: 220px;
+    height: 220px;
+    bottom: 4%;
+    left: 4%;
+    filter: blur(45px);
+  }
+  
+  #banner.modern-hero .geometric-shapes::after {
+    width: 250px;
+    height: 250px;
+    bottom: 6%;
+    right: 6%;
+    filter: blur(50px);
   }
   
   #banner.modern-hero .content::before {
     width: 500px;
     height: 500px;
-    opacity: 0.5;
+    filter: blur(90px);
+    opacity: 0.4;
   }
   
   /* Show interactive shapes on tablet */
