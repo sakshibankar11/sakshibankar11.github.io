@@ -57,7 +57,7 @@ body {
   pointer-events: none;
 }
 
-/* Subtle gradient mesh background - visible but calming */
+/* Simple 3D shapes - no interaction */
 #banner.modern-hero .particles {
   position: absolute;
   top: 0;
@@ -66,118 +66,117 @@ body {
   bottom: 0;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(96, 165, 250, 0.18) 0%, rgba(96, 165, 250, 0.05) 40%, transparent 65%),
-    radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.16) 0%, rgba(167, 139, 250, 0.04) 40%, transparent 65%),
-    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.14) 0%, rgba(139, 92, 246, 0.03) 40%, transparent 70%);
-  background-size: 150% 150%;
-  animation: gentleWave 20s ease-in-out infinite;
+  overflow: visible;
 }
 
-/* Gentle wave animation for background - moving gradient positions */
-@keyframes gentleWave {
-  0%, 100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-    opacity: 1;
-  }
-  33% {
-    background-position: 30% 20%, 70% 80%, 60% 40%;
-    opacity: 1;
-  }
-  66% {
-    background-position: 20% 40%, 80% 60%, 40% 60%;
-    opacity: 1;
-  }
+/* Empty - using dedicated divs instead */
+#banner.modern-hero .particles::before,
+#banner.modern-hero .particles::after {
+  display: none;
 }
 
-/* Soft floating orbs - Top Left */
+/* Top Shape 1: Triangle - Top Left */
 #banner.modern-hero .top-shape-left {
   position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, rgba(96, 165, 250, 0.12) 35%, rgba(96, 165, 250, 0.05) 55%, transparent 75%);
-  border-radius: 50%;
-  filter: blur(50px);
-  animation: gentleFloat1 20s ease-in-out infinite;
-  z-index: 2;
-  pointer-events: none;
-  will-change: transform, opacity;
-}
-
-/* Soft floating orbs - Top Right */
-#banner.modern-hero .top-shape-right {
-  position: absolute;
-  top: 15%;
-  right: 15%;
+  top: -15%;
+  left: -10%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.28) 0%, rgba(167, 139, 250, 0.1) 35%, rgba(167, 139, 250, 0.04) 55%, transparent 75%);
-  border-radius: 50%;
-  filter: blur(55px);
-  animation: gentleFloat2 25s ease-in-out infinite;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  box-shadow: 0 0 120px rgba(255, 255, 255, 0.12);
+  animation: floatSpin1 20s ease-in-out infinite;
   z-index: 2;
   pointer-events: none;
-  will-change: transform, opacity;
 }
 
-/* Soft floating orbs - Bottom Center */
+/* Top Shape 2: Square - Top Right */
+#banner.modern-hero .top-shape-right {
+  position: absolute;
+  top: -12%;
+  right: -15%;
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.16);
+  border-radius: 30px;
+  box-shadow: 0 0 110px rgba(255, 255, 255, 0.11);
+  animation: floatSpin2 24s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Bottom Shape: Rectangle - Bottom Center */
 #banner.modern-hero .bottom-shape-center {
   position: absolute;
-  bottom: 10%;
+  bottom: -20%;
   left: 50%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.1) 35%, rgba(139, 92, 246, 0.04) 55%, transparent 75%);
-  border-radius: 50%;
-  filter: blur(60px);
-  animation: gentleFloat3 30s ease-in-out infinite;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 280px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  border-radius: 25px;
+  box-shadow: 0 0 105px rgba(255, 255, 255, 0.1);
+  animation: floatSpin5 28s ease-in-out infinite;
   z-index: 2;
   pointer-events: none;
-  will-change: transform, opacity;
 }
 
-/* Gentle floating animations - smooth, visible movement */
-@keyframes gentleFloat1 {
+/* Simple floating animations */
+@keyframes floatSpin1 {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.85;
+    transform: rotate(0deg) scale(1);
+    opacity: 0.7;
   }
-  33% {
-    transform: translate(40px, -50px) scale(1.15);
-    opacity: 1;
-  }
-  66% {
-    transform: translate(-30px, 35px) scale(0.9);
+  50% {
+    transform: rotate(180deg) scale(1.05);
     opacity: 0.9;
   }
 }
 
-@keyframes gentleFloat2 {
+@keyframes floatSpin2 {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.8;
+    transform: rotate(0deg) translateY(0);
+    opacity: 0.75;
   }
-  33% {
-    transform: translate(-45px, 40px) scale(0.85);
+  50% {
+    transform: rotate(180deg) translateY(-20px);
     opacity: 0.95;
-  }
-  66% {
-    transform: translate(50px, -35px) scale(1.2);
-    opacity: 0.85;
   }
 }
 
-@keyframes gentleFloat3 {
+@keyframes floatSpin3 {
   0%, 100% {
-    transform: translate(-50%, 0) scale(1);
-    opacity: 0.8;
+    transform: rotate(0deg) translateX(0);
+    opacity: 0.72;
   }
   50% {
-    transform: translate(-50%, -60px) scale(1.25);
-    opacity: 0.95;
+    transform: rotate(180deg) translateX(15px);
+    opacity: 0.92;
+  }
+}
+
+@keyframes floatSpin4 {
+  0%, 100% {
+    transform: rotate(0deg);
+    opacity: 0.68;
+  }
+  50% {
+    transform: rotate(180deg);
+    opacity: 0.88;
+  }
+}
+
+@keyframes floatSpin5 {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0deg) translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-50%) rotate(180deg) translateY(-15px);
+    opacity: 0.9;
   }
 }
 
@@ -185,28 +184,6 @@ body {
 #banner.modern-hero .content {
   position: relative !important;
   z-index: 10 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 100vh !important;
-  padding: 4rem 3rem !important;
-}
-
-/* Desktop hero section - full viewport height with header */
-@media (min-width: 993px) {
-  #banner.modern-hero {
-    min-height: 100vh !important;
-    display: flex !important;
-    align-items: center !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  
-  #banner.modern-hero .content {
-    min-height: auto !important;
-    padding: 4rem 3rem !important;
-    width: 100% !important;
-  }
 }
 
 /* Ensure overlay doesn't interfere with content */
@@ -229,7 +206,7 @@ body {
   overflow: hidden;
 }
 
-/* Soft geometric shapes - gentle background elements */
+/* More simple shapes */
 #banner.modern-hero .geometric-shapes {
   position: absolute;
   top: 0;
@@ -238,86 +215,64 @@ body {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
 }
 
-/* Soft orb - Bottom Left */
+/* Shape 3: Hexagon - Bottom Left */
 #banner.modern-hero .geometric-shapes::before {
   content: '';
   position: absolute;
-  bottom: 5%;
-  left: 5%;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.25) 0%, rgba(96, 165, 250, 0.1) 40%, rgba(96, 165, 250, 0.04) 60%, transparent 80%);
-  border-radius: 50%;
-  filter: blur(45px);
-  animation: gentlePulse1 22s ease-in-out infinite;
+  bottom: -18%;
+  left: -8%;
+  width: 360px;
+  height: 360px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 0 0 115px rgba(255, 255, 255, 0.12);
+  animation: floatSpin3 22s ease-in-out infinite;
 }
 
-/* Soft orb - Bottom Right */
+/* Shape 4: Triangle - Bottom Right */
 #banner.modern-hero .geometric-shapes::after {
   content: '';
   position: absolute;
-  bottom: 8%;
-  right: 8%;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(167, 139, 250, 0.22) 0%, rgba(167, 139, 250, 0.08) 40%, rgba(167, 139, 250, 0.03) 60%, transparent 80%);
-  border-radius: 50%;
-  filter: blur(50px);
-  animation: gentlePulse2 28s ease-in-out infinite;
+  bottom: -16%;
+  right: -10%;
+  width: 370px;
+  height: 370px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  box-shadow: 0 0 108px rgba(255, 255, 255, 0.11);
+  animation: floatSpin4 26s ease-in-out infinite;
 }
 
-/* Gentle pulsing animations */
-@keyframes gentlePulse1 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.75;
-  }
-  50% {
-    transform: translate(15px, -20px) scale(1.15);
-    opacity: 0.9;
-  }
-}
-
-@keyframes gentlePulse2 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translate(-20px, 15px) scale(1.1);
-    opacity: 0.85;
-  }
-}
-
-/* Subtle center glow - visible and breathing */
+/* Simple white glow */
 #banner.modern-hero .content::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, rgba(167, 139, 250, 0.1) 35%, rgba(139, 92, 246, 0.05) 55%, transparent 75%);
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
   border-radius: 50%;
-  filter: blur(80px);
-  animation: gentleBreath 12s ease-in-out infinite;
+  animation: simpleGlow 10s ease-in-out infinite;
   z-index: -1;
   pointer-events: none;
-  will-change: transform, opacity;
+  filter: blur(50px);
 }
 
-/* Gentle breathing animation - more visible */
-@keyframes gentleBreath {
+@keyframes simpleGlow {
   0%, 100% {
-    opacity: 0.7;
+    opacity: 0.5;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.9;
-    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
   }
 }
 
@@ -727,12 +682,9 @@ i.fas, i.far, i.fab {
   #banner.modern-hero {
     min-height: calc(100vh - 3.5rem) !important;
     margin-top: 3.5rem !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: 2rem !important;
     overflow-x: hidden !important;
     position: relative !important;
-    display: flex !important;
-    align-items: center !important;
   }
   
   /* Dark glassmorphism overlay on mobile */
@@ -743,51 +695,32 @@ i.fas, i.far, i.fab {
     -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
   }
   
-  /* Scale down soft orbs for mobile - make them smaller and more subtle */
-  #banner.modern-hero .top-shape-left {
-    width: 200px;
-    height: 200px;
-    top: 5%;
-    left: 5%;
-    filter: blur(40px);
+  /* Scale down massive shapes for mobile */
+  #banner.modern-hero .particles::before {
+    width: 280px;
+    height: 280px;
+    top: -10%;
+    left: -12%;
   }
   
-  #banner.modern-hero .top-shape-right {
-    width: 220px;
-    height: 220px;
-    top: 8%;
-    right: 8%;
-    filter: blur(45px);
-  }
-  
-  #banner.modern-hero .bottom-shape-center {
-    width: 250px;
-    height: 250px;
-    bottom: 5%;
-    filter: blur(50px);
+  #banner.modern-hero .particles::after {
+    width: 300px;
+    height: 300px;
+    bottom: -15%;
+    right: -15%;
   }
   
   #banner.modern-hero .geometric-shapes::before {
-    width: 180px;
-    height: 180px;
-    bottom: 3%;
-    left: 3%;
-    filter: blur(35px);
-  }
-  
-  #banner.modern-hero .geometric-shapes::after {
-    width: 200px;
-    height: 200px;
-    bottom: 5%;
-    right: 5%;
-    filter: blur(40px);
+    width: 260px;
+    height: 260px;
+    top: -12%;
+    right: -13%;
   }
   
   #banner.modern-hero .content::before {
-    width: 400px;
-    height: 400px;
-    filter: blur(80px);
-    opacity: 0.35;
+    width: 350px;
+    height: 350px;
+    opacity: 0.4;
   }
   
   /* Hide interactive shapes on mobile for performance */
@@ -801,13 +734,9 @@ i.fas, i.far, i.fab {
   }
   
   .modern-hero .content {
-    padding: 2rem 1rem !important;
+    padding: 1rem !important;
     max-width: 100% !important;
     margin: 0 !important;
-    min-height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
   
   .modern-hero .hero-content-wrapper {
@@ -1022,12 +951,9 @@ i.fas, i.far, i.fab {
   /* Hero Section Tablet */
   #banner.modern-hero {
     margin-top: 4rem !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: 2rem !important;
     overflow-x: hidden !important;
     min-height: calc(100vh - 4rem) !important;
-    display: flex !important;
-    align-items: center !important;
   }
   
   /* Dark glassmorphism overlay on tablet */
@@ -1038,51 +964,32 @@ i.fas, i.far, i.fab {
     -webkit-backdrop-filter: blur(13px) saturate(180%) !important;
   }
   
-  /* Scale soft orbs for tablet - medium size */
-  #banner.modern-hero .top-shape-left {
-    width: 250px;
-    height: 250px;
-    top: 8%;
-    left: 8%;
-    filter: blur(50px);
+  /* Scale massive shapes for tablet */
+  #banner.modern-hero .particles::before {
+    width: 350px;
+    height: 350px;
+    top: -12%;
+    left: -10%;
   }
   
-  #banner.modern-hero .top-shape-right {
-    width: 280px;
-    height: 280px;
-    top: 12%;
-    right: 12%;
-    filter: blur(60px);
-  }
-  
-  #banner.modern-hero .bottom-shape-center {
-    width: 320px;
-    height: 320px;
-    bottom: 8%;
-    filter: blur(70px);
+  #banner.modern-hero .particles::after {
+    width: 380px;
+    height: 380px;
+    bottom: -18%;
+    right: -14%;
   }
   
   #banner.modern-hero .geometric-shapes::before {
-    width: 220px;
-    height: 220px;
-    bottom: 4%;
-    left: 4%;
-    filter: blur(45px);
-  }
-  
-  #banner.modern-hero .geometric-shapes::after {
-    width: 250px;
-    height: 250px;
-    bottom: 6%;
-    right: 6%;
-    filter: blur(50px);
+    width: 330px;
+    height: 330px;
+    top: -14%;
+    right: -12%;
   }
   
   #banner.modern-hero .content::before {
     width: 500px;
     height: 500px;
-    filter: blur(90px);
-    opacity: 0.4;
+    opacity: 0.5;
   }
   
   /* Show interactive shapes on tablet */
@@ -1098,10 +1005,6 @@ i.fas, i.far, i.fab {
   .modern-hero .content {
     padding: 2rem !important;
     max-width: 100% !important;
-    min-height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
   
   .modern-hero h2 {
