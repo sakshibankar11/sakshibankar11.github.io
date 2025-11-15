@@ -96,6 +96,76 @@
 			.project-link span {
 				transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 			}
+			
+			/* Hero text hover interactions */
+			.hero-header h2 {
+				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+				cursor: default;
+			}
+			
+			.hero-header h2:hover {
+				transform: scale(1.015);
+				text-shadow: 0 0 40px rgba(96, 165, 250, 0.25);
+			}
+			
+			.hero-header h2 .gradient-text {
+				transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+				display: inline-block;
+			}
+			
+			.hero-header h2:hover .gradient-text {
+				background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6, #a78bfa);
+				background-size: 200% 200%;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				animation: gradient-shift 3s ease infinite;
+				filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.3));
+			}
+			
+			@keyframes gradient-shift {
+				0%, 100% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+			}
+			
+			.hero-header p {
+				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+			
+			.hero-header p:hover {
+				transform: translateY(-1px);
+				color: rgba(255, 255, 255, 0.92);
+			}
+			
+			.hero-header p .gradient-text {
+				transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+				display: inline-block;
+				position: relative;
+			}
+			
+			.hero-header p .gradient-text:hover {
+				transform: scale(1.08) translateY(-1px);
+				background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6, #60a5fa);
+				background-size: 250% 250%;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				animation: gradient-flow 2.5s ease infinite;
+				filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.35));
+			}
+			
+			@keyframes gradient-flow {
+				0%, 100% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload landing">
