@@ -1,164 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Application for Logistics Operations - Sakshi Bankar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #ffffff;
+        }
 
-<!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<style>
-body {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-section {
-    background-color: #ffffff !important;
-}
-h1, h2, h3, h4, h5, h6, p, span, div, li, a , b{
-    color: #000000 !important;
-}
-nav ul li a{
-	color: #ffffff !important;
-}
-#logo a, .logo a, #header #logo a, header #logo a {
-    color: #ffffff !important;
-}
-</style>
-		<title>Sakshi Bankar Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- Bootstrap CSS -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="shared-header.css">
-	</head>
-	<body class="is-preload">
-		<div id="page-wrapper">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-			<!-- Header -->
-			<header id="header">
-					<h1 id="logo" style="height: 4rem;"><a href="index.html"> <img src="images\Sakshi-butterfly-logo-blue-removebg-preview.png" style="height: 3rem; width: auto; padding-top: 0.5rem;"></a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="#two">About Me</a></li>
-						<li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target= "_blank">Resume</a></li>
-					</ul>
-				</nav>
-			</header>
+        /* Header matching your portfolio */
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 5px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-			<!-- Main -->
-				<div id="main" class="wrapper style1" style="padding-bottom: 0;">
-					<div class="container">
-						<header class="major">
-							<h2 style="margin-bottom: 0;">Desktop Application for Logistics Operations</h2>
-							<!-- <p>Ipsum dolor feugiat aliquam tempus sed magna lorem consequat accumsan</p> -->
-						</header>
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-						<!-- Text -->
-							<section>
-										<ul style="list-style-type: none; padding-left: 0; padding-bottom: 4em;">
-											<li style="height: 100%; margin-bottom: 1em"><span  class="verticle-line"><b>My Role : </b></span>UI/UX Designer</li>
-											<li style="height: 100%; margin-bottom: 1em"><span  class="verticle-line"><b>Duration : </b></span>4 weeks | Logistic Company (desktop app) </li>
-											<li style="height: 100%; margin-bottom: 1em"><span  class="verticle-line"><b>Tools : </b></span>Figma, Illustrator </li>
-											<li style="height: 100%; margin-bottom: 1em"><span  class="verticle-line"><b>Methods : </b></span>Domain Research, Wireframing</li>
-										</ul>	
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
 
-										<h5>Problem Statement</h5>
-										<h3 class="verticle-line">Challenges to design logistic system</h3>
-										<p>To design a desktop application for managing operations of a logistics company that specializes in order processing and services such as warehousing, picking, packing, and shipping. The company receives, processes, and stores inventory, and the application will aid in this process by utilizing a database that contains information on various internal operations. Additionally, it will provide real-time communication through notifications and alerts, keeping all live data at hand. The main challenges are- </p>
-										<ul>
-											<li>To design an interface that enables easy access to the heavy databases used by the logistics company. Heavy databases can often be overwhelming and difficult to navigate, making it challenging for employees to efficiently access the information they need. Our goal is to create an interface that simplifies the process of finding, sorting and using the data stored in the databases.</li>
-											<li>To design of a user specific notification module. Effective communication is crucial for the smooth running of the logistics company's operations. The notification module will be designed to send and receive alerts in real-time, ensuring that all employees are informed of any updates or changes to the company's operations.</li>
-										</ul>
-										
-							
-									
-									<h3 class="verticle-line">Domain Research</h3>
-									<ul>
-										<li>Industry Overview: Technological advancements have played a significant role in shaping the logistics industry by improving efficiency, reducing costs and increasing transparency. The integration of technology has become an essential part of the logistics process, from warehouse management to last-mile delivery.</li>
-										<li>Technological Advancements: Key technological advancements in logistics include:
-											<ul>
-												<li>Autonomous vehicles and drones for last-mile delivery</li>
-												<li>Internet of Things (IoT) for real-time tracking and monitoring of cargo</li>
-												<li>Artificial intelligence (AI) and machine learning for optimization of routes and forecasting demand</li>
-												<li>Blockchain for secure and transparent tracking of goods and transactions</li>
-												<li>Robotic process automation (RPA) for warehouse management and inventory tracking</li>
-											</ul>
-										</li>
-										<li>Market Adoption: The adoption of these technologies varies across different regions and segments of the logistics industry. For example, the use of autonomous vehicles and drones is more prevalent in developed regions such as North America and Europe. On the other hand, the use of IoT and blockchain is expected to grow significantly in the Asia-Pacific region in the coming years.</li>
-										<li>Challenges: The integration of technology in logistics is not without its challenges. One of the main challenges is the high cost of implementation and maintenance, which can be a barrier for small and medium-sized logistics companies. Additionally, there is a lack of standardization and interoperability among different technologies, which can cause difficulties in integrating them into existing logistics systems.</li>
-										<li>Opportunities: The increasing adoption of technology in logistics presents a significant opportunity for companies to improve efficiency, reduce costs and increase transparency. Additionally, the growing trend towards e-commerce and online shopping has increased the demand for last-mile delivery services, providing an opportunity for logistics companies to grow their business.</li>
-										<li>Conclusion: The incorporation of technology in logistics is crucial for companies to stay competitive in the market. Companies that invest in technological advancements will be better positioned to handle the changing demands of the logistics industry and customers.</li>
-									</ul>
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-									<h3 class="verticle-line">Ideate</h3>
-									<p>Based on an analysis of the logistics industry and the various technological advancements that have been integrated into the logistics process, the following solutions were proposed in collaboration with the business analyst and technical lead of this project.</p>
-									<ul>
-										<li>Implementing a data visualization system utilizing data tables to effectively analyze and manage large volumes of data.</li>
-										<li>Integrating robust filtering and sorting capabilities within the data tables to enhance data accessibility and organization.</li>
-										<li>Developing a notification module that enables efficient bulk messaging through various APIs.</li>
-										<li>Implementing a template-based notification module to allow for swift and streamlined communication to multiple users.</li>
-									</ul>
+        nav a:hover {
+            color: #4a90e2;
+        }
 
-									<h3 class="verticle-line">Color Palette</h3>
-									<div style="width: 100%; height: fit-content; overflow: hidden; display: flex; padding-bottom: 3em;">
-										<img style="width: 80%; height: auto; display: block; margin-left: auto; margin-right: auto;" src="assets/css/images/logistic-color-palette.png" alt="" />
-									</div>
+        /* Hero Section */
+        .hero {
+            background: #000000;
+            color: #ffffff;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
 
-									<h3 class="verticle-line mb-2">Wireframes</h3>
-									<div style="width: 100%; height: fit-content; overflow: hidden; display: flex; padding-bottom: 3em; background: #fff;" class="mb-5">
-										<img style="width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;" src="assets/css/images/logistic-wireframe-1.png" alt="" />
-									</div>
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
 
-									<div style="width: 100%; height: fit-content; overflow: hidden; display: flex; padding-bottom: 3em; background: #fff;" class="mb-5">
-										<img style="width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;" src="assets/css/images/logistic-wireframe-2.png" alt="" />
-									</div>
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
 
-									<div class="container">
-										<div class="row">
-											<div class="col-12 ps-0">
-												<h3 class="verticle-line pt-5">Project Gallery</h3>
-												<img style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em;" src="assets/css/images/logistic-design-ss.png" alt="" />
-												<img style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; margin-bottom: 2em" src="assets/css/images/logistic-prototype-ss.png" alt="" />
-											</div>
-										</div>
-								</div>
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .meta-item {
+            text-align: left;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
 
-							</section>
+        .meta-label {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
 
-		</div>
+        .meta-value {
+            color: #ffffff;
+            opacity: 0.9;
+        }
 
-		<!-- Footer -->
-		<footer id="footer">
-			<!-- <ul class="icons">
-				<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-				<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-				<li><a href="#" class="icon brands alt fa-medium"><span class="label">Medium</span></a></li>
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
 
-			</ul> -->
-			<ul class="copyright">
-				<li> @Sakshi Bankar - 2024</li>
-				<!-- <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li> -->
-			</ul>
-		</footer>
+        .section {
+            margin-bottom: 80px;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-	</body>
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000000;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4a90e2;
+        }
+
+        .verticle-line {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .verticle-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4a90e2;
+        }
+
+        /* Problem and Solution Boxes */
+        .highlight-box {
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 5px solid #4a90e2;
+        }
+
+        .problem-box {
+            background: #fff5f5;
+            border-left-color: #e53e3e;
+        }
+
+        .solution-box {
+            background: #f0fff4;
+            border-left-color: #38a169;
+        }
+
+        .research-box {
+            background: #f7fafc;
+            border-left-color: #4a90e2;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid #4a90e2;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        /* Image Sections */
+        .image-section {
+            margin: 60px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .comparison-item {
+            text-align: center;
+        }
+
+        .comparison-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-label {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .step-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #4a90e2;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .step-content {
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background: #000000;
+            color: #ffffff;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin: 60px 0;
+        }
+
+        .impact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .impact-description {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Gallery */
+        .gallery-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Workflow Diagram */
+        .workflow-diagram {
+            background: #e8f2fdff;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin: 60px 0;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .workflow-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .workflow-icon {
+            width: 60px;
+            height: 60px;
+            background: #4a90e2;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .workflow-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000000;
+            font-size: 0.95rem;
+        }
+
+        .workflow-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 120px;
+            left: 30px;
+            background: rgba(255,255,255,0.95);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 1px solid #007bff;
+        }
+
+        .back-nav:hover {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .main-content {
+                padding: 60px 0;
+            }
+            
+            .section {
+                margin-bottom: 60px;
+            }
+            
+            .project-meta {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-nav {
+                top: 120px !important;
+                left: 20px;
+                padding: 40px 15px;
+            }
+            
+            .workflow-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .workflow-step::after {
+                content: '↓';
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: -10px;
+                transform: translateX(-50%);
+            }
+            
+            .workflow-step:last-child::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1 id="logo" style="height: 4rem;"><a href="index.html"> <img src="images\Sakshi-butterfly-logo-blue-removebg-preview.png" style="height: 3rem; width: auto; padding-top: 0.5rem;"></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="https://drive.google.com/file/d/1veO-4R2j7WCotcfW_7spIKKhxMcX9mw8/view?usp=sharing" target="_blank">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <a href="index.html" class="back-nav">← Back to Portfolio</a>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Desktop Application for Logistics Operations</h1>
+            <p class="hero-subtitle">Designing an enterprise dashboard to manage complex logistics operations - simplifying database navigation and enabling real-time communication for efficient supply chain management.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">My Role:</div>
+                    <div class="meta-value">UI/UX Designer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Duration:</div>
+                    <div class="meta-value">4 weeks</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tools & Technologies:</div>
+                    <div class="meta-value">Figma, Illustrator</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Methods:</div>
+                    <div class="meta-value">Domain Research, Wireframing, Prototyping</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Platform:</div>
+                    <div class="meta-value">Desktop Application</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Project Type:</div>
+                    <div class="meta-value">Enterprise Dashboard</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Problem Statement -->
+            <div class="section">
+                <div class="highlight-box problem-box" style="margin: 5px 0;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #e53e3e; font-weight: 700;">The Problem</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        <strong>Logistics companies struggle with overwhelming databases and inefficient communication systems. Heavy data volumes make it difficult for employees to efficiently access, sort, and use critical information, while lack of real-time notifications leads to operational delays and communication gaps.</strong>
+                    </p>
+                </div>
+
+                <div class="highlight-box solution-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">The Solution</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        <strong>I designed a comprehensive desktop application with advanced data visualization tables, robust filtering and sorting capabilities, and a template-based notification module. The solution enables easy database navigation and real-time communication, significantly improving operational efficiency.</strong>
+                    </p>
+                </div>
+
+                <div class="highlight-box research-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Key Challenges Identified</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li><strong>Database Navigation:</strong> Heavy databases with complex data structures made it challenging for employees to efficiently find and access needed information</li>
+                        <li><strong>Data Organization:</strong> Lack of effective filtering and sorting capabilities hindered productivity and decision-making</li>
+                        <li><strong>Communication Gaps:</strong> Absence of real-time notification system led to delays in critical operational updates</li>
+                        <li><strong>User-Specific Needs:</strong> Different user roles required different views and access to various data sets</li>
+                        <li><strong>Bulk Operations:</strong> Need for efficient bulk messaging and notification management for multiple users</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 5rem; margin-bottom: 1rem;">
+                    <h3 class="verticle-line mb-0" style="font-size: 1.3rem; margin-bottom: 2rem;">Project Context</h3>
+                    <div style="display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; align-items: top;">
+                        <div>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                                Logistics operations involve complex processes including order processing, warehousing, picking, packing, and shipping. Companies in this industry manage massive databases containing inventory information, order details, shipping schedules, and customer data. The challenge was to design an interface that simplifies access to these heavy databases while ensuring real-time communication across all operational levels. I collaborated closely with business analysts and technical leads to understand the specific needs of different user roles and create a solution that enhances productivity and operational efficiency.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="assets/css/images/logistic-intro.png" alt="Logistics Operations" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domain Research Section -->
+            <div class="section">
+                <h2 class="section-title">Domain Research & Industry Analysis</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 40px;">
+                    Comprehensive research into the logistics industry revealed key technological trends and operational challenges that informed the design approach.
+                </p>
+
+                <div class="process-steps">
+                    <div class="step-card">
+                        <h3 class="step-title">Industry Overview</h3>
+                        <p class="step-content">Technological advancements have transformed logistics operations, improving efficiency, reducing costs, and increasing transparency. Technology integration is now essential across all logistics processes, from warehouse management to last-mile delivery.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Technology Trends</h3>
+                        <p class="step-content">Key technologies include IoT for real-time tracking, AI/ML for route optimization, blockchain for secure transactions, RPA for warehouse automation, and autonomous vehicles for delivery. These innovations set the foundation for modern logistics platforms.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Market Adoption</h3>
+                        <p class="step-content">Technology adoption varies by region and industry segment. North America and Europe lead in autonomous vehicles, while Asia-Pacific shows strong growth in IoT and blockchain applications for supply chain management.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h3 class="step-title">Design Implications</h3>
+                        <p class="step-content">Modern logistics dashboards must support data visualization, real-time updates, multi-user collaboration, and integration with various technologies. The interface should be scalable, intuitive, and adaptable to different operational needs.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box research-box" style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Research Insights</h3>
+                    <ul style="color: #000000; line-height: 1.8;">
+                        <li><strong>Data Volume Challenge:</strong> Logistics companies manage millions of data points daily, requiring efficient visualization and filtering systems</li>
+                        <li><strong>Real-Time Needs:</strong> Operations depend on real-time information for inventory management, shipping updates, and exception handling</li>
+                        <li><strong>User Diversity:</strong> Different roles (warehouse managers, dispatchers, administrators) need customized views and access levels</li>
+                        <li><strong>Communication Critical:</strong> Effective notification systems are essential for coordinating complex multi-step operations</li>
+                        <li><strong>Scalability Requirement:</strong> Systems must handle growing data volumes and increasing user bases without performance degradation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Solution Approach -->
+            <div class="section">
+                <h2 class="section-title">Design Solution & Approach</h2>
+                
+                <div class="workflow-diagram">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700; text-align: center;">Core Features & Workflow</h3>
+                    
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="workflow-icon">📊</div>
+                            <h4 class="workflow-title">Data Visualization</h4>
+                            <p class="workflow-desc">Advanced data tables for managing large volumes of logistics data</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">🔍</div>
+                            <h4 class="workflow-title">Filter & Sort</h4>
+                            <p class="workflow-desc">Robust filtering and sorting capabilities for quick data access</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">🔔</div>
+                            <h4 class="workflow-title">Notifications</h4>
+                            <p class="workflow-desc">Real-time notification module with bulk messaging capabilities</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">📝</div>
+                            <h4 class="workflow-title">Templates</h4>
+                            <p class="workflow-desc">Template-based notifications for streamlined communication</p>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="workflow-icon">👥</div>
+                            <h4 class="workflow-title">User-Specific</h4>
+                            <p class="workflow-desc">Customized views and access levels for different user roles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Design Principles Applied</h3>
+                    <ul style="color: #000000; line-height: 1.7;">
+                        <li><strong>Data-First Design:</strong> Prioritized clear data visualization and organization for complex information</li>
+                        <li><strong>Efficiency Focus:</strong> Minimized clicks and steps required to access critical information</li>
+                        <li><strong>Scalability:</strong> Designed interfaces that handle growing data volumes without cluttering</li>
+                        <li><strong>Real-Time Updates:</strong> Integrated notification systems that keep users informed instantly</li>
+                        <li><strong>Role-Based Customization:</strong> Created flexible views adaptable to different user needs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Design Process -->
+            <div class="section">
+                <h2 class="section-title">Design Process</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 40px;">
+                    The design process involved extensive collaboration with business analysts and technical leads to ensure the solution addressed real operational needs while remaining technically feasible.
+                </p>
+
+                <div class="image-section">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 30px;">Color Palette</h3>
+                    <img src="assets/css/images/logistic-color-palette.png" alt="Logistics Color Palette" class="gallery-image">
+                </div>
+
+                <div class="image-section">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 30px;">Wireframes - Initial Concepts</h3>
+                    <img src="assets/css/images/logistic-wireframe-1.png" alt="Logistics Wireframe 1" class="gallery-image">
+                    <img src="assets/css/images/logistic-wireframe-2.png" alt="Logistics Wireframe 2" class="gallery-image">
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 20px;">Wireframing Approach</h3>
+                    <ul style="color: #000000; line-height: 1.7;">
+                        <li><strong>Information Architecture:</strong> Organized complex data structures into logical sections and hierarchies</li>
+                        <li><strong>Navigation Design:</strong> Created intuitive navigation patterns for accessing different data sets and features</li>
+                        <li><strong>Data Table Design:</strong> Designed efficient table layouts with inline filtering and sorting options</li>
+                        <li><strong>Notification System:</strong> Planned notification module with user-specific targeting and template management</li>
+                        <li><strong>Dashboard Layout:</strong> Structured main dashboard for quick access to most frequently used features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- UI Design -->
+            <div class="section">
+                <h2 class="section-title">Final Design & Implementation</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 40px;">
+                    The final design combines efficient data management with user-friendly interfaces, enabling logistics teams to manage complex operations seamlessly.
+                </p>
+                
+                <div class="image-section">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 30px;">Design Screens</h3>
+                    <img src="assets/css/images/logistic-design-ss.png" alt="Logistics Design Screens" class="gallery-image">
+                </div>
+
+                <div class="image-section">
+                    <h3 class="verticle-line" style="font-size: 1.3rem; margin-bottom: 30px;">Prototype Screens</h3>
+                    <img src="assets/css/images/logistic-prototype-ss.png" alt="Logistics Prototype Screens" class="gallery-image">
+                </div>
+            </div>
+
+            <!-- Expected Impact -->
+            <div class="impact-section">
+                <h2 class="impact-title">Expected Impact & Benefits</h2>
+                <p class="impact-description">
+                    The redesigned logistics dashboard addresses key operational challenges and delivers measurable improvements across critical metrics.
+                </p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">70%</div>
+                        <div class="metric-label">Faster Data Access</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">60%</div>
+                        <div class="metric-label">Reduction in Search Time</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">80%</div>
+                        <div class="metric-label">Improved Communication Efficiency</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">50%</div>
+                        <div class="metric-label">Reduced Operational Errors</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #ffffff;">Business Benefits</h3>
+                    <ul style="color: #ffffff; line-height: 1.8; opacity: 0.9;">
+                        <li style="color: #ffffff;">Streamlined database navigation enables faster decision-making and operational response</li>
+                        <li style="color: #ffffff;">Advanced filtering and sorting capabilities reduce time spent searching for critical information</li>
+                        <li style="color: #ffffff;">Real-time notification system improves coordination and reduces communication delays</li>
+                        <li style="color: #ffffff;">Template-based notifications enable efficient bulk communication to multiple stakeholders</li>
+                        <li style="color: #ffffff;">User-specific views enhance productivity by showing relevant information for each role</li>
+                        <li style="color: #ffffff;">Improved data organization reduces errors and enhances operational accuracy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Learnings -->
+            <div class="section">
+                <h2 class="section-title">Key Learnings & Success Factors</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                    <div class="highlight-box">
+                        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #4a90e2; font-weight: 700;">Design Insights</h3>
+                        <ul style="color: #000000; line-height: 1.7;">
+                            <li><strong>Data Visualization Matters:</strong> Effective data tables with advanced filtering are crucial for managing complex databases</li>
+                            <li><strong>Real-Time Communication:</strong> Notification systems are essential for coordinating complex logistics operations</li>
+                            <li><strong>User-Centric Approach:</strong> Understanding different user roles and their specific needs drives better solutions</li>
+                            <li><strong>Collaboration is Key:</strong> Working closely with business analysts ensures solutions address real operational needs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="highlight-box research-box">
+                        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #4a90e2; font-weight: 700;">What Made This Project Successful</h3>
+                        <ul style="color: #000000; line-height: 1.7;">
+                            <li><strong>Domain Research:</strong> Thorough industry research provided valuable insights into logistics operations</li>
+                            <li><strong>Stakeholder Collaboration:</strong> Close collaboration with business analysts and technical leads ensured feasibility</li>
+                            <li><strong>Iterative Design:</strong> Multiple wireframe iterations refined the solution to meet complex requirements</li>
+                            <li><strong>Scalable Solutions:</strong> Designed interfaces that can handle growing data volumes and user bases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Gallery -->
+            <div class="section">
+                <h2 class="section-title">Design Process Gallery</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-bottom: 40px;">
+                    A comprehensive view of the design process, from initial wireframes to final high-fidelity prototypes.
+                </p>
+                <div class="image-section">
+                    <img src="assets/css/images/logistic-design-ss.png" alt="Design Process" class="gallery-image">
+                    <img src="assets/css/images/logistic-prototype-ss.png" alt="Prototyping Process" class="gallery-image">
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="section">
+                <div class="highlight-box">
+                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Looking Forward</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                        This project demonstrated how thoughtful UX design combined with deep domain research can solve complex enterprise challenges. The data visualization and notification system solutions provide a foundation for scalable logistics management platforms that can adapt to evolving operational needs.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000; margin-top: 20px;">
+                        <strong>Future enhancements could include AI-powered data insights, predictive analytics for inventory management, and enhanced mobile access for field operations.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <ul style="list-style: none; padding: 0;">
+            <li style="color: #ffffff;">@Sakshi Bankar - 2024</li>
+        </ul>
+    </footer>
+</body>
 </html>
