@@ -175,6 +175,76 @@
             border-left-color: #007bff;
         }
 
+        /* Two Column Layout */
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            gap: 40px;
+            align-items: start;
+            margin: 40px 0;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: visible;
+        }
+
+        .left-column .highlight-box {
+            margin: 0;
+        }
+
+        .right-column {
+            display: flex;
+            align-items: start;
+        }
+
+        .right-column .video-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            max-height: fit-content;
+        }
+
+        .right-column .prototype-video {
+            width: 100%;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        .video-container {
+            background: transparent;
+            padding: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .prototype-video {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        @media (max-width: 968px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .right-column {
+                height: auto;
+            }
+            
+            .right-column .prototype-video {
+                max-height: 500px;
+            }
+        }
+
         /* Metrics Grid */
         .metrics-grid {
             display: grid;
@@ -514,26 +584,49 @@
                 <!-- Challenge Section -->
                 <div class="section">
                     <!-- <h2 class="section-title verticle-line">The Challenge</h2> -->
-                    <div class="highlight-box problem-statement" style="margin-bottom: 5rem;">
-                        <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #dc3545;">Problem Statement</h3>
-                        <p class="text-content">
-                            <strong>Field technicians at Filta were struggling with app usability while wearing protective gloves during kitchen equipment cleaning services.</strong> 
-                            The existing interface had small touch targets and poor contrast, leading to operational inefficiencies, data entry errors, and frustrated workers who needed to remove gloves frequently to interact with the app.
-                        </p>
+                    <div class="two-column-layout">
+                        <div class="left-column">
+                            <div class="highlight-box problem-statement">
+                                <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #dc3545; font-weight: 700;">The Problem</h3>
+                                <p class="text-content">
+                                    <strong>Field technicians at Filta were struggling with app usability while wearing protective gloves during kitchen equipment cleaning services.</strong> 
+                                    The existing interface had small touch targets and poor contrast, leading to operational inefficiencies, data entry errors, and frustrated workers who needed to remove gloves frequently to interact with the app.
+                                </p>
+                            </div>
+
+                            <div class="highlight-box solution-statement">
+                                <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #28a745; font-weight: 700;">The Solution</h3>
+                                <p class="text-content">
+                                    <strong>I redesigned the Filta app interface with a "glove-first" approach, prioritizing larger touch targets, improved color contrast, simplified workflows, and accessibility compliance to create a seamless experience for field technicians working in challenging environments.</strong>
+                                </p>
+                            </div>
+
+                            <div class="highlight-box research-box">
+                                <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #007bff; font-weight: 700;">Key Challenges Identified</h3>
+                                <ul style="color: #000000; line-height: 1.8;">
+                                    <li><strong>Glove Interaction Issues:</strong> Technicians wearing protective gloves couldn't accurately tap small interface elements</li>
+                                    <li><strong>Poor Color Contrast:</strong> Made it difficult to read information in various lighting conditions</li>
+                                    <li><strong>Complex Workflows:</strong> Caused confusion and slowed down service completion</li>
+                                    <li><strong>Accessibility Standards:</strong> Not being met, violating WCAG guidelines</li>
+                                    <li><strong>No Gloved-Hand Consideration:</strong> No consideration for gloved-hand interaction patterns</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="right-column">
+                            <div class="video-container">
+                                <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #007bff; font-weight: 700; text-align: center;">App Prototype Demo</h3>
+                                <video class="prototype-video" autoplay loop muted playsinline controls>
+                                    <source src="assets/videos/Filta-prototype-demo-video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="text-content">
+                    <div class="text-content" style="margin-top: 40px;">
                         <h3 class="section-title verticle-line" style="margin: 30px 0 20px 0;">Context & Background</h3>
                         <p>Filta manages kitchen equipment cleaning services for restaurants and food establishments through their mobile app. Their field technicians and franchisees use the app to track jobs, time onsite, and enter service information. The company's live app can be found on the <a href="https://apps.apple.com/us/app/filta-symphony/id1494289896" target="_blank" style="color: #007bff;">App Store</a> and serves <a href="https://gofilta.com/" target="_blank" style="color: #007bff;">The Filta Group, Inc.</a></p>
-                        
-                        <p><strong>Key challenges identified:</strong></p>
-                        <ul>
-                            <li>Technicians wearing protective gloves couldn't accurately tap small interface elements</li>
-                            <li>Poor color contrast made it difficult to read information in various lighting conditions</li>
-                            <li>Complex workflows caused confusion and slowed down service completion</li>
-                            <li>Accessibility standards were not being met</li>
-                            <li>No consideration for gloved-hand interaction patterns</li>
-                        </ul>
                     </div>
 
                     <div class="role-highlight">
@@ -592,12 +685,6 @@
                 <!-- Solution Section -->
                 <div class="section">
                     <h2 class="section-title verticle-line">Design Solution</h2>
-                    <div class="highlight-box solution-statement">
-                        <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #28a745;">Solution Overview</h3>
-                        <p class="text-content">
-                            I redesigned the Filta app interface with a "glove-first" approach, prioritizing larger touch targets, improved color contrast, simplified workflows, and accessibility compliance to create a seamless experience for field technicians working in challenging environments.
-                        </p>
-                    </div>
 
                     <div class="text-content">
                         <h3 class="verticle-line" style="margin: 30px 0 20px 0; font-size: 1.3rem;">Core Design Improvements</h3>
