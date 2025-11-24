@@ -347,6 +347,82 @@
             margin-bottom: 30px;
         }
 
+        /* Video Section */
+        .video-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .prototype-video {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .video-container {
+            background: transparent;
+            padding: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Two Column Layout */
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            gap: 40px;
+            align-items: start;
+            margin: 40px 0;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: visible;
+        }
+
+        .left-column .highlight-box {
+            margin: 0;
+        }
+
+        .right-column {
+            display: flex;
+            align-items: start;
+        }
+
+        .right-column .video-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            max-height: fit-content;
+        }
+
+        .right-column .prototype-video {
+            width: 100%;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        @media (max-width: 968px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .right-column {
+                height: auto;
+            }
+            
+            .right-column .prototype-video {
+                max-height: 500px;
+            }
+        }
+
         /* Workflow Diagram */
 .workflow-diagram {
     background: #e8f2fdff;
@@ -621,28 +697,42 @@
             <!-- Problem Statement -->
             <div class="section">
                 <!-- <h2 class="section-title">The Challenge</h2> -->
-                <div class="highlight-box problem-box" style="margin: 5px 0;">
-                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #e53e3e; font-weight: 700;">The Problem</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
-                        <strong>Resort cleaning staff were struggling with unreliable time tracking and an outdated app interface. Manual check-in processes led to time discrepancies, while poor UI design slowed down daily operations and frustrated users.</strong>
-                    </p>
-                </div>
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="highlight-box problem-box" style="margin: 5px 0;">
+                            <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #e53e3e; font-weight: 700;">The Problem</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                                <strong>Resort cleaning staff were struggling with unreliable time tracking and an outdated app interface. Manual check-in processes led to time discrepancies, while poor UI design slowed down daily operations and frustrated users.</strong>
+                            </p>
+                        </div>
 
-                  <div class="highlight-box solution-box">
-                    <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">The Solution</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
-                   <strong>I redesigned the entire app with QR code integration for precise location-based check-ins, plus a modern UI that streamlined workflows. Result: 95% time tracking accuracy and significantly improved user experience.</strong>
-                    </p>
-                </div>
+                        <div class="highlight-box solution-box">
+                            <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: #38a169; font-weight: 700;">The Solution</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: #000000;">
+                                <strong>I redesigned the entire app with QR code integration for precise location-based check-ins, plus a modern UI that streamlined workflows. Result: 95% time tracking accuracy and significantly improved user experience.</strong>
+                            </p>
+                        </div>
 
-                 <div class="highlight-box research-box">
-                    <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Key Challenges Identified</h3>
-                    <ul style="color: #000000; line-height: 1.8;">
-                        <li><strong>Time Tracking Issues:</strong> Manual check-in/out led to inaccurate records and potential time theft</li>
-                        <li><strong>Outdated Interface:</strong> Poor UI design hindered productivity and user adoption</li>
-                        <li><strong>Workflow Inefficiency:</strong> Staff spent too much time on admin tasks instead of actual cleaning</li>
-                        <li><strong>Limited Oversight:</strong> Managers couldn't track staff locations or task progress in real-time</li>
-                    </ul>
+                        <div class="highlight-box research-box">
+                            <h3 style="margin-bottom: 20px; font-size: 1.3rem; color: #4a90e2; font-weight: 700;">Key Challenges Identified</h3>
+                            <ul style="color: #000000; line-height: 1.8;">
+                                <li><strong>Time Tracking Issues:</strong> Manual check-in/out led to inaccurate records and potential time theft</li>
+                                <li><strong>Outdated Interface:</strong> Poor UI design hindered productivity and user adoption</li>
+                                <li><strong>Workflow Inefficiency:</strong> Staff spent too much time on admin tasks instead of actual cleaning</li>
+                                <li><strong>Limited Oversight:</strong> Managers couldn't track staff locations or task progress in real-time</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="right-column">
+                        <div class="video-container">
+                            <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #4a90e2; font-weight: 700; text-align: center;">App Prototype Demo</h3>
+                            <video class="prototype-video" autoplay loop muted playsinline controls>
+                                <source src="assets/videos/Resort-cleaning-prototype-video-4-min.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
                 </div>
                 
                 <div style="margin-top: 5rem; margin-bottom: 1rem;">
