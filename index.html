@@ -17,6 +17,11 @@
 		<link rel="stylesheet" href="shared-header.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			/* Fix root font-size for consistent rem calculations */
+			html {
+				font-size: 16px !important;
+			}
+			
 			/* Hover effects for clickable project cards */
 			a[href*="Resort-cleaning-management.html"],
 			a[href*="Filta-v2.html"],
@@ -154,6 +159,12 @@
 				background-clip: text;
 				animation: gradient-shift 3s ease infinite;
 			}
+			
+			/* Scrolling text animation */
+			.scrolling-text {
+				display: inline-block;
+				transition: opacity 0.5s ease, transform 0.5s ease;
+			}
 		</style>
 	</head>
 	<body class="is-preload landing">
@@ -191,13 +202,15 @@
 					
 					<div class="content" style="max-width: 1400px !important; margin: 0 auto; padding: 0 3rem;">
 						<div class="hero-content-wrapper" style="max-width: 1300px !important; margin: 0 auto; text-align: center;">
-							<div style="font-size: 1.4rem; color: #ffffff; font-weight: 400 !important; font-family: 'Inter', sans-serif !important; margin-bottom: 1.5rem; font-style: italic; position: relative; z-index: 12; opacity: 1; display: block; visibility: visible; text-align: center; margin-top: 0;">👋 Hello, it's Sakshi</div>
+							<div class="scrolling-text-container" style="font-size: 1.4rem; color: #ffffff; font-weight: 400 !important; font-family: 'Inter', sans-serif !important; margin-bottom: 1.5rem; font-style: italic; position: relative; z-index: 12; opacity: 1; display: block; visibility: visible; text-align: center; margin-top: 0; min-height: 2rem;">
+								<span class="scrolling-text" id="scrollingText">👋 Hello, it's Sakshi</span>
+							</div>
 							<header class="hero-header">
-								<h2 style="font-size: 2.9rem; font-weight: 700 !important; font-family: 'Inter', sans-serif !important; line-height: 1.2; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s both; max-width: 100% !important; overflow: visible; padding: 0 1rem; word-wrap: normal !important; overflow-wrap: normal !important; word-break: normal !important; hyphens: none !important;">
-									I design scalable <span class="gradient-text" style="font-weight: 700 !important; font-family: 'Inter', sans-serif !important;">B2B SaaS and Enterprise</span> experiences
+								<h2 style="font-size: 2.5rem; font-weight: 700 !important; font-family: 'Inter', sans-serif !important; line-height: 1.2; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s both; max-width: 100% !important; overflow: visible; padding: 0 1rem; word-wrap: normal !important; overflow-wrap: normal !important; word-break: normal !important; hyphens: none !important;">
+									I design <span class="gradient-text" style="font-weight: 700 !important; font-family: 'Inter', sans-serif !important;">complex and scalable systems</span> using <span class="gradient-text" style="font-weight: 700 !important; font-family: 'Inter', sans-serif !important;">design, development and business strategy</span> expertise.
 								</h2>
 								<p style="font-size: 1.35rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); font-weight: 400 !important; font-family: 'Inter', sans-serif !important; margin-bottom: 2.5rem; max-width: 1100px !important; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease 0.4s both; word-wrap: normal !important; overflow-wrap: normal !important; word-break: normal !important; hyphens: none !important;">
-									By combining <span class="gradient-text" style="font-weight: 400 !important; font-family: 'Inter', sans-serif !important;">Design, Development, and Business Strategy</span>, I've shipped 15+ large-scale products across Healthcare, Logistics, AI Workflow automation systems and optimized 20+ websites.
+									I've shipped 15+ <span class="gradient-text" style="font-weight: 400 !important; font-family: 'Inter', sans-serif !important;">B2B SaaS, enterprise, and healthcare</span> products, and optimized 20+ websites.
 								</p>
 
 								<!-- CTA Buttons -->
@@ -476,6 +489,113 @@
                     }
                 });
             });
+        </script>
+        
+        <!-- Scrolling Text Animation Script -->
+        <script>
+            (function() {
+                'use strict';
+                
+                var initialized = false;
+                var animationInterval = null;
+                var retryCount = 0;
+                var maxRetries = 50; // Try for 5 seconds max
+                
+                function initAnimation() {
+                    if (initialized) {
+                        console.log('Animation already initialized');
+                        return;
+                    }
+                    
+                    var scrollingText = document.getElementById('scrollingText');
+                    
+                    if (!scrollingText) {
+                        retryCount++;
+                        if (retryCount < maxRetries) {
+                            setTimeout(initAnimation, 100);
+                        } else {
+                            console.error('Scrolling text element not found after retries');
+                        }
+                        return;
+                    }
+                    
+                    console.log('Initializing scrolling text animation');
+                    initialized = true;
+                    
+                    var messages = [
+                        '👋 Hello, it\'s Sakshi',
+                        '💻 I am a designer who codes',
+                        '📈 I design systems that scale',
+                        '🛠️ I make complex products simple'
+                    ];
+                    
+                    var currentIndex = 0;
+                    
+                    // Ensure element has transition styles
+                    scrollingText.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    scrollingText.style.opacity = '1';
+                    scrollingText.style.transform = 'translateY(0)';
+                    
+                    function changeText() {
+                        if (!scrollingText) {
+                            console.error('Scrolling text element lost');
+                            return;
+                        }
+                        
+                        // Fade out and move up
+                        scrollingText.style.opacity = '0';
+                        scrollingText.style.transform = 'translateY(-20px)';
+                        
+                        setTimeout(function() {
+                            if (!scrollingText) return;
+                            
+                            // Change text
+                            currentIndex = (currentIndex + 1) % messages.length;
+                            scrollingText.textContent = messages[currentIndex];
+                            
+                            // Reset position for fade in (below)
+                            scrollingText.style.transform = 'translateY(20px)';
+                            
+                            // Force reflow
+                            void scrollingText.offsetHeight;
+                            
+                            // Fade in and move to center
+                            setTimeout(function() {
+                                if (scrollingText) {
+                                    scrollingText.style.opacity = '1';
+                                    scrollingText.style.transform = 'translateY(0)';
+                                }
+                            }, 10);
+                        }, 500);
+                    }
+                    
+                    // Start animation after 3 seconds
+                    setTimeout(function() {
+                        console.log('Starting text animation');
+                        changeText();
+                        animationInterval = setInterval(changeText, 3000);
+                    }, 3000);
+                }
+                
+                // Try multiple ways to ensure it runs
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        console.log('DOMContentLoaded fired');
+                        initAnimation();
+                    });
+                } else {
+                    console.log('DOM already ready');
+                    initAnimation();
+                }
+                
+                // Also try on window load as backup
+                window.addEventListener('load', function() {
+                    console.log('Window load fired');
+                    if (!initialized) {
+                        initAnimation();
+                    }
+                });
+            })();
         </script>
 	</body>
 </html>
