@@ -1,0 +1,20 @@
+[33m845bf3c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Center hero content vertically using flexbox on all screen sizes
+[33m1447f07[m Increase animation visibility - brighter colors and higher opacity for better visibility
+[33mdf84c4a[m Make hero background animations more visible with increased opacity and movement
+[33m5244ac8[m Replace geometric shapes with subtle gradient mesh and soft floating orbs for calming hero background
+[33ma5fbbe5[m Increase hero paragraph max-width to 900px to fit text in 3 lines
+[33m579974c[m Adjust hero paragraph width and line-height to fit in 3 lines
+[33m334ecb8[m Simplify paragraph gradient text hover - remove scale and drop-shadow, keep only animated gradient
+[33mbdc4112[m Add modern subtle hover interactions to hero text with animated gradients
+[33m3a607ab[m Enhance project card hover interactions with subtle animations and color changes
+[33mfe66656[m Make entire project cards clickable with hover effects
+[33m5f40fdb[m Redesign Logistics case study page with modern styling matching other case studies
+[33m5c1215c[m Update hero section: change to 7+ platforms
+[33ma53468f[m Update hero section: change to 10+ B2B2C applications and 20+ websites
+[33m4ab0ca4[m Move Insurance Case Management project to 4th position
+[33m44ffb32[m Change project title from 'Redesigning eSaaS' to 'Redesigning Insurance Case Management platform'
+[33ma1f0f3e[m Update Unicentric thumbnail image
+[33m80f4112[m Update Unicentric project thumbnail image
+[33m6356554[m Reset zoom on Resort Cleaning thumbnail and update thumbnail image
+[33ma1b72c8[m Increase zoom on Resort Cleaning project card thumbnail by 10%
+[33m5740a96[m Zoom in Resort Cleaning project card thumbnail image

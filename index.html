@@ -22,6 +22,207 @@
 				font-size: 16px !important;
 			}
 			
+			/* Remove header background to merge with hero section */
+			#header,
+			header,
+			#header.modern-header {
+				background: transparent !important;
+				background-color: transparent !important;
+				box-shadow: none !important;
+				border: none !important;
+				opacity: 0.85 !important;
+				transition: opacity 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease !important;
+			}
+			
+			/* Header when scrolled past hero section - more opaque */
+			#header.header-scrolled,
+			header.header-scrolled,
+			#header.modern-header.header-scrolled {
+				opacity: 0.98 !important;
+				background: rgba(26, 31, 58, 0.85) !important;
+				background-color: rgba(26, 31, 58, 0.85) !important;
+				backdrop-filter: blur(10px) !important;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+			}
+			
+			/* Make header content slightly more transparent on scroll if needed */
+			#header *,
+			header * {
+				opacity: 1 !important;
+			}
+			
+			/* Hero Section Grid Background */
+			#banner {
+				position: relative;
+				background: linear-gradient(135deg, #04060a 0%, #05080d 25%, #080b12 50%, #0f0a15 75%, #0a060c 100%) !important;
+			}
+			
+			/* Background color effects - radial gradients matching image color scheme */
+			.tech-bg-pattern {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: 
+					radial-gradient(circle at 20% 15%, rgba(244, 114, 182, 0.12) 0%, transparent 45%),
+					radial-gradient(circle at 80% 25%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+					radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 55%),
+					radial-gradient(circle at 15% 70%, rgba(244, 114, 182, 0.1) 0%, transparent 40%),
+					radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 45%);
+				z-index: 2;
+				pointer-events: none;
+				opacity: 0.8;
+			}
+			
+			/* Digital noise texture */
+			.tech-noise-texture {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image: 
+					radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+				background-size: 20px 20px;
+				z-index: 2.5;
+				pointer-events: none;
+				opacity: 0.4;
+			}
+			
+			.tech-grid-lines {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image: 
+					linear-gradient(rgba(96, 165, 250, 0.14) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(96, 165, 250, 0.14) 1px, transparent 1px),
+					linear-gradient(rgba(167, 139, 250, 0.08) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(167, 139, 250, 0.08) 1px, transparent 1px);
+				background-size: 120px 120px, 120px 120px, 60px 60px, 60px 60px;
+				background-position: 0 0, 0 0, 0 0, 0 0;
+				z-index: 3 !important;
+				pointer-events: none;
+				opacity: 0.65;
+			}
+			
+			/* Hexagonal pattern overlay */
+			.tech-grid-lines::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-image: 
+					repeating-linear-gradient(30deg, transparent, transparent 60px, rgba(96, 165, 250, 0.025) 60px, rgba(96, 165, 250, 0.025) 61px),
+					repeating-linear-gradient(-30deg, transparent, transparent 60px, rgba(167, 139, 250, 0.025) 60px, rgba(167, 139, 250, 0.025) 61px);
+				opacity: 0.6;
+			}
+			
+			/* Make background shapes more subtle */
+			#banner.modern-hero .particles,
+			#banner.modern-hero .geometric-shapes,
+			#banner.modern-hero .top-shape-left,
+			#banner.modern-hero .top-shape-right,
+			#banner.modern-hero .bottom-shape-center {
+				opacity: 0.4 !important;
+			}
+			
+			/* Slow down rotating shapes animation */
+			#banner.modern-hero .top-shape-left {
+				animation: floatSpin1 35s ease-in-out infinite !important;
+			}
+			
+			#banner.modern-hero .top-shape-right {
+				animation: floatSpin2 40s ease-in-out infinite !important;
+			}
+			
+			#banner.modern-hero .geometric-shapes::before {
+				animation: floatSpin3 38s ease-in-out infinite !important;
+			}
+			
+			#banner.modern-hero .geometric-shapes::after {
+				animation: floatSpin4 42s ease-in-out infinite !important;
+			}
+			
+			#banner.modern-hero .geometric-shapes::before,
+			#banner.modern-hero .geometric-shapes::after {
+				opacity: 0.5 !important;
+				border-width: 2px !important;
+			}
+			
+			/* Turn bottom shape into square and add color effects */
+			#banner.modern-hero .bottom-shape-center {
+				width: 350px !important;
+				height: 350px !important;
+				border-radius: 12px !important;
+				bottom: -30% !important;
+				border: 1px solid rgba(139, 92, 246, 0.08) !important;
+				box-shadow: 
+					0 0 30px rgba(139, 92, 246, 0.04),
+					0 0 12px rgba(96, 165, 250, 0.03),
+					inset 0 0 20px rgba(244, 114, 182, 0.02) !important;
+				animation: floatSpin5 36s ease-in-out infinite !important;
+				opacity: 0.3 !important;
+			}
+			
+			/* Square rotating animation like other shapes */
+			@keyframes floatSpin5 {
+				0% {
+					transform: translateX(-50%) translateY(0) rotate(0deg) scale(1);
+				}
+				25% {
+					transform: translateX(-50%) translateY(-8px) rotate(90deg) scale(1.02);
+				}
+				50% {
+					transform: translateX(-50%) translateY(-5px) rotate(180deg) scale(1.05);
+				}
+				75% {
+					transform: translateX(-50%) translateY(-10px) rotate(270deg) scale(1.02);
+				}
+				100% {
+					transform: translateX(-50%) translateY(0) rotate(360deg) scale(1);
+				}
+			}
+			
+			/* Add subtle color effects to shape edges */
+			#banner.modern-hero .top-shape-left {
+				border: 2px solid rgba(244, 114, 182, 0.2) !important;
+				box-shadow: 
+					0 0 60px rgba(244, 114, 182, 0.12),
+					0 0 30px rgba(139, 92, 246, 0.08),
+					inset 0 0 40px rgba(244, 114, 182, 0.06) !important;
+			}
+			
+			#banner.modern-hero .top-shape-right {
+				border: 1.5px solid rgba(96, 165, 250, 0.12) !important;
+				box-shadow: 
+					0 0 45px rgba(96, 165, 250, 0.08),
+					0 0 20px rgba(139, 92, 246, 0.05),
+					inset 0 0 30px rgba(96, 165, 250, 0.04) !important;
+				opacity: 0.35 !important;
+			}
+			
+			#banner.modern-hero .geometric-shapes::before,
+			#banner.modern-hero .geometric-shapes::after {
+				border-width: 2px !important;
+				box-shadow: 
+					0 0 70px rgba(139, 92, 246, 0.14),
+					0 0 35px rgba(96, 165, 250, 0.1),
+					inset 0 0 45px rgba(167, 139, 250, 0.07) !important;
+			}
+			
+			#banner.modern-hero .geometric-shapes::before {
+				border-color: rgba(139, 92, 246, 0.25) !important;
+			}
+			
+			#banner.modern-hero .geometric-shapes::after {
+				border-color: rgba(96, 165, 250, 0.25) !important;
+			}
+			
 			/* Hover effects for clickable project cards */
 			a[href*="Resort-cleaning-management.html"],
 			a[href*="Filta-v2.html"],
@@ -98,10 +299,6 @@
 				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 			}
 			
-			.project-link span {
-				transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-			}
-			
 			/* Hero text hover interactions */
 			.hero-header h2 {
 				transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -110,7 +307,6 @@
 			
 			.hero-header h2:hover {
 				transform: scale(1.015);
-				text-shadow: 0 0 40px rgba(96, 165, 250, 0.25);
 			}
 			
 			.hero-header h2 .gradient-text {
@@ -125,7 +321,6 @@
 				-webkit-text-fill-color: transparent;
 				background-clip: text;
 				animation: gradient-shift 3s ease infinite;
-				filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.3));
 			}
 			
 			@keyframes gradient-shift {
@@ -189,6 +384,13 @@
 
 			<!-- Hero Section -->
 				<section id="banner" class="modern-hero">
+					<!-- Background Color Effects -->
+					<div class="tech-bg-pattern"></div>
+					<div class="tech-noise-texture"></div>
+					
+					<!-- Grid Background -->
+					<div class="tech-grid-lines"></div>
+					
 					<!-- Animated Background Elements -->
 					<div class="particles"></div>
 					<div class="geometric-shapes"></div>
@@ -595,6 +797,55 @@
                         initAnimation();
                     }
                 });
+            })();
+        </script>
+        
+        <!-- Header Scroll Opacity Script -->
+        <script>
+            (function() {
+                'use strict';
+                
+                function handleHeaderScroll() {
+                    var header = document.getElementById('header') || document.querySelector('header');
+                    var banner = document.getElementById('banner');
+                    
+                    if (!header || !banner) {
+                        return;
+                    }
+                    
+                    // Get the bottom position of the banner section
+                    var bannerBottom = banner.offsetTop + banner.offsetHeight;
+                    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    // Add class when scrolled past hero section
+                    if (scrollPosition > bannerBottom - 100) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
+                    }
+                }
+                
+                // Run on scroll
+                var ticking = false;
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function() {
+                            handleHeaderScroll();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+                
+                // Run on load to set initial state
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', handleHeaderScroll);
+                } else {
+                    handleHeaderScroll();
+                }
+                
+                // Also run on window load
+                window.addEventListener('load', handleHeaderScroll);
             })();
         </script>
 	</body>

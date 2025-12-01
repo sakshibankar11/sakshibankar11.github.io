@@ -1,0 +1,45 @@
+warning: in the working copy of 'assets/css/modern-styles.css', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/assets/css/modern-styles.css b/assets/css/modern-styles.css[m
+[1mindex c859ea3..01e4808 100644[m
+[1m--- a/assets/css/modern-styles.css[m
+[1m+++ b/assets/css/modern-styles.css[m
+[36m@@ -89,7 +89,6 @@[m [mbody {[m
+   animation: floatSpin1 20s ease-in-out infinite;[m
+   z-index: 2;[m
+   pointer-events: none;[m
+[31m-  filter: blur(10px);[m
+ }[m
+ [m
+ /* Top Shape 2: Square - Top Right */[m
+[36m@@ -106,7 +105,6 @@[m [mbody {[m
+   animation: floatSpin2 24s ease-in-out infinite;[m
+   z-index: 2;[m
+   pointer-events: none;[m
+[31m-  filter: blur(10px);[m
+ }[m
+ [m
+ /* Bottom Shape: Rectangle - Bottom Center */[m
+[36m@@ -124,7 +122,6 @@[m [mbody {[m
+   animation: floatSpin5 28s ease-in-out infinite;[m
+   z-index: 2;[m
+   pointer-events: none;[m
+[31m-  filter: blur(10px);[m
+ }[m
+ [m
+ /* Simple floating animations */[m
+[36m@@ -234,7 +231,6 @@[m [mbody {[m
+   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);[m
+   box-shadow: 0 0 115px rgba(255, 255, 255, 0.12);[m
+   animation: floatSpin3 22s ease-in-out infinite;[m
+[31m-  filter: blur(10px);[m
+ }[m
+ [m
+ /* Shape 4: Triangle - Bottom Right */[m
+[36m@@ -250,7 +246,6 @@[m [mbody {[m
+   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);[m
+   box-shadow: 0 0 108px rgba(255, 255, 255, 0.11);[m
+   animation: floatSpin4 26s ease-in-out infinite;[m
+[31m-  filter: blur(10px);[m
+ }[m
+ [m
+ /* Simple white glow */[m
